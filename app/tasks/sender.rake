@@ -1,5 +1,5 @@
 namespace :waterdrop do
-  desc 'Runs a single Karafka processing instance'
+  desc 'Generates messages to Kafka server'
   task :send do
     Generator.new.send_messages
   end
