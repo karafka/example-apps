@@ -9,13 +9,13 @@ class Generator
   def send_messages
     Calculator.new.sum(5, 6)
 
-    WaterDrop::Message.new('karafka_topic_basic', 'String message').send!
+    WaterDrop::Message.new('basic_messages', 'String message').send!
 
     hash_message = {
       name: 'John',
       surname: 'Doe'
     }
 
-    WaterDrop::Message.new(:karafka_topic_basic, hash_message).send!
+    WaterDrop::Message.new(:basic_messages, hash_message).send!
   end
 end

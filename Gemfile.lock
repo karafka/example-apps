@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: 57557a195fbe26970c78aaf75cf965a0b004c1e3
+  revision: d06b9e7613486d03cfb730837cf27e3ac6061697
   specs:
-    karafka (0.1.5)
+    karafka (0.1.6)
       activesupport
       aspector
       celluloid
@@ -13,9 +13,9 @@ GIT
 
 GIT
   remote: git://github.com/karafka/waterdrop.git
-  revision: 235a4c72c802ea285ab761d7b8257f985b83e7d8
+  revision: 4370cee767bce69b77604b5532f3d872eaceaec9
   specs:
-    waterdrop (0.1.4)
+    waterdrop (0.1.5)
       aspector
       bundler
       connection_pool
@@ -241,6 +241,3 @@ DEPENDENCIES
   karafka!
   polishgeeks-dev-tools
   waterdrop!
-
-BUNDLED WITH
-   1.10.6

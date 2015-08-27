@@ -1,13 +1,10 @@
 require 'karafka'
 
 # This controller does not have before_enqueue callbacks,
-# so it will receive all messages which are sent to karafka_topic_basic topic
-class BasicEventsController < Karafka::BaseController
-  self.group = :karafka_topic_basic
-  self.topic = :karafka_topic_basic
-
+# so it will receive all messages which are sent to basic_messages topic
+class BasicMessagesController < Karafka::BaseController
   # Here we set any logic what should be done in sidekiq once controller receives
-  # message to 'karafka_topic_basic' topic.
+  # message to 'basic_messages' topic.
   # In this example it logs received params in 'log/basic_controller_params' file
   def perform
     sleep 10

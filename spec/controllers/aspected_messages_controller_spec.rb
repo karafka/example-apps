@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe AspectMessagesController do
+RSpec.describe AspectedMessagesController do
   let(:logger_service) { double }
 
   describe '#perform' do

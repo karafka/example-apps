@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe BasicEventsController do
+RSpec.describe BasicMessagesController do
   let(:logger_service) { double }
 
   describe '#perform' do

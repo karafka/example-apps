@@ -1,10 +1,7 @@
 require 'karafka'
 
 # Controller which receive messages based on aspect implementation
-class AspectMessagesController < Karafka::BaseController
-  self.group = :karafka_topic_aspect
-  self.topic = 'karafka_topic_aspect'
-
+class AspectedMessagesController < Karafka::BaseController
   # Here we set method which should be executed before perform.
   # You can write as many before_enqueue callbacks as it is needed.
   # If one of before_enqueue callbacks returns false -
@@ -12,7 +9,7 @@ class AspectMessagesController < Karafka::BaseController
   before_enqueue :check_params
 
   # Here we set any logic what should be done in sidekiq once controller receives
-  # message to 'karafka_topic_aspect' topic.
+  # message to 'aspected_messages' topic.
   # In this example it logs received params in 'log/aspect_controller_params.log' file
   def perform
     sleep 10

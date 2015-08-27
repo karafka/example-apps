@@ -1,6 +1,6 @@
 require './app.rb'
 
-load './app/tasks/sender.rake'
+load './lib/tasks/sender.rake'
 
 PolishGeeks::DevTools.setup do |config|
   config.brakeman = false

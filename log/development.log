@@ -1,0 +1,49 @@
+I, [2015-08-27T17:08:11.844284 #10494]  INFO -- : Starting Karafka framework
+I, [2015-08-27T17:08:11.844356 #10494]  INFO -- : Environment: development
+I, [2015-08-27T17:08:11.844390 #10494]  INFO -- : Kafka hosts: ["172.17.0.5:9092"]
+I, [2015-08-27T17:08:11.844422 #10494]  INFO -- : Zookeeper hosts: ["172.17.0.4:2181"]
+I, [2015-08-27T17:08:11.845269 #10494]  INFO -- : Fetching: aspected_messages
+I, [2015-08-27T17:08:11.845354 #10494]  INFO -- : Fetching: basic_messages
+I, [2015-08-27T17:08:11.920648 #10494]  INFO -- : Received 2 messages from aspected_messages
+I, [2015-08-27T17:08:11.920749 #10494]  INFO -- : Consuming message for AspectedMessagesController
+I, [2015-08-27T17:08:11.920999 #10494]  INFO -- : Consuming message for AspectedMessagesController
+I, [2015-08-27T17:08:11.926041 #10494]  INFO -- : Received 2 messages from basic_messages
+I, [2015-08-27T17:08:11.926104 #10494]  INFO -- : Consuming message for BasicMessagesController
+I, [2015-08-27T17:08:11.926221 #10494]  INFO -- : Enqueuing BasicMessagesController - {"message"=>"\"String message\"", "controller"=>BasicMessagesController, "topic"=>"basic_messages"}
+I, [2015-08-27T17:08:11.926933 #10494]  INFO -- : Consuming message for BasicMessagesController
+I, [2015-08-27T17:08:11.927024 #10494]  INFO -- : Enqueuing BasicMessagesController - {"name"=>"John", "surname"=>"Doe", "controller"=>BasicMessagesController, "topic"=>"basic_messages"}
+I, [2015-08-27T17:08:11.927620 #10494]  INFO -- : Fetching: aspected_messages
+I, [2015-08-27T17:08:11.933390 #10494]  INFO -- : Fetching: basic_messages
+I, [2015-08-27T17:08:19.399344 #10494]  INFO -- : Received 1 messages from aspected_messages
+I, [2015-08-27T17:08:19.399522 #10494]  INFO -- : Consuming message for AspectedMessagesController
+I, [2015-08-27T17:08:19.400620 #10494]  INFO -- : Received 1 messages from basic_messages
+I, [2015-08-27T17:08:19.400883 #10494]  INFO -- : Consuming message for BasicMessagesController
+I, [2015-08-27T17:08:19.401190 #10494]  INFO -- : Enqueuing BasicMessagesController - {"message"=>"\"String message\"", "controller"=>BasicMessagesController, "topic"=>"basic_messages"}
+I, [2015-08-27T17:08:19.402479 #10494]  INFO -- : Fetching: aspected_messages
+I, [2015-08-27T17:08:19.403611 #10494]  INFO -- : Received 1 messages from aspected_messages
+I, [2015-08-27T17:08:19.403770 #10494]  INFO -- : Consuming message for AspectedMessagesController
+I, [2015-08-27T17:08:19.403965 #10494]  INFO -- : Enqueuing AspectedMessagesController - {"topic"=>"aspected_messages", "method"=>"sum", "message"=>36, "args"=>[5, 6], "controller"=>AspectedMessagesController}
+I, [2015-08-27T17:08:19.404912 #10494]  INFO -- : Fetching: basic_messages
+I, [2015-08-27T17:08:19.406240 #10494]  INFO -- : Received 1 messages from basic_messages
+I, [2015-08-27T17:08:19.406322 #10494]  INFO -- : Consuming message for BasicMessagesController
+I, [2015-08-27T17:08:19.406437 #10494]  INFO -- : Enqueuing BasicMessagesController - {"name"=>"John", "surname"=>"Doe", "controller"=>BasicMessagesController, "topic"=>"basic_messages"}
+I, [2015-08-27T17:08:19.407808 #10494]  INFO -- : Fetching: aspected_messages
+I, [2015-08-27T17:08:19.408857 #10494]  INFO -- : Fetching: basic_messages
+I, [2015-08-27T17:08:26.423611 #10494]  INFO -- : Received 1 messages from aspected_messages
+I, [2015-08-27T17:08:26.423682 #10494]  INFO -- : Consuming message for AspectedMessagesController
+I, [2015-08-27T17:08:26.424626 #10494]  INFO -- : Received 1 messages from basic_messages
+I, [2015-08-27T17:08:26.424683 #10494]  INFO -- : Consuming message for BasicMessagesController
+I, [2015-08-27T17:08:26.424802 #10494]  INFO -- : Enqueuing BasicMessagesController - {"message"=>"\"String message\"", "controller"=>BasicMessagesController, "topic"=>"basic_messages"}
+I, [2015-08-27T17:08:26.428083 #10494]  INFO -- : Fetching: aspected_messages
+I, [2015-08-27T17:08:26.428571 #10494]  INFO -- : Received 1 messages from aspected_messages
+I, [2015-08-27T17:08:26.428613 #10494]  INFO -- : Consuming message for AspectedMessagesController
+I, [2015-08-27T17:08:26.428749 #10494]  INFO -- : Enqueuing AspectedMessagesController - {"topic"=>"aspected_messages", "method"=>"sum", "message"=>36, "args"=>[5, 6], "controller"=>AspectedMessagesController}
+I, [2015-08-27T17:08:26.431010 #10494]  INFO -- : Fetching: basic_messages
+I, [2015-08-27T17:08:26.431601 #10494]  INFO -- : Received 1 messages from basic_messages
+I, [2015-08-27T17:08:26.431648 #10494]  INFO -- : Consuming message for BasicMessagesController
+I, [2015-08-27T17:08:26.431735 #10494]  INFO -- : Enqueuing BasicMessagesController - {"name"=>"John", "surname"=>"Doe", "controller"=>BasicMessagesController, "topic"=>"basic_messages"}
+I, [2015-08-27T17:08:26.433739 #10494]  INFO -- : Fetching: aspected_messages
+I, [2015-08-27T17:08:26.436567 #10494]  INFO -- : Fetching: basic_messages
+I, [2015-08-27T17:08:31.991253 #10494]  INFO -- : Received system signal SIGINT
+I, [2015-08-27T17:08:36.434591 #10494]  INFO -- : Received 0 messages from aspected_messages
+I, [2015-08-27T17:08:36.437466 #10494]  INFO -- : Received 0 messages from basic_messages

@@ -13,16 +13,16 @@ RSpec.describe Calculator do
         .to receive(:change_value) { @first_value = subject.first_value }
 
       expect(WaterDrop::Message).to receive(:new)
-        .with('karafka_topic_aspect',
-              topic: 'karafka_topic_aspect',
+        .with('aspected_messages',
+              topic: 'aspected_messages',
               method: :sum,
               message: 10,
               args: [5, 10])
         .and_return(message)
 
       expect(WaterDrop::Message).to receive(:new)
-        .with('karafka_topic_aspect',
-              topic: 'karafka_topic_aspect',
+        .with('aspected_messages',
+              topic: 'aspected_messages',
               method: :sum,
               message: 25,
               args: [5, 10])

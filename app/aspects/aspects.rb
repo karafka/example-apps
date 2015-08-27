@@ -11,7 +11,7 @@
 WaterDrop::Aspects::AroundAspect.apply(
   Calculator,
   method: :sum,
-  topic: 'karafka_topic_aspect',
+  topic: 'aspected_messages',
   before_message: proc { change_value(rand(5..35)) },
   after_message: ->(result) { result }
 )
