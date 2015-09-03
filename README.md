@@ -31,7 +31,9 @@ Following available. You should run them in the console.
 ## References
 
 * [Karafka framework](https://github.com/karafka/karafka)
-* [WaterDrop gem](https://github.com/karafka/waterdrop)
+* [Waterdrop](https://github.com/karafka/waterdrop)
+* [Sidekiq Glass](https://github.com/karafka/sidekiq-glass)
+* [Envlogic](https://github.com/karafka/envlogic)
 * [Apache Kafka](http://kafka.apache.org/)
 * [Apache ZooKeeper](https://zookeeper.apache.org/)
 
