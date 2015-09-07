@@ -34,6 +34,7 @@ Following available. You should run them in the console.
 * [Waterdrop](https://github.com/karafka/waterdrop)
 * [Sidekiq Glass](https://github.com/karafka/sidekiq-glass)
 * [Envlogic](https://github.com/karafka/envlogic)
+* [Null Logger](https://github.com/karafka/null-logger)
 * [Apache Kafka](http://kafka.apache.org/)
 * [Apache ZooKeeper](https://zookeeper.apache.org/)
 
