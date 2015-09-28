@@ -1,11 +1,12 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: b32fb4577f3100110f1d2eaaa564844b021ec6aa
+  revision: d567058a79a922019c7eead5291e76a3483588c2
   specs:
-    karafka (0.1.7)
+    karafka (0.1.9)
       activesupport
       aspector
       celluloid
+      envlogic
       poseidon
       poseidon_cluster
       sidekiq
@@ -13,12 +14,13 @@ GIT
 
 GIT
   remote: git://github.com/karafka/waterdrop.git
-  revision: 45b81da504200e33b6a2b7a2347f27fe8d2a2e1e
+  revision: bb1b21f3f404a27706168d2f1fae3c5940019db8
   specs:
-    waterdrop (0.1.5)
+    waterdrop (0.1.6)
       aspector
       bundler
       connection_pool
+      null-logger
       poseidon
       rake
 
@@ -46,7 +48,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    brakeman (3.1.0)
+    brakeman (3.1.1)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
       haml (>= 3.0, < 5.0)
@@ -56,7 +58,7 @@ GEM
       ruby_parser (~> 3.7.0)
       sass (~> 3.0)
       slim (>= 1.3.6, < 4.0)
-      terminal-table (~> 1.4.5)
+      terminal-table (~> 1.4)
     bson (3.2.4)
     builder (3.2.2)
     celluloid (0.16.0)
@@ -72,6 +74,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    envlogic (1.0.0)
+      activesupport
     equalizer (0.0.11)
     erubis (2.7.0)
     faker (1.5.0)
@@ -89,8 +93,8 @@ GEM
       haml (~> 4.0)
       rubocop (>= 0.25.0)
       sysexits (~> 1.1)
-    highline (1.7.3)
-    hitimes (1.2.2)
+    highline (1.7.7)
+    hitimes (1.2.3)
     i18n (0.7.0)
     ice_nine (0.11.1)
     json (1.8.3)
@@ -101,22 +105,20 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
-    minitest (5.8.0)
-    mongoid (4.0.2)
+    minitest (5.8.1)
+    mongo (2.1.0)
+      bson (~> 3.0)
+    mongoid (5.0.0)
       activemodel (~> 4.0)
-      moped (~> 2.0.0)
+      mongo (~> 2.1)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
-    mongoid-rspec (2.2.0)
-      mongoid (~> 4.0.0)
+    mongoid-rspec (3.0.0)
+      mongoid (~> 5.0)
       rake
-      rspec (~> 3.1)
-    moped (2.0.7)
-      bson (~> 3.0)
-      connection_pool (~> 2.0)
-      optionable (~> 0.2.0)
+      rspec (~> 3.3)
     multi_json (1.11.2)
-    optionable (0.2.0)
+    null-logger (0.1.0)
     origin (2.1.1)
     parser (2.2.2.6)
       ast (>= 1.1, < 3.0)
@@ -134,12 +136,12 @@ GEM
       timecop
       yard
     poseidon (0.0.5)
-    poseidon_cluster (0.3.2)
+    poseidon_cluster (0.3.3)
       poseidon (>= 0.0.5, < 0.1.0)
       zk
     powerpack (0.1.1)
     procto (0.0.2)
-    pry (0.10.1)
+    pry (0.10.2)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -165,7 +167,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    rubocop (0.34.0)
+    rubocop (0.34.2)
       astrolabe (~> 1.3)
       parser (>= 2.2.2.5, < 3.0)
       powerpack (~> 0.1)
@@ -198,8 +200,9 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
-    sidekiq-glass (0.1.1)
+    sidekiq-glass (0.1.3)
       celluloid (= 0.16.0)
+      null-logger
       sidekiq (= 3.4.1)
     simplecov (0.10.0)
       docile (~> 1.1.0)
@@ -212,7 +215,7 @@ GEM
     slop (3.6.0)
     sysexits (1.2.0)
     temple (0.7.6)
-    terminal-table (1.4.5)
+    terminal-table (1.5.2)
     thread_safe (0.3.5)
     tilt (2.0.1)
     timecop (0.8.0)
@@ -246,6 +249,3 @@ DEPENDENCIES
   karafka!
   polishgeeks-dev-tools
   waterdrop!
-
-BUNDLED WITH
-   1.10.6
