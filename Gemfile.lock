@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: a628570d67b632d0104d6c76d61aad21833a2778
+  revision: 29f40ceafa779bcec139fb27ee800e74e2652241
   specs:
-    karafka (0.1.9)
+    karafka (0.1.10)
       activesupport
       aspector
       celluloid
@@ -244,3 +244,6 @@ DEPENDENCIES
   karafka!
   polishgeeks-dev-tools
   waterdrop!
+
+BUNDLED WITH
+   1.10.6
