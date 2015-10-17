@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: 29f40ceafa779bcec139fb27ee800e74e2652241
+  revision: f23b2aaf4ff3a7d670f9c1d0d8a2f6d6b6f7b3ea
   specs:
-    karafka (0.1.10)
+    karafka (0.1.13)
       activesupport
       aspector
       celluloid
@@ -102,7 +102,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     minitest (5.8.1)
-    mongo (2.1.1)
+    mongo (2.1.2)
       bson (~> 3.0)
     mongoid (5.0.0)
       activemodel (~> 4.0)
@@ -244,6 +244,3 @@ DEPENDENCIES
   karafka!
   polishgeeks-dev-tools
   waterdrop!
-
-BUNDLED WITH
-   1.10.6
