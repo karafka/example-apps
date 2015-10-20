@@ -35,7 +35,7 @@ RSpec.describe AspectedMessagesController do
 
   describe '#check_params' do
     before do
-      subject.params = Karafka::Connection::Message.new('topic', { 'message' => '45' })
+      subject.params = Karafka::Connection::Message.new('topic', 'message' => '45')
     end
     it 'returns true if message is higher than 30' do
       expect(subject.send(:check_params)).to be_truthy
