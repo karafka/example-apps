@@ -6,7 +6,7 @@ Bundler.require(:default, ENV['KARAFKA_ENV'])
 class App < Karafka::App
   setup do |config|
     config.kafka_hosts = %w( 127.0.0.1:9092 )
-    config.zookeeper_hosts = %w( 172.17.1.147:2181 )
+    config.zookeeper_hosts = %w( 127.0.0.1:2181 )
     config.worker_timeout = 60 # 1 minute
     config.concurrency = 5
     config.name = 'example_app'
