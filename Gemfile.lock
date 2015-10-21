@@ -1,10 +1,9 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: f23b2aaf4ff3a7d670f9c1d0d8a2f6d6b6f7b3ea
+  revision: 667e8122a91b8725369519101e643a95b718d2e2
   specs:
     karafka (0.1.13)
       activesupport
-      aspector
       celluloid
       envlogic
       poseidon
