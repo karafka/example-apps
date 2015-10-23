@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: 667e8122a91b8725369519101e643a95b718d2e2
+  revision: fd45f9e8006ca50590a3e35756d59ae5835c95ab
   specs:
-    karafka (0.1.13)
+    karafka (0.1.17)
       activesupport
       celluloid
       envlogic
@@ -243,3 +243,6 @@ DEPENDENCIES
   karafka!
   polishgeeks-dev-tools
   waterdrop!
+
+BUNDLED WITH
+   1.10.6

@@ -2,7 +2,7 @@ require 'active_support/core_ext/hash'
 
 # Xml parser class
 class XmlParser
-  # Error raised when message is wrong xml
+  # Error raised when message is not valid xml
   class ParserError < StandardError; end
 
   # @param [String] message to parse
