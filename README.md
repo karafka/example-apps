@@ -37,6 +37,8 @@ Following available. You should run them in the console.
 * [Null Logger](https://github.com/karafka/null-logger)
 * [Apache Kafka](http://kafka.apache.org/)
 * [Apache ZooKeeper](https://zookeeper.apache.org/)
+* [Karafka example application Travis CI](https://travis-ci.org/karafka/karafka-example-app)
+* [Karafka example application Code Climate](https://codeclimate.com/github/karafka/karafka-example-app)
 
 ## Note on Patches/Pull Requests
 
