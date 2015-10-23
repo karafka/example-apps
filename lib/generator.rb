@@ -9,7 +9,7 @@ class Generator
   def send_messages
     Calculator.new.sum(5, 6)
 
-    WaterDrop::Message.new('basic_messages', 'String message').send!
+    WaterDrop::Message.new('basic_messages', '<message><new>home</new></message>').send!
 
     hash_message = {
       name: 'John',
