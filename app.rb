@@ -10,8 +10,10 @@ class App < Karafka::App
     config.worker_timeout = 60 # 1 minute
     config.concurrency = 5
     config.name = 'example_app'
-    config.redis_url = 'redis://localhost:6379'
-    config.redis_namespace = 'example_app'
+    config.redis = {
+      url: 'redis://localhost:6379',
+      namespace: 'example_app'
+    }
   end
 end
 

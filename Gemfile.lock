@@ -1,21 +1,22 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: fd45f9e8006ca50590a3e35756d59ae5835c95ab
+  revision: dcefbe879b06243e538cd96b3aad0be982f8c9de
   specs:
-    karafka (0.1.17)
+    karafka (0.1.18)
       activesupport
-      celluloid
       envlogic
       poseidon
       poseidon_cluster
+      puma
       sidekiq
       sidekiq-glass
+      sinatra
 
 GIT
   remote: git://github.com/karafka/waterdrop.git
-  revision: ecfecf06e8a6aa75c004c9ef19ab5a7152393436
+  revision: 7a0da620070095ee550e126d6a262b5b3e1b55d6
   specs:
-    waterdrop (0.1.7)
+    waterdrop (0.1.11)
       aspector
       bundler
       connection_pool
@@ -47,7 +48,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    brakeman (3.1.1)
+    brakeman (3.1.2)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
       haml (>= 3.0, < 5.0)
@@ -55,6 +56,7 @@ GEM
       multi_json (~> 1.2)
       ruby2ruby (>= 2.1.1, < 2.3.0)
       ruby_parser (~> 3.7.0)
+      safe_yaml
       sass (~> 3.0)
       slim (>= 1.3.6, < 4.0)
       terminal-table (~> 1.4)
@@ -100,7 +102,7 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
-    minitest (5.8.1)
+    minitest (5.8.2)
     mongo (2.1.2)
       bson (~> 3.0)
     mongoid (5.0.0)
@@ -140,6 +142,10 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.14.0)
+    rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
     rainbow (2.0.0)
     rake (10.4.2)
     redis (3.2.1)
@@ -172,7 +178,7 @@ GEM
     ruby2ruby (2.2.0)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
-    ruby_parser (3.7.1)
+    ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
     rubycritic (1.2.1)
       flay (= 2.4.0)
@@ -181,6 +187,7 @@ GEM
       reek (= 1.6.3)
       ruby2ruby (>= 2.1.1, < 3.0)
       virtus (~> 1.0)
+    safe_yaml (1.0.4)
     sass (3.4.19)
     sexp_processor (4.6.0)
     shoulda (3.5.0)
@@ -204,6 +211,10 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -243,6 +254,3 @@ DEPENDENCIES
   karafka!
   polishgeeks-dev-tools
   waterdrop!
-
-BUNDLED WITH
-   1.10.6
