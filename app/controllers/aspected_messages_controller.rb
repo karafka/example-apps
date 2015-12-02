@@ -13,7 +13,11 @@ class AspectedMessagesController < Karafka::BaseController
   # In this example it logs received params in 'log/aspect_controller_params.log' file
   def perform
     sleep 10
-    LoggerService.new.write_to_file(self, "#{Karafka::App.root}/log/aspect_controller_params.log")
+    LoggerService.new.write_to_file(
+      self,
+      "#{Karafka::App.root}/log/aspect_controller_params.log",
+      params
+    )
   end
 
   # Here should be implemented logic once sidekiq fails

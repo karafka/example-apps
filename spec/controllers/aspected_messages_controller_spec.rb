@@ -16,6 +16,9 @@ RSpec.describe AspectedMessagesController do
       expect(logger_service)
         .to receive(:write_to_file)
 
+      expect(subject)
+        .to receive(:params)
+
       subject.perform
     end
   end
@@ -35,7 +38,9 @@ RSpec.describe AspectedMessagesController do
 
   describe '#check_params' do
     before do
-      subject.params = { 'message' => '45' }
+      expect(subject)
+        .to receive(:params)
+        .and_return('message' => '45')
     end
     it 'returns true if message is higher than 30' do
       expect(subject.send(:check_params)).to be_truthy

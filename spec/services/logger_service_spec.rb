@@ -22,7 +22,7 @@ RSpec.describe LoggerService do
         .and_return(file)
       expect(file).to receive_messages(write: true, close: true)
 
-      subject.write_to_file(controller, path)
+      subject.write_to_file(controller, path, [])
     end
   end
 

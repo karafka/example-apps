@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe BasicMessagesController do
+RSpec.describe InterchangerMessagesController do
   let(:logger_service) { double }
 
   describe '#perform' do
