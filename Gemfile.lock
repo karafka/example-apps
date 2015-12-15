@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: c43362cd860f9c0f1aa19f41d6f30a19c36ab930
+  revision: bd0629ebf3773daaee53ee29b446aa3136c4fedb
   specs:
-    karafka (0.3.2)
+    karafka (0.3.3.pre.head)
       activesupport
       celluloid
       envlogic
@@ -12,6 +12,7 @@ GIT
       sidekiq
       sidekiq-glass
       sinatra
+      waterdrop
 
 GEM
   remote: https://rubygems.org/
@@ -246,7 +247,7 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    waterdrop (0.1.12)
+    waterdrop (0.1.13)
       aspector
       bundler
       connection_pool
@@ -264,7 +265,6 @@ PLATFORMS
 DEPENDENCIES
   karafka!
   polishgeeks-dev-tools
-  waterdrop
 
 BUNDLED WITH
    1.10.6

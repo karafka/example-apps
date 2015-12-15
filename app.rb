@@ -5,8 +5,6 @@ Bundler.require(:default, ENV['KARAFKA_ENV'])
 
 # App class
 class App < Karafka::App
-  Dir[App.root + 'lib/**/*.rb'].each { |file| require file }
-
   setup do |config|
     config.kafka_hosts = %w( 127.0.0.1:9092 )
     config.zookeeper_hosts = %w( 127.0.0.1:2181 )

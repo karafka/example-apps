@@ -13,19 +13,27 @@ RSpec.describe Calculator do
         .to receive(:change_value) { @first_value = subject.first_value }
 
       expect(WaterDrop::Message).to receive(:new)
-        .with('aspected_messages',
-              topic: 'aspected_messages',
-              method: :sum,
-              message: 10,
-              args: [5, 10])
+        .with(
+          'aspected_messages',
+          {
+            topic: 'aspected_messages',
+            method: :sum,
+            message: 10,
+            args: [5, 10]
+          }.to_json
+        )
         .and_return(message)
 
       expect(WaterDrop::Message).to receive(:new)
-        .with('aspected_messages',
-              topic: 'aspected_messages',
-              method: :sum,
-              message: 25,
-              args: [5, 10])
+        .with(
+          'aspected_messages',
+          {
+            topic: 'aspected_messages',
+            method: :sum,
+            message: 25,
+            args: [5, 10]
+          }.to_json
+        )
         .and_return(message)
 
       expect(message).to receive(:send!).twice
