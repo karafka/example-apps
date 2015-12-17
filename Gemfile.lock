@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: bd0629ebf3773daaee53ee29b446aa3136c4fedb
+  revision: a6bbc9e9b35a7ae7c97531a91419eeb0febbbafe
   specs:
-    karafka (0.3.3.pre.head)
+    karafka (0.4.0.pre.head)
       activesupport
       celluloid
       envlogic
@@ -10,9 +10,9 @@ GIT
       poseidon_cluster
       puma
       sidekiq
-      sidekiq-glass
       sinatra
       waterdrop
+      worker-glass
 
 GEM
   remote: https://rubygems.org/
@@ -38,19 +38,19 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    brakeman (3.1.2)
+    brakeman (3.1.3)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
       haml (>= 3.0, < 5.0)
-      highline (~> 1.6)
+      highline (>= 1.6.20, < 2.0)
       multi_json (~> 1.2)
       ruby2ruby (>= 2.1.1, < 2.3.0)
       ruby_parser (~> 3.7.0)
-      safe_yaml
+      safe_yaml (>= 1.0)
       sass (~> 3.0)
       slim (>= 1.3.6, < 4.0)
       terminal-table (~> 1.4)
-    bson (3.2.6)
+    bson (4.0.0)
     builder (3.2.2)
     celluloid (0.17.2)
       celluloid-essentials
@@ -69,6 +69,8 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.5)
       timers (>= 4.1.1)
+    codeclimate-engine-rb (0.1.0)
+      virtus (~> 1.0)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -85,7 +87,7 @@ GEM
       activesupport
     equalizer (0.0.11)
     erubis (2.7.0)
-    faker (1.5.0)
+    faker (1.6.1)
       i18n (~> 0.5)
     fastercsv (1.5.5)
     flay (2.6.1)
@@ -109,8 +111,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     minitest (5.8.3)
-    mongo (2.1.2)
-      bson (~> 3.0)
+    mongo (2.2.1)
+      bson (~> 4.0)
     mongoid (5.0.1)
       activemodel (~> 4.0)
       mongo (~> 2.1)
@@ -156,7 +158,8 @@ GEM
     rainbow (2.0.0)
     rake (10.4.2)
     redis (3.2.2)
-    reek (3.6.0)
+    reek (3.7.1)
+      codeclimate-engine-rb (~> 0.1.0)
       parser (~> 2.2, >= 2.2.2.5)
       private_attr (~> 1.1)
       rainbow (~> 2.0)
@@ -165,7 +168,7 @@ GEM
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
       rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.0)
+    rspec-core (3.4.1)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -173,7 +176,7 @@ GEM
     rspec-mocks (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
-    rspec-support (3.4.0)
+    rspec-support (3.4.1)
     rubocop (0.35.1)
       astrolabe (~> 1.3)
       parser (>= 2.2.3.0, < 3.0)
@@ -187,14 +190,14 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
-    rubycritic (2.1.0)
+    rubycritic (2.3.0)
       flay (= 2.6.1)
       flog (= 4.3.2)
       parser (>= 2.2.0, < 3.0)
-      reek (= 3.6.0)
+      reek (= 3.7.1)
       virtus (~> 1.0)
     safe_yaml (1.0.4)
-    sass (3.4.19)
+    sass (3.4.20)
     sexp_processor (4.6.0)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -207,10 +210,7 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
-    sidekiq-glass (0.1.4)
-      null-logger
-      sidekiq (= 4.0.1)
-    simplecov (0.10.0)
+    simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
@@ -254,6 +254,9 @@ GEM
       null-logger
       poseidon
       rake
+    worker-glass (0.2.0)
+      activesupport
+      null-logger
     yard (0.8.7.6)
     zk (1.9.6)
       zookeeper (~> 1.4.0)
