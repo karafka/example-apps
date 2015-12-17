@@ -8,14 +8,7 @@ class Generator
   # Sends messages directly to Kafka server using WaterDrop::Message class
   def send_messages
     Calculator.new.sum(5, 6)
-
-    WaterDrop::Message.new('basic_messages', '<message><new>home</new></message>').send!
-
-    hash_message = {
-      name: 'John',
-      surname: 'Doe'
-    }
-
-    WaterDrop::Message.new(:basic_messages, hash_message).send!
+    WaterDrop::Message.new(:basic_messages, '<message><new>home</new></message>').send!
+    WaterDrop::Message.new(:interchanger_messages, "\x0Efoo@test.com\x12\x06barbaz").send!
   end
 end

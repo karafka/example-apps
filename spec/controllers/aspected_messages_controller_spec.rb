@@ -16,6 +16,9 @@ RSpec.describe AspectedMessagesController do
       expect(logger_service)
         .to receive(:write_to_file)
 
+      expect(subject)
+        .to receive(:params)
+
       subject.perform
     end
   end
@@ -35,10 +38,24 @@ RSpec.describe AspectedMessagesController do
 
   describe '#check_params' do
     before do
-      subject.params = { 'message' => '45' }
+      expect(subject)
+        .to receive(:params)
+        .and_return('message' => '45')
     end
     it 'returns true if message is higher than 30' do
       expect(subject.send(:check_params)).to be_truthy
     end
+  end
+
+  describe '#log_file' do
+    let(:path) { rand.to_s }
+
+    before do
+      expect(Karafka::App)
+        .to receive(:root)
+        .and_return(path)
+    end
+
+    it { expect(subject.send(:log_file)).to eq "#{path}/log/aspect_controller_params.log" }
   end
 end

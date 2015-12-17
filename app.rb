@@ -12,8 +12,7 @@ class App < Karafka::App
     config.concurrency = 5
     config.name = 'example_app'
     config.redis = {
-      url: 'redis://localhost:6379',
-      namespace: 'example_app'
+      url: 'redis://localhost:6379'
     }
   end
 end
