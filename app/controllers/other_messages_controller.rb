@@ -1,5 +1,3 @@
-require 'karafka'
-
 # This controller has a custom worker set to it (a dummy one that will do nothing)
 class OtherMessagesController < Karafka::BaseController
   self.worker = DifferentWorker
