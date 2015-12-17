@@ -1,5 +1,3 @@
-require 'karafka'
-
 # This controller define interchanger which load and parse params
 # with Base64 interchanger
 class InterchangerMessagesController < Karafka::BaseController
@@ -11,7 +9,7 @@ class InterchangerMessagesController < Karafka::BaseController
     sleep 10
     LoggerService.new.write_to_file(
       self,
-      "#{Karafka::App.root}/log/interchanger_controller_params.log",
+      File.join(Karafka::App.root, 'log', 'interchanger_controller_params.log'),
       params
     )
   end

@@ -1,5 +1,3 @@
-require 'karafka'
-
 # Controller which receive messages based on aspect implementation
 class AspectedMessagesController < Karafka::BaseController
   # Here we set method which should be executed before perform.
@@ -13,16 +11,12 @@ class AspectedMessagesController < Karafka::BaseController
   # In this example it logs received params in 'log/aspect_controller_params.log' file
   def perform
     sleep 10
-    LoggerService.new.write_to_file(
-      self,
-      "#{Karafka::App.root}/log/aspect_controller_params.log",
-      params
-    )
+    LoggerService.new.write_to_file(self, log_file, params)
   end
 
   # Here should be implemented logic once sidekiq fails
   def after_failure
-    LoggerService.new.clear_file("#{Karafka::App.root}/log/aspect_controller_params.log")
+    LoggerService.new.clear_file(log_file)
   end
 
   private
@@ -30,5 +24,10 @@ class AspectedMessagesController < Karafka::BaseController
   # Send to sidekiq only those events, which message will be more than 30
   def check_params
     params['message'].to_i > 30
+  end
+
+  # @return [String] log file path
+  def log_file
+    File.join(Karafka::App.root, 'log', 'aspect_controller_params.log')
   end
 end

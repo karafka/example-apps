@@ -46,4 +46,16 @@ RSpec.describe AspectedMessagesController do
       expect(subject.send(:check_params)).to be_truthy
     end
   end
+
+  describe '#log_file' do
+    let(:path) { rand.to_s }
+
+    before do
+      expect(Karafka::App)
+        .to receive(:root)
+        .and_return(path)
+    end
+
+    it { expect(subject.send(:log_file)).to eq "#{path}/log/aspect_controller_params.log" }
+  end
 end

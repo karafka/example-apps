@@ -1,5 +1,3 @@
-require 'karafka'
-
 # This controller does not have before_enqueue callbacks,
 # so it will receive all messages which are sent to basic_messages topic
 class BasicMessagesController < Karafka::BaseController
@@ -11,7 +9,7 @@ class BasicMessagesController < Karafka::BaseController
     sleep 10
     LoggerService.new.write_to_file(
       self,
-      "#{Karafka::App.root}/log/basic_controller_params.log",
+      File.join(Karafka::App.root, 'log', 'basic_controller_params.log'),
       params
     )
   end
