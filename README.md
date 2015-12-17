@@ -32,7 +32,7 @@ Following available. You should run them in the console.
 
 * [Karafka framework](https://github.com/karafka/karafka)
 * [Waterdrop](https://github.com/karafka/waterdrop)
-* [Sidekiq Glass](https://github.com/karafka/sidekiq-glass)
+* [Worker Glass](https://github.com/karafka/worker-glass)
 * [Envlogic](https://github.com/karafka/envlogic)
 * [Null Logger](https://github.com/karafka/null-logger)
 * [Apache Kafka](http://kafka.apache.org/)
