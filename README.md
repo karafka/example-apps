@@ -22,7 +22,7 @@ Following available. You should run them in the console.
   bundle exec rake karafka:run
 ```
 
-#### Generate messages to Kafka server in two ways: by applying aspects to methods, and by sending message directly.
+#### Generate messages to Kafka server by sending message directly
 
 ```
   bundle exec rake waterdrop:send
