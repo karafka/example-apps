@@ -16,10 +16,8 @@ RSpec.describe Calculator do
         .with(
           'aspected_messages',
           {
-            topic: 'aspected_messages',
-            method: :sum,
-            message: 10,
-            args: [5, 10]
+            args: [5, 10],
+            message: 10
           }.to_json
         )
         .and_return(message)
@@ -28,10 +26,8 @@ RSpec.describe Calculator do
         .with(
           'aspected_messages',
           {
-            topic: 'aspected_messages',
-            method: :sum,
-            message: 25,
-            args: [5, 10]
+            args: [5, 10],
+            message: 25
           }.to_json
         )
         .and_return(message)

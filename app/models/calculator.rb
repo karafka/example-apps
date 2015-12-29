@@ -5,8 +5,11 @@ class Calculator
   # Method which sum parameters; first parameter is defined. Can be predefined in before aspect
   def sum(*args)
     @first_value ||= 5
+    send_message(args: args, message: @first_value)
     args_sum = args.inject(0, :+)
-    @first_value + args_sum
+    result = @first_value + args_sum
+    send_message(args: args, message: result)
+    result
   end
 
   private
@@ -14,5 +17,10 @@ class Calculator
   # Is used to set @first_value before run execution.
   def change_value(num)
     @first_value = num
+  end
+
+  # Sends a message to a proper topic
+  def send_message(params)
+    WaterDrop::Message.new('aspected_messages', params.to_json).send!
   end
 end
