@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'karafka', git: 'git://github.com/karafka/karafka.git'
+gem 'karafka', github: 'karafka/karafka'
 
 group :development, :test do
   gem 'polishgeeks-dev-tools'

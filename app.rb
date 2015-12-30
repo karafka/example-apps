@@ -3,6 +3,8 @@ ENV['KARAFKA_ENV'] ||= ENV['RACK_ENV']
 
 Bundler.require(:default, ENV['KARAFKA_ENV'])
 
+Karafka::Loader.new.load(File.dirname(__FILE__))
+
 # App class
 class App < Karafka::App
   setup do |config|
@@ -16,7 +18,3 @@ class App < Karafka::App
     }
   end
 end
-
-Karafka::Loader.new.load(App.root)
-
-App.bootstrap

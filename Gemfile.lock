@@ -1,16 +1,17 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: a6bbc9e9b35a7ae7c97531a91419eeb0febbbafe
+  revision: 3e5a19b14a091aedce5f8d2a773c57f4814a4a4a
   specs:
-    karafka (0.4.0.pre.head)
-      activesupport
-      celluloid
+    karafka (0.4.0)
+      activesupport (~> 4.2)
+      celluloid (>= 0.17)
       envlogic
-      poseidon
+      poseidon (>= 0.0.5)
       poseidon_cluster
       puma
-      sidekiq
-      sinatra
+      rake (~> 10.4)
+      sidekiq (~> 4.0)
+      sinatra (~> 1.4)
       waterdrop
       worker-glass
 
