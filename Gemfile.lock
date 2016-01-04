@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: 3e5a19b14a091aedce5f8d2a773c57f4814a4a4a
+  revision: d7f421bf5ab443e3264195060f9d8d5e4d559b17
   specs:
     karafka (0.4.0)
       activesupport (~> 4.2)
@@ -158,7 +158,7 @@ GEM
     rainbow (2.0.0)
     rake (10.4.2)
     redis (3.2.2)
-    reek (3.7.1)
+    reek (3.8.1)
       codeclimate-engine-rb (~> 0.1.0)
       parser (~> 2.2, >= 2.2.2.5)
       private_attr (~> 1.1)
@@ -190,11 +190,11 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.7.2)
       sexp_processor (~> 4.1)
-    rubycritic (2.4.0)
+    rubycritic (2.4.1)
       flay (= 2.6.1)
       flog (= 4.3.2)
       parser (>= 2.2.0, < 3.0)
-      reek (= 3.7.1)
+      reek (= 3.8.1)
       virtus (~> 1.0)
     safe_yaml (1.0.4)
     sass (3.4.20)
