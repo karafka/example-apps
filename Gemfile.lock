@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: 15fbec7241f1196f78709470284ba545e86d379d
+  revision: 1faddadcd702a803cc571320cabbd9650e5ea85e
   specs:
     karafka (0.4.0)
       celluloid (>= 0.17)

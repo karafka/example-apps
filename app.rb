@@ -9,7 +9,8 @@ class App < Karafka::App
     config.kafka_hosts = %w( 127.0.0.1:9092 )
     config.zookeeper_hosts = %w( 127.0.0.1:2181 )
     config.worker_timeout = 60 # 1 minute
-    config.max_concurrency = 5
+    config.max_concurrency = 5 # 5 threads
+    config.wait_timeout = 5 # 5 seconds
     config.name = 'example_app'
     config.redis = {
       url: 'redis://localhost:6379'
