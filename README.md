@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/karafka/karafka-example-app.png)](https://travis-ci.org/karafka/karafka-example-app)
 [![Code Climate](https://codeclimate.com/github/karafka/karafka-example-app/badges/gpa.svg)](https://codeclimate.com/github/karafka/karafka-example-app)
+[![Join the chat at https://gitter.im/karafka/karafka](https://badges.gitter.im/karafka/karafka.svg)](https://gitter.im/karafka/karafka?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is an example application which uses [Karafka framework](https://github.com/karafka/karafka
 ) to receive messages from [Apache Kafka](http://kafka.apache.org/) server and [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages to Kafka server.
