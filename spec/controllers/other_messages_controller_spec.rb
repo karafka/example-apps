@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe OtherMessagesController do
-  describe '.worker' do
-    it { expect(described_class.worker).to eq DifferentWorker }
-  end
+  specify { expect(described_class).to be < ApplicationController }
 
   describe '#perform' do
     it 'should do nothing' do

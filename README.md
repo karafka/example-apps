@@ -16,11 +16,11 @@ Following available. You should run them in the console.
 
 #### Run sidekiq worker to manage perform methods of controllers
 ```
-  bundle exec rake karafka:sidekiq
+  bundle exec karafka worker
 ```
 #### Run Kafka consumer. It will receive messages and send them to needed controller based on it's topic name
 ```
-  bundle exec rake karafka:run
+  bundle exec karafka s
 ```
 
 #### Generate messages to Kafka server by sending message directly

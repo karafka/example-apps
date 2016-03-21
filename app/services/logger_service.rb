@@ -2,9 +2,9 @@
 class LoggerService
   # @param controller [Karafka::BaseController instance]
   # @param path [String] path to file
-  def write_to_file(controller, path, params)
+  def write_to_file(controller, path)
     file = File.open(path, 'a+')
-    file.write "Topic #{controller.class.topic} receive params #{params}\n"
+    file.write "Controller receive params #{controller.to_h}\n"
     file.close
   end
 
