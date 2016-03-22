@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe AspectedMessagesController do
+  specify { expect(described_class).to be < ApplicationController }
   let(:logger_service) { double }
 
   describe '#perform' do
@@ -15,9 +16,6 @@ RSpec.describe AspectedMessagesController do
 
       expect(logger_service)
         .to receive(:write_to_file)
-
-      expect(subject)
-        .to receive(:params)
 
       subject.perform
     end

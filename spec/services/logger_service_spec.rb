@@ -7,10 +7,7 @@ RSpec.describe LoggerService do
 
   before do
     allow(controller)
-      .to receive_message_chain(:class, :topic)
-      .and_return('topic')
-    allow(controller)
-      .to receive(:params)
+      .to receive(:to_h)
       .and_return(message: 'message')
   end
 
@@ -20,9 +17,10 @@ RSpec.describe LoggerService do
         .to receive(:open)
         .with(path, 'a+')
         .and_return(file)
+
       expect(file).to receive_messages(write: true, close: true)
 
-      subject.write_to_file(controller, path, [])
+      subject.write_to_file(controller, path)
     end
   end
 

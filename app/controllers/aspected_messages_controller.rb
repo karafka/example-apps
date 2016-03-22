@@ -1,5 +1,5 @@
 # Controller which receive messages based on aspect implementation
-class AspectedMessagesController < Karafka::BaseController
+class AspectedMessagesController < ApplicationController
   # Here we set method which should be executed before perform.
   # You can write as many before_enqueue callbacks as it is needed.
   # If one of before_enqueue callbacks returns false -
@@ -11,7 +11,7 @@ class AspectedMessagesController < Karafka::BaseController
   # In this example it logs received params in 'log/aspect_controller_params.log' file
   def perform
     sleep 10
-    LoggerService.new.write_to_file(self, log_file, params)
+    LoggerService.new.write_to_file(self, log_file)
   end
 
   # Here should be implemented logic once sidekiq fails
