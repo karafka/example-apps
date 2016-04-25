@@ -11,7 +11,7 @@ class App < Karafka::App
     config.zookeeper_hosts = %w( 127.0.0.1:2181 )
     # Karafka will autodiscover kafka_hosts based on Zookeeper but we need it set manually
     # to run tests without running kafka and zookeper
-    config.kafka_hosts = %w( 127.0.0.1:9093 )
+    config.kafka_hosts = %w( 127.0.0.1:9092 )
     config.wait_timeout = 60 # 1 minute
     config.max_concurrency = 5
     config.name = 'example_app'

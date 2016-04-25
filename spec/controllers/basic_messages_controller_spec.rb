@@ -6,7 +6,7 @@ RSpec.describe BasicMessagesController do
 
   describe '#perform' do
     it 'logs to file' do
-      allow_any_instance_of(described_class)
+      expect(subject)
         .to receive(:sleep)
         .with(10)
 
