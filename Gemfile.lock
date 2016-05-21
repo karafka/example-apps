@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/karafka/karafka.git
-  revision: ecc3ef61656296f8c036c06e11e71baaad80d10e
+  revision: 0acf082a231f81da1de4b0353c40494893f39525
   specs:
     karafka (0.4.2)
       activesupport (>= 4.2.5)
@@ -65,7 +65,7 @@ GEM
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     colorize (0.7.7)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -92,14 +92,14 @@ GEM
       rubocop (>= 0.36.0)
       sysexits (~> 1.1)
     highline (1.7.8)
-    hitimes (1.2.3)
+    hitimes (1.2.4)
     i18n (0.7.0)
     ice_nine (0.11.2)
     json (1.8.3)
     launchy (2.4.3)
       addressable (~> 2.3)
     method_source (0.8.2)
-    minitest (5.8.4)
+    minitest (5.9.0)
     null-logger (0.1.1)
     parser (2.3.0.7)
       ast (~> 2.2)
@@ -154,7 +154,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     rubocop-rspec (1.4.1)
       rubocop (= 0.39.0)
-    ruby-kafka (0.3.4)
+    ruby-kafka (0.3.7)
     ruby-progressbar (1.8.0)
     ruby2ruby (2.3.0)
       ruby_parser (~> 3.1)
@@ -179,7 +179,7 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
-    sidekiq (4.1.1)
+    sidekiq (4.1.2)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
