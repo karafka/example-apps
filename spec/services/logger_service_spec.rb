@@ -4,6 +4,7 @@ RSpec.describe LoggerService do
   let(:controller) { double }
   let(:path) { '/test/path_to_file.log' }
   let(:file) { double }
+  subject(:logger_service) { described_class.new }
 
   before do
     allow(controller)
@@ -20,14 +21,14 @@ RSpec.describe LoggerService do
 
       expect(file).to receive_messages(write: true, close: true)
 
-      subject.write_to_file(controller, path)
+      logger_service.write_to_file(controller, path)
     end
   end
 
   describe '#clear_file' do
     it 'clears file' do
       expect(File).to receive(:open).with(path, 'w').and_yield
-      subject.clear_file(path)
+      logger_service.clear_file(path)
     end
   end
 end

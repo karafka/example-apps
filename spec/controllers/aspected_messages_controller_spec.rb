@@ -2,11 +2,12 @@ require 'spec_helper'
 
 RSpec.describe AspectedMessagesController do
   specify { expect(described_class).to be < ApplicationController }
+  subject(:controller) { described_class.new }
   let(:logger_service) { double }
 
   describe '#perform' do
     it 'logs to file' do
-      expect(subject)
+      expect(controller)
         .to receive(:sleep)
         .with(10)
 
@@ -17,7 +18,7 @@ RSpec.describe AspectedMessagesController do
       expect(logger_service)
         .to receive(:write_to_file)
 
-      subject.perform
+      controller.perform
     end
   end
 
@@ -30,18 +31,18 @@ RSpec.describe AspectedMessagesController do
       expect(logger_service)
         .to receive(:clear_file)
 
-      subject.after_failure
+      controller.after_failure
     end
   end
 
   describe '#check_params' do
     before do
-      expect(subject)
+      expect(controller)
         .to receive(:params)
         .and_return('message' => '45')
     end
     it 'returns true if message is higher than 30' do
-      expect(subject.send(:check_params)).to be_truthy
+      expect(controller.send(:check_params)).to be_truthy
     end
   end
 
@@ -54,6 +55,6 @@ RSpec.describe AspectedMessagesController do
         .and_return(path)
     end
 
-    it { expect(subject.send(:log_file)).to eq "#{path}/log/aspect_controller_params.log" }
+    it { expect(controller.send(:log_file)).to eq "#{path}/log/aspect_controller_params.log" }
   end
 end
