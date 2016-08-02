@@ -3,9 +3,10 @@ require 'spec_helper'
 RSpec.describe Generator do
   let(:calculator) { double }
   let(:message) { double }
+  subject(:generator) { described_class.new }
 
   describe '#send_messages' do
-    it 'sends messages' do
+    before do
       expect(Calculator)
         .to receive(:new)
         .and_return(calculator)
@@ -22,8 +23,8 @@ RSpec.describe Generator do
       expect(message)
         .to receive(:send!)
         .twice
-
-      subject.send_messages
     end
+
+    it { generator.send_messages }
   end
 end

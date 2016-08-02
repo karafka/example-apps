@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Base64Interchanger do
-  subject { described_class }
   let(:params) { double }
+  subject(:interchanger) { described_class }
 
   describe '.load' do
     before do
@@ -16,7 +16,7 @@ RSpec.describe Base64Interchanger do
         .with(params)
     end
 
-    it { subject.load(params) }
+    it { interchanger.load(params) }
   end
 
   describe '.parse' do
@@ -31,6 +31,6 @@ RSpec.describe Base64Interchanger do
         .with(params)
     end
 
-    it { subject.parse(params) }
+    it { interchanger.parse(params) }
   end
 end

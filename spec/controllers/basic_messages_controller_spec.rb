@@ -3,10 +3,11 @@ require 'spec_helper'
 RSpec.describe BasicMessagesController do
   specify { expect(described_class).to be < ApplicationController }
   let(:logger_service) { double }
+  subject(:controller) { described_class.new }
 
   describe '#perform' do
     it 'logs to file' do
-      expect(subject)
+      expect(controller)
         .to receive(:sleep)
         .with(10)
 
@@ -17,7 +18,7 @@ RSpec.describe BasicMessagesController do
       expect(logger_service)
         .to receive(:write_to_file)
 
-      subject.perform
+      controller.perform
     end
   end
 end
