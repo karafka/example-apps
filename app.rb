@@ -11,9 +11,6 @@ class App < Karafka::App
     # Karafka will autodiscover kafka_hosts based on Zookeeper but we need it set manually
     # to run tests without running kafka and zookeper
     config.kafka.hosts = %w(127.0.0.1:9092)
-    config.zookeeper.hosts = %w(127.0.0.1:2181)
-    config.wait_timeout = 60 # 1 minute
-    config.max_concurrency = 5
     config.name = 'example_app'
     config.redis = {
       url: 'redis://localhost:6379'
@@ -41,3 +38,5 @@ class App < Karafka::App
     end
   end
 end
+
+App.boot!

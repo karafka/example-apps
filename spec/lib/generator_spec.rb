@@ -1,26 +1,26 @@
 require 'spec_helper'
 
 RSpec.describe Generator do
+  subject(:generator) { described_class.new }
   let(:calculator) { double }
   let(:message) { double }
-  subject(:generator) { described_class.new }
 
   describe '#send_messages' do
     before do
-      expect(Calculator)
+      allow(Calculator)
         .to receive(:new)
         .and_return(calculator)
 
-      expect(calculator)
+      allow(calculator)
         .to receive(:sum)
         .with(5, 6)
 
-      expect(WaterDrop::Message)
+      allow(WaterDrop::Message)
         .to receive(:new)
         .twice
         .and_return(message)
 
-      expect(message)
+      allow(message)
         .to receive(:send!)
         .twice
     end

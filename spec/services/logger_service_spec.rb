@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe LoggerService do
+  subject(:logger_service) { described_class.new }
   let(:controller) { double }
   let(:path) { '/test/path_to_file.log' }
   let(:file) { double }
-  subject(:logger_service) { described_class.new }
 
   before do
     allow(controller)
@@ -13,21 +13,23 @@ RSpec.describe LoggerService do
   end
 
   describe '#write_to_file' do
-    it 'writes to file' do
-      expect(File)
+    before do
+      allow(File)
         .to receive(:open)
         .with(path, 'a+')
         .and_return(file)
 
-      expect(file).to receive_messages(write: true, close: true)
+      allow(file).to receive_messages(write: true, close: true)
+    end
 
+    it 'writes to file' do
       logger_service.write_to_file(controller, path)
     end
   end
 
   describe '#clear_file' do
     it 'clears file' do
-      expect(File).to receive(:open).with(path, 'w').and_yield
+      allow(File).to receive(:open).with(path, 'w').and_yield
       logger_service.clear_file(path)
     end
   end
