@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 RSpec.describe Base64Interchanger do
-  let(:params) { double }
   subject(:interchanger) { described_class }
+  let(:params) { double }
 
   describe '.load' do
     before do
-      expect(Marshal)
+      allow(Marshal)
         .to receive(:dump)
         .with(params)
         .and_return(params)
 
-      expect(Base64)
+      allow(Base64)
         .to receive(:encode64)
         .with(params)
     end
@@ -21,12 +21,12 @@ RSpec.describe Base64Interchanger do
 
   describe '.parse' do
     before do
-      expect(Base64)
+      allow(Base64)
         .to receive(:decode64)
         .with(params)
         .and_return(params)
 
-      expect(Marshal)
+      allow(Marshal)
         .to receive(:load)
         .with(params)
     end
