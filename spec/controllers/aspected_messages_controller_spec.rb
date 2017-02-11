@@ -17,6 +17,10 @@ RSpec.describe AspectedMessagesController do
 
       allow(logger_service)
         .to receive(:write_to_file)
+
+      allow(controller)
+        .to receive(:respond_with)
+        .with('Get my message')
     end
 
     it 'logs to file' do
