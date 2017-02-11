@@ -19,11 +19,17 @@ class App < Karafka::App
     routes.draw do
       topic :aspected_messages do
         controller AspectedMessagesController
+        inline_mode true
+      end
+
+      topic :receiver_message do
+        controller ReceiverMessagesController
       end
 
       topic :basic_messages do
         controller BasicMessagesController
         parser XmlParser
+        batch_mode true
       end
 
       topic :interchanger_messages do
