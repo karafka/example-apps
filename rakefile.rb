@@ -1,19 +1,10 @@
-require './app.rb'
+# frozen_string_literal: true
 
+require 'bundler'
+require 'rake'
+require 'rspec/core/rake_task'
+require './app.rb'
 load './lib/tasks/sender.rake'
 
-unless Karafka.env.production?
-  PolishGeeks::DevTools.setup do |config|
-    config.brakeman = false
-    config.haml_lint = false
-  end
-
-  desc 'Self check using polishgeeks-dev-tools'
-  task :check do
-    PolishGeeks::DevTools::Runner.new.execute(
-      PolishGeeks::DevTools::Logger.new
-    )
-  end
-
-  task default: :check
-end
+RSpec::Core::RakeTask.new(:spec)
+task default: :spec
