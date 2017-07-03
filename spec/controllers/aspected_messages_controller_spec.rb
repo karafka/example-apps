@@ -2,6 +2,7 @@
 
 RSpec.describe AspectedMessagesController do
   specify { expect(described_class).to be < ApplicationController }
+
   let(:controller) { described_class.new }
   let(:logger_service) { double }
 

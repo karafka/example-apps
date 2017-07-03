@@ -2,6 +2,7 @@
 
 RSpec.describe OtherMessagesController do
   specify { expect(described_class).to be < ApplicationController }
+
   subject(:controller) { described_class.new }
 
   describe '#perform' do

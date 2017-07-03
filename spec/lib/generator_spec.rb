@@ -2,6 +2,7 @@
 
 RSpec.describe Generator do
   subject(:generator) { described_class.new }
+
   let(:calculator) { double }
   let(:message) { double }
 

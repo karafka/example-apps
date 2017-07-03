@@ -2,6 +2,7 @@
 
 RSpec.describe ReceiverMessagesController do
   specify { expect(described_class).to be < ApplicationController }
+
   let(:logger_service) { double }
   let(:controller) { described_class.new }
 

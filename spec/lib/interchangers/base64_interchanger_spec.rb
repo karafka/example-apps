@@ -2,6 +2,7 @@
 
 RSpec.describe Base64Interchanger do
   subject(:interchanger) { described_class }
+
   let(:params) { double }
 
   describe '.load' do

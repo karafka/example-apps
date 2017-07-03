@@ -2,6 +2,7 @@
 
 RSpec.describe AspectedMessagesResponder do
   specify { expect(described_class).to be < ApplicationResponder }
+
   let(:responder) { described_class.new }
 
   describe '#respond' do

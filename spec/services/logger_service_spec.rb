@@ -2,6 +2,7 @@
 
 RSpec.describe LoggerService do
   subject(:logger_service) { described_class.new }
+
   let(:controller) { double }
   let(:path) { '/test/path_to_file.log' }
   let(:file) { double }
