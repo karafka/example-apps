@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 RSpec.describe DifferentWorker do
   subject(:worker) { described_class.new }

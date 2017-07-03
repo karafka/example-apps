@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 RSpec.describe AspectedMessagesResponder do
   specify { expect(described_class).to be < ApplicationResponder }

@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 RSpec.describe ReceiverMessagesController do
   specify { expect(described_class).to be < ApplicationController }

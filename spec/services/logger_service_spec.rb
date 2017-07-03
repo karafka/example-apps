@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 RSpec.describe LoggerService do
   subject(:logger_service) { described_class.new }

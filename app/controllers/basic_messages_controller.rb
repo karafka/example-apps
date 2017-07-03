@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This controller does not have before_enqueue callbacks,
 # so it will receive all messages which are sent to basic_messages topic
 class BasicMessagesController < ApplicationController

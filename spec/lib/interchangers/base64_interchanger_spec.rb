@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 RSpec.describe Base64Interchanger do
   subject(:interchanger) { described_class }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Responder for AspectedMessageController which can respond to receiver_message topic
 class AspectedMessagesResponder < ApplicationResponder
   topic :receiver_message

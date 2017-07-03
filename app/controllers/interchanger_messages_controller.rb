@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This controller define interchanger which load and parse params
 # with Base64 interchanger
 class InterchangerMessagesController < ApplicationController

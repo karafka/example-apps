@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Basic Model class
 class Calculator
   attr_reader :first_value

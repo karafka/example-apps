@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Dummy worker that just proves that we can use custom workers with Karafka controllers
 class DifferentWorker < ApplicationWorker
   # @param _params Any params that we want to have

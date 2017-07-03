@@ -1,7 +1,7 @@
-%w(
+%w[
   puma
   sidekiq/web
-).each { |lib| require lib }
+].each { |lib| require lib }
 
 require Karafka.boot_file
 

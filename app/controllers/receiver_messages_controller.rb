@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Controller which receive messages based responder message
 class ReceiverMessagesController < ApplicationController
   # Here we set any logic what should be done in sidekiq once controller receives

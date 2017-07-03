@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'resolv-replace.rb'
 
 # We can generate messages in two ways: Using aspects and generate any message

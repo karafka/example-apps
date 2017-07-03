@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Sample interchahnger class which decode/encode with Base64
 # It resolve problem for issue
 # https://github.com/karafka/karafka/issues/30

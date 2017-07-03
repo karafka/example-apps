@@ -1,4 +1,4 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
 RSpec.describe InterchangerMessagesController do
   specify { expect(described_class).to be < ApplicationController }

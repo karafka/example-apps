@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Controller which receive messages based on aspect implementation
 class AspectedMessagesController < ApplicationController
   # Here we set method which should be executed before perform.

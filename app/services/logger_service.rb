@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Service gor logging params to file
 class LoggerService
   # @param controller [Karafka::BaseController instance]
