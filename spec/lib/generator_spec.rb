@@ -18,12 +18,10 @@ RSpec.describe Generator do
 
       allow(WaterDrop::Message)
         .to receive(:new)
-        .twice
         .and_return(message)
 
       allow(message)
         .to receive(:send!)
-        .twice
     end
 
     it { generator.send_messages }

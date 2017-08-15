@@ -2,6 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'karafka'
+gem 'karafka', '0.6.0.rc1'
 gem 'rspec'
 gem 'simplecov'

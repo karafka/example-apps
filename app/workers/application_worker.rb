@@ -5,9 +5,4 @@
 # Karafka with other frameworks). Karafka will use first direct descendant of Karafka::BaseWorker
 # to build worker classes
 class ApplicationWorker < Karafka::BaseWorker
-  # You can disable WorkerGlass components if you want to
-  prepend WorkerGlass::Timeout
-  prepend WorkerGlass::Reentrancy
-
-  self.timeout = 60
 end

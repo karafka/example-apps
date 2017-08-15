@@ -6,7 +6,7 @@ class LoggerService
   # @param path [String] path to file
   def write_to_file(controller, path)
     file = File.open(path, 'a+')
-    file.write "Controller receive params #{controller.to_h}\n"
+    file.write "Controller topic details: #{controller.topic.to_h}\n"
     file.close
   end
 

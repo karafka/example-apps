@@ -12,27 +12,37 @@ class App < Karafka::App
   setup do |config|
     # Karafka will autodiscover kafka_hosts based on Zookeeper but we need it set manually
     # to run tests without running kafka and zookeper
-    config.kafka.hosts = %w[127.0.0.1:9092]
-    config.name = 'example_app'
+    config.kafka.seed_brokers = %w[127.0.0.1:9092]
+    config.client_id = 'example_app'
     config.redis = {
       url: 'redis://localhost:6379'
     }
   end
 
-  routes.draw do
+  consumer_groups.draw do
+    consumer_group :batched_group do
+      # Note that this is not the same as batch_processing
+      batch_consuming true
+
+      topic :basic_messages do
+        controller BasicMessagesController
+        parser XmlParser
+      end
+
+      topic :batch_processed_messages do
+        controller BatchProcessingController
+        batch_processing true
+        inline_processing true
+      end
+    end
+
     topic :aspected_messages do
       controller AspectedMessagesController
-      inline_mode true
+      inline_processing true
     end
 
     topic :receiver_message do
       controller ReceiverMessagesController
-    end
-
-    topic :basic_messages do
-      controller BasicMessagesController
-      parser XmlParser
-      batch_mode true
     end
 
     topic :interchanger_messages do

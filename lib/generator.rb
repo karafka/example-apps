@@ -12,5 +12,13 @@ class Generator
     Calculator.new.sum(5, 6)
     WaterDrop::Message.new(:basic_messages, '<message><new>home</new></message>').send!
     WaterDrop::Message.new(:interchanger_messages, "\x0Efoo@test.com\x12\x06barbaz").send!
+
+    # Note that Karafka is fast and it might not be enough to process more than 1-5 per
+    # batch received
+    batch = 20.times.map do
+      WaterDrop::Message.new(:batch_processed_messages, { number: rand }.to_json)
+    end
+
+    batch.map(&:send!)
   end
 end

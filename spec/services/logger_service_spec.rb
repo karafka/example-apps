@@ -9,8 +9,8 @@ RSpec.describe LoggerService do
 
   before do
     allow(controller)
-      .to receive(:to_h)
-      .and_return(message: 'message')
+      .to receive(:topic)
+      .and_return(OpenStruct.new(message: 'message'))
   end
 
   describe '#write_to_file' do
