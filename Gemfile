@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'karafka', '0.6.0.rc1'
+gem 'karafka', git: 'https://github.com/karafka/karafka.git'
 gem 'rspec'
 gem 'simplecov'
+gem 'hitimes'

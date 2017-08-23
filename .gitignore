@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
-
+.byebug_history
+.irb-history
 ### SublimeText template
 # cache files for sublime text
 *.tmlanguage.cache

@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
+# Non Ruby on Rails setup
 ENV['RACK_ENV'] ||= 'development'
 ENV['KARAFKA_ENV'] ||= ENV['RACK_ENV']
-
 Bundler.require(:default, ENV['KARAFKA_ENV'])
-
-Karafka::Loader.new.load(Karafka::App.root)
+Karafka::Loader.load(Karafka::App.root)
 
 # App class
 class App < Karafka::App
@@ -32,13 +31,13 @@ class App < Karafka::App
       topic :batch_processed_messages do
         controller BatchProcessingController
         batch_processing true
-        inline_processing true
+        processing_backend :inline
       end
     end
 
     topic :aspected_messages do
       controller AspectedMessagesController
-      inline_processing true
+      processing_backend :sidekiq
     end
 
     topic :receiver_message do
