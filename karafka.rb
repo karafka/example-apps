@@ -31,13 +31,13 @@ class App < Karafka::App
       topic :batch_processed_messages do
         controller BatchProcessingController
         batch_processing true
-        processing_backend :inline
+        backend :inline
       end
     end
 
     topic :aspected_messages do
       controller AspectedMessagesController
-      processing_backend :sidekiq
+      backend :sidekiq
     end
 
     topic :receiver_message do
