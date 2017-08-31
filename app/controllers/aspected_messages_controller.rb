@@ -3,10 +3,10 @@
 # Controller which receive messages based on aspect implementation
 class AspectedMessagesController < ApplicationController
   # Here we set method which should be executed before perform.
-  # You can write as many before_enqueue callbacks as it is needed.
-  # If one of before_enqueue callbacks returns false -
+  # You can write as many after_received callbacks as it is needed.
+  # If one of after_received callbacks returns false -
   # perform method will not be run
-  before_enqueue :check_params
+  after_received :check_params
 
   # This controller is in inline_mode so it'll be run immediately, without sidekiq
   # In this example it logs received params in 'log/aspect_controller_params.log' file.
