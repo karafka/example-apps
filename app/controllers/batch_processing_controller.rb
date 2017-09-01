@@ -5,6 +5,7 @@
 # for batch inserting ito database, etc
 # The batch is accessible using the #params_batch method
 class BatchProcessingController < ApplicationController
+  # Performs business logic with messages batch
   def perform
     # You can access the params_batch as an array and just work with it
     sum = params_batch.map { |param| param[:number] }.sum
