@@ -15,7 +15,7 @@ class Generator
 
     # Note that Karafka is fast and it might not be enough to process more than 1-5 per
     # batch received
-    batch = 20.times.map do
+    batch = Array.new(20) do
       WaterDrop::Message.new(:batch_processed_messages, { number: rand }.to_json)
     end
 
