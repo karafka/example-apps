@@ -1,8 +1,16 @@
 GIT
-  remote: https://github.com/karafka/karafka.git
-  revision: e72889e6ddbeeb01ab28c0ae621d6257a1f07a00
+  remote: https://github.com/karafka/karafka-sidekiq-backend.git
+  revision: c8cbe3aea55d2938fa9e131257f6ff6f2a95ba8d
   specs:
-    karafka (0.6.0.rc2)
+    karafka-sidekiq-backend (1.0.0.pre1)
+      karafka (>= 1.0.0.pre1)
+      sidekiq (>= 4.2)
+
+GIT
+  remote: https://github.com/karafka/karafka.git
+  revision: c3ce93c42534fdcf45d963b4a22f422f7a0ceef7
+  specs:
+    karafka (1.0.0.rc1)
       activesupport (>= 5.0)
       celluloid
       dry-configurable (~> 0.7)
@@ -12,7 +20,6 @@ GIT
       rake (>= 11.3)
       require_all (>= 1.4)
       ruby-kafka (>= 0.4)
-      sidekiq (>= 4.2)
       thor (~> 0.19)
       waterdrop (>= 0.4)
 
@@ -131,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   hitimes
   karafka!
+  karafka-sidekiq-backend!
   rspec
   simplecov
 

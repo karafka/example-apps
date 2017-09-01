@@ -13,9 +13,6 @@ class App < Karafka::App
     # to run tests without running kafka and zookeper
     config.kafka.seed_brokers = %w[127.0.0.1:9092]
     config.client_id = 'example_app'
-    config.redis = {
-      url: 'redis://localhost:6379'
-    }
   end
 
   consumer_groups.draw do
