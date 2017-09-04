@@ -30,22 +30,23 @@ Following commands are available. You should run them in the console.
 ## References
 
 * [Karafka framework](https://github.com/karafka/karafka)
-* [Waterdrop](https://github.com/karafka/waterdrop)
-* [Envlogic](https://github.com/karafka/envlogic)
-* [Null Logger](https://github.com/karafka/null-logger)
-* [Apache Kafka](http://kafka.apache.org/)
 * [Karafka example application Travis CI](https://travis-ci.org/karafka/karafka-example-app)
+* [Karafka example application Coditsu](https://app.coditsu.io/karafka/repositories/karafka-example-app)
 
 ## Note on Patches/Pull Requests
 
 Fork the project.
 Make your feature addition or bug fix.
-Add tests for it. This is important so I don't break it in a future version unintentionally.
+Add tests for it. This is important so we don't break it in a future versions unintentionally.
 Commit, do not mess with Rakefile, version, or history. (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull). Send me a pull request. Bonus points for topic branches.
 
-[![coditsu](https://coditsu.io/assets/quality_bar.svg)](https://coditsu.io)
+[![coditsu](https://coditsu.io/assets/quality_bar.svg)](https://app.coditsu.io/karafka/repositories/karafka-example-app)
 
-Each pull request must pass our quality requirements. To check if everything is as it should be, we use [Coditsu](https://coditsu.io) that combinse multiple linters and code analyzers. Unfortunately, for now it is invite-only based, so just ping us and we will give you access to the quality results.
+Each pull request must pass our quality requirements. To check if everything is as it should be, we use [Coditsu](https://coditsu.io) that combinse multiple linters and code analyzers for both code and documentation.
+
+Unfortunately, it does not yet support independent forks, however you should be fine by looking at what we require.
+
+Please run:
 
 ```bash
 bundle exec rake
