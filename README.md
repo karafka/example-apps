@@ -12,17 +12,16 @@ To run this application locally you should run Apache Kafka on those hosts and p
 
 Following commands are available. You should run them in the console.
 
-#### Run sidekiq worker to manage messages background processing
+Run sidekiq worker to manage messages background processing:
 ```
   bundle exec karafka worker
 ```
-#### Run Karafka server to consume messages, schedule and/or process them
+Run Karafka server to consume messages, schedule and/or process them:
 ```
   bundle exec karafka s
 ```
 
-#### Generate messages to Kafka server by sending them using WaterDrop
-
+Generate messages to Kafka server by sending them using WaterDrop:
 ```
   bundle exec rake waterdrop:send
 ```
