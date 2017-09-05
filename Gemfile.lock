@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka-sidekiq-backend.git
-  revision: c8cbe3aea55d2938fa9e131257f6ff6f2a95ba8d
+  revision: 24b9d4a30275c90b87a6c406639bedc7d5d512e9
   specs:
     karafka-sidekiq-backend (1.0.0.pre1)
       karafka (>= 1.0.0.pre1)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: c3ce93c42534fdcf45d963b4a22f422f7a0ceef7
+  revision: 02a51f85a18bf0c1d4daea97a76970f94923515c
   specs:
     karafka (1.0.0.rc1)
       activesupport (>= 5.0)
@@ -86,7 +86,7 @@ GEM
     inflecto (0.0.2)
     json (2.1.0)
     minitest (5.10.3)
-    multi_json (1.12.1)
+    multi_json (1.12.2)
     null-logger (0.1.4)
     rack (2.0.3)
     rack-protection (2.0.0)
@@ -136,7 +136,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  hitimes
   karafka!
   karafka-sidekiq-backend!
   rspec
