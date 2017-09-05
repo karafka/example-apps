@@ -38,7 +38,7 @@ App.consumer_groups.draw do
   end
 end
 
-  # Consumer group defined with the 0.5 style
+# Consumer group defined with the 0.5 style
 App.consumer_groups.draw do
   topic :aspected_messages do
     controller AspectedMessagesController
