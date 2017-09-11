@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe AspectedMessagesResponder do
-  specify { expect(described_class).to be < ApplicationResponder }
-
   let(:responder) { described_class.new }
+
+  specify { expect(described_class).to be < ApplicationResponder }
 
   describe '#respond' do
     let(:message) { rand.to_s }

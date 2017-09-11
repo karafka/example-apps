@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe InterchangerMessagesController do
-  specify { expect(described_class).to be < ApplicationController }
-
   let(:logger_service) { double }
   let(:controller) { described_class.new }
+
+  specify { expect(described_class).to be < ApplicationController }
 
   describe '#perform' do
     before do
