@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka-sidekiq-backend.git
-  revision: 0f61c66f764d7ce302e43eedf8a7b49ef28df6c1
+  revision: df669df58f622187f71a4ffb536f7965ebbe2e58
   specs:
     karafka-sidekiq-backend (1.0.0)
       karafka (>= 1.0.0)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: 752bc0978e63a9966af66a7bfd2e036771198c42
+  revision: 3e94c8f630a97130cabfb78ca3a399b08b036479
   specs:
     karafka (1.0.0)
       activesupport (>= 5.0)
@@ -113,7 +113,7 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (~> 3.3, >= 3.3.3)
-    simplecov (0.15.0)
+    simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
