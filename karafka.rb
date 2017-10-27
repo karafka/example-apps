@@ -14,7 +14,7 @@ class App < Karafka::App
   setup do |config|
     # Karafka will autodiscover kafka_hosts based on Zookeeper but we need it set manually
     # to run tests without running kafka and zookeper
-    config.kafka.seed_brokers = %w[127.0.0.1:9092]
+    config.kafka.seed_brokers = %w[kafka://127.0.0.1:9092]
     config.client_id = 'example_app'
   end
 end
