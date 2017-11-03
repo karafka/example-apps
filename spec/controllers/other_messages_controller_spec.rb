@@ -5,9 +5,9 @@ RSpec.describe OtherMessagesController do
 
   subject(:controller) { described_class.new }
 
-  describe '#perform' do
+  describe '#consume' do
     it 'does nothing' do
-      expect(controller.perform).to eq false
+      expect(controller.consume).to eq false
     end
   end
 end

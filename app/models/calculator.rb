@@ -23,6 +23,6 @@ class Calculator
 
   # Sends a message to a proper topic
   def send_message(params)
-    WaterDrop::Message.new('aspected_messages', params.to_json).send!
+    WaterDrop::SyncProducer.call(params.to_json, topic: 'aspected_messages')
   end
 end

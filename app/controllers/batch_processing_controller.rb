@@ -6,7 +6,7 @@
 # The batch is accessible using the #params_batch method
 class BatchProcessingController < ApplicationController
   # Performs business logic with messages batch
-  def perform
+  def consume
     # You can access the params_batch as an array and just work with it
     sum = params_batch.map { |param| param[:number] }.sum
     # Then you can do anything with that sum

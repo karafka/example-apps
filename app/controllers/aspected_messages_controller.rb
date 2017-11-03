@@ -4,15 +4,15 @@
 class AspectedMessagesController < ApplicationController
   # Here we set method which should be executed before perform.
   # You can write as many after_received callbacks as it is needed.
-  # If one of after_received callbacks returns false -
+  # If one of after_fetched callbacks returns false -
   # perform method will not be run
-  after_received :check_params
+  after_fetched :check_params
 
   # This controller is in inline_mode so it'll be run immediately, without sidekiq
   # In this example it logs received params in 'log/aspect_controller_params.log' file.
   # For this controller exists responder, so we can use respond_with method, which will send
   # message to topic defined in responder
-  def perform
+  def consume
     LoggerService.new.write_to_file(self, log_file)
 
     respond_with 'Get my message'

@@ -4,7 +4,6 @@ RSpec.describe Generator do
   subject(:generator) { described_class.new }
 
   let(:calculator) { double }
-  let(:message) { double }
 
   describe '#send_messages' do
     before do
@@ -16,12 +15,8 @@ RSpec.describe Generator do
         .to receive(:sum)
         .with(5, 6)
 
-      allow(WaterDrop::Message)
-        .to receive(:new)
-        .and_return(message)
-
-      allow(message)
-        .to receive(:send!)
+      allow(WaterDrop::SyncProducer)
+        .to receive(:call)
     end
 
     it { generator.send_messages }

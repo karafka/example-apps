@@ -6,7 +6,7 @@ RSpec.describe AspectedMessagesController do
 
   specify { expect(described_class).to be < ApplicationController }
 
-  describe '#perform' do
+  describe '#consume' do
     before do
       allow(controller)
         .to receive(:sleep)
@@ -25,7 +25,7 @@ RSpec.describe AspectedMessagesController do
     end
 
     it 'logs to file' do
-      controller.perform
+      controller.consume
     end
   end
 

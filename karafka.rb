@@ -22,8 +22,8 @@ end
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
   consumer_group :batched_group do
-    # Note that this is not the same as batch_processing
-    batch_consuming true
+    # Note that this is not the same as batch_consuming
+    batch_fetching true
 
     topic :basic_messages do
       controller BasicMessagesController
@@ -32,7 +32,7 @@ App.consumer_groups.draw do
 
     topic :batch_processed_messages do
       controller BatchProcessingController
-      batch_processing true
+      batch_consuming true
       backend :inline
     end
   end
