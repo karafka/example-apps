@@ -6,7 +6,7 @@
 This is an example application which uses [Karafka framework](https://github.com/karafka/karafka
 ) to receive messages from [Apache Kafka](http://kafka.apache.org/) server, [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages to Kafka server and (for some topics) [Karafka Sidekiq Backend](https://github.com/karafka/karafka-sidekiq-backend) to process them in Sidekiq.
 
-**Note**: Sidekiq usage in Karafka is optional and it is not a default. To use it, you need to use [Karafka Sidekiq Backend](https://github.com/karafka/karafka-sidekiq-backend). It is added here just as an example of possibility to process things in it automatically.
+**Note**: Sidekiq usage in Karafka is optional and it is not a default. To use it, you need to use Karafka Sidekiq Backend. It is added here just as an example of possibility to process things in it automatically.
 
 To run this application locally you should run Apache Kafka on those hosts and ports which are set in *app.rb* file.
 
