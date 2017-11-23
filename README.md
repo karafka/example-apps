@@ -4,7 +4,7 @@
 [![Join the chat at https://gitter.im/karafka/karafka](https://badges.gitter.im/karafka/karafka.svg)](https://gitter.im/karafka/karafka?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is an example application which uses [Karafka framework](https://github.com/karafka/karafka
-) to receive messages from [Apache Kafka](http://kafka.apache.org/) server, [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages to Kafka server and (for some topics) [Karafka Sidekiq Backend](https://github.com/karafka/karafka-sidekiq-backend) to process them in Sidekiq.
+) to receive messages from [Apache Kafka](http://kafka.apache.org/) server, [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages to Kafka server and (for some topics) [Karafka Sidekiq Backend](https://github.com/karafka/karafka-sidekiq-backend) (optional) to process them in Sidekiq.
 
 **Note**: Sidekiq usage in Karafka is optional and it is not a default. To use it, you need to use Karafka Sidekiq Backend. It is added here just as an example of possibility to process things in it automatically.
 
