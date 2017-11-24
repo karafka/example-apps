@@ -69,6 +69,8 @@ GEM
       rack
     rake (12.3.0)
     redis (4.0.1)
+    redis-namespace (1.6.0)
+      redis (>= 3.0.4)
     require_all (1.4.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
@@ -111,6 +113,7 @@ PLATFORMS
 DEPENDENCIES
   karafka (= 1.1.0)
   karafka-sidekiq-backend (= 1.1.0)
+  redis-namespace
   rspec
   simplecov
 
