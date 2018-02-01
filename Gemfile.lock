@@ -64,7 +64,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     null-logger (0.1.4)
-    rack (2.0.3)
+    rack (2.0.4)
     rack-protection (2.0.0)
       rack
     rake (12.3.0)
