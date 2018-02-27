@@ -2,8 +2,8 @@
 
 source 'https://rubygems.org'
 
-gem 'karafka'
-gem 'karafka-sidekiq-backend'
+gem 'karafka', '1.2.0.beta2'
+gem 'karafka-sidekiq-backend', '1.2.0.beta2'
 
 group :development, :test do
   gem 'rspec'

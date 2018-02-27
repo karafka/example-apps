@@ -14,10 +14,12 @@ class App < Karafka::App
   setup do |config|
     # Karafka will autodiscover kafka_hosts based on Zookeeper but we need it set manually
     # to run tests without running kafka and zookeper
-    config.kafka.seed_brokers = %w[kafka://127.0.0.1:9092]
+    config.kafka.seed_brokers = %w[kafka://172.17.0.3:9092]
     config.client_id = 'example_app'
   end
 end
+
+Karafka.monitor.subscribe(Karafka::Instrumentation::Listener)
 
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
@@ -26,12 +28,12 @@ App.consumer_groups.draw do
     batch_fetching true
 
     topic :basic_messages do
-      controller BasicMessagesController
+      consumer BasicMessagesConsumer
       parser XmlParser
     end
 
     topic :batch_processed_messages do
-      controller BatchProcessingController
+      consumer BatchProcessingConsumer
       batch_consuming true
       backend :inline
     end
@@ -41,21 +43,21 @@ end
 # Consumer group defined with the 0.5 style
 App.consumer_groups.draw do
   topic :aspected_messages do
-    controller AspectedMessagesController
+    consumer AspectedMessagesConsumer
     backend :sidekiq
   end
 
   topic :receiver_message do
-    controller ReceiverMessagesController
+    consumer ReceiverMessagesConsumer
   end
 
   topic :interchanger_messages do
-    controller InterchangerMessagesController
+    consumer InterchangerMessagesConsumer
     interchanger Base64Interchanger
   end
 
   topic :other_messages do
-    controller OtherMessagesController
+    consumer OtherMessagesConsumer
     worker DifferentWorker
   end
 end

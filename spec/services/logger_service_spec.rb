@@ -3,12 +3,12 @@
 RSpec.describe LoggerService do
   subject(:logger_service) { described_class.new }
 
-  let(:controller) { double }
+  let(:consumer) { double }
   let(:path) { '/test/path_to_file.log' }
   let(:file) { double }
 
   before do
-    allow(controller)
+    allow(consumer)
       .to receive(:topic)
       .and_return(OpenStruct.new(message: 'message'))
   end
@@ -24,7 +24,7 @@ RSpec.describe LoggerService do
     end
 
     it 'writes to file' do
-      logger_service.write_to_file(controller, path)
+      logger_service.write_to_file(consumer, path)
     end
   end
 

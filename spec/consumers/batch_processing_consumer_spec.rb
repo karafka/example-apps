@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-RSpec.describe BatchProcessingController do
+RSpec.describe BatchProcessingConsumer do
   pending
 end
