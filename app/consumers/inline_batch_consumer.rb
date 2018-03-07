@@ -8,7 +8,9 @@ class InlineBatchConsumer < ApplicationConsumer
   # Performs business logic with messages batch
   def consume
     # You can access the params_batch as an array and just work with it
-    sum = params_batch.map { |param| param.fetch('number') }.sum
+    sum = params_batch
+            .map { |param| param.fetch('number') }
+            .inject(0){ |sum, val| sum + val }
     Karafka.logger.info "Sum of #{params_batch.count} elements equals to: #{sum}"
   end
 end
