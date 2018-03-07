@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe Karafka::App.consumer_groups do
+RSpec.describe Karafka::App do
   describe 'batched group' do
     let(:group) do
-      Karafka::App.consumer_groups.find do |cg|
+      described_class.consumer_groups.find do |cg|
         cg.name == 'batched_group'
       end
     end
