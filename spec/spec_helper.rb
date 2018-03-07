@@ -8,6 +8,8 @@ require 'simplecov'
 require 'rake'
 require 'logger'
 require 'karafka'
+require 'active_support/core_ext/hash'
+require 'rexml/document'
 
 ENV['KARAFKA_ENV'] ||= 'test'
 
@@ -33,3 +35,5 @@ RSpec.configure do |config|
 end
 
 require './karafka.rb'
+
+Karafka::App.boot!

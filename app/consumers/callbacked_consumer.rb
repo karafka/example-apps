@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+class CallbackedConsumer < ApplicationConsumer
+  include Karafka::Consumers::Callbacks
+
+  # This callback can be used to preprocess received messages
+  # especially if they are going to be
+  after_fetch do
+    # Adds extra params key so we know it is (or not) wednesday
+    params_batch.each do |params|
+      params[:wednesday] = Date.today.wednesday?
+    end
+  end
+
+  before_stop do
+    mark_as_consumed params_batch.last
+    Karafka.logger.info 'Bye bye :('
+  end
+
+  before_poll do
+    Karafka.logger.info "Lets check if there is anything new for #{topic.name}"
+  end
+
+  after_poll do
+    Karafka.logger.info 'Yay! We just checked for new messages!'
+  end
+
+  def consume
+    # We could do something here but this is just an example
+  end
+end

@@ -11,7 +11,7 @@ RSpec.describe XmlParser do
     context 'when message has wrong xml format' do
       let(:message) { '<message>' }
 
-      it { expect { described_class.parse(message) }.to raise_error XmlParser::ParserError }
+      it { expect { described_class.parse(message) }.to raise_error(REXML::ParseException) }
     end
   end
 end

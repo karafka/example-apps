@@ -4,17 +4,11 @@
 # You can use it to process multiple messages at  the same time, for example
 # for batch inserting ito database, etc
 # The batch is accessible using the #params_batch method
-class BatchProcessingConsumer < ApplicationConsumer
+class InlineBatchConsumer < ApplicationConsumer
   # Performs business logic with messages batch
   def consume
     # You can access the params_batch as an array and just work with it
-    sum = params_batch.map { |param| param[:number] }.sum
-    # Then you can do anything with that sum
-    puts "We've got sum of #{params_batch.count} elements equal: #{sum}\n"
-
-    LoggerService.new.write_to_file(
-      self,
-      File.join(Karafka::App.root, 'log', 'batch_processing_consumer.log')
-    )
+    sum = params_batch.map { |param| param.fetch('number') }.sum
+    Karafka.logger.info "Sum of #{params_batch.count} elements equals to: #{sum}"
   end
 end

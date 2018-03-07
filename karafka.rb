@@ -5,6 +5,7 @@ ENV['RACK_ENV'] ||= 'development'
 ENV['KARAFKA_ENV'] ||= ENV['RACK_ENV']
 Bundler.require(:default, ENV['KARAFKA_ENV'])
 Karafka::Loader.load(Karafka::App.root)
+require 'active_support/core_ext/hash'
 
 # App class
 # @note The whole setup and routing could be placed in a single class definition
@@ -17,6 +18,13 @@ class App < Karafka::App
     config.kafka.seed_brokers = %w[kafka://172.17.0.3:9092]
     config.client_id = 'example_app'
   end
+
+  after_init do
+    # Don't send messages in the test env
+    WaterDrop.setup do |config|
+      config.deliver = !Karafka.env.test?
+    end
+  end
 end
 
 Karafka.monitor.subscribe(Karafka::Instrumentation::Listener)
@@ -27,38 +35,36 @@ App.consumer_groups.draw do
     # Note that this is not the same as batch_consuming
     batch_fetching true
 
-    topic :basic_messages do
-      consumer BasicMessagesConsumer
+    topic :xml_data do
+      consumer XmlMessagesConsumer
+      batch_consuming false
       parser XmlParser
     end
 
-    topic :batch_processed_messages do
-      consumer BatchProcessingConsumer
+    topic :inline_batch_data do
+      consumer InlineBatchConsumer
       batch_consuming true
-      backend :inline
+    end
+
+    topic :callbacked_data do
+      consumer CallbackedConsumer
+      batch_consuming true
     end
   end
-end
 
-# Consumer group defined with the 0.5 style
-App.consumer_groups.draw do
-  topic :aspected_messages do
-    consumer AspectedMessagesConsumer
-    backend :sidekiq
-  end
+  # A ping-pong implementation using karafka-sidekiq backend
+  # @note The backend is totally optional, if you disable it, the game will
+  # work as well, it will just consume everything directly
+  consumer_group :async_pong do
+    topic :ping do
+      consumer Pong::PingConsumer
+      backend :sidekiq
+    end
 
-  topic :receiver_message do
-    consumer ReceiverMessagesConsumer
-  end
-
-  topic :interchanger_messages do
-    consumer InterchangerMessagesConsumer
-    interchanger Base64Interchanger
-  end
-
-  topic :other_messages do
-    consumer OtherMessagesConsumer
-    worker DifferentWorker
+    topic :pong do
+      consumer Pong::PongConsumer
+      backend :sidekiq
+    end
   end
 end
 
