@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-RSpec.describe InterchangerMessagesController do
+RSpec.describe InterchangerMessagesConsumer do
   let(:logger_service) { double }
-  let(:controller) { described_class.new }
+  let(:consumer) { described_class.new }
 
-  specify { expect(described_class).to be < ApplicationController }
+  specify { expect(described_class).to be < ApplicationConsumer }
 
   describe '#consume' do
     before do
-      allow(controller)
+      allow(consumer)
         .to receive(:sleep)
         .with(10)
 
@@ -21,7 +21,7 @@ RSpec.describe InterchangerMessagesController do
     end
 
     it 'logs to file' do
-      controller.consume
+      consumer.consume
     end
   end
 end
