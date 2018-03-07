@@ -20,10 +20,7 @@ class App < Karafka::App
   end
 
   after_init do
-    # Don't send messages in the test env
-    WaterDrop.setup do |config|
-      config.deliver = !Karafka.env.test?
-    end
+    WaterDrop.setup { |config| config.deliver = !Karafka.env.test? }
   end
 end
 
@@ -32,7 +29,6 @@ Karafka.monitor.subscribe(Karafka::Instrumentation::Listener)
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
   consumer_group :batched_group do
-    # Note that this is not the same as batch_consuming
     batch_fetching true
 
     topic :xml_data do

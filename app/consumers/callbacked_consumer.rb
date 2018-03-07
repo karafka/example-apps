@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# Consumer that includes some demo callbacks to show you how to use them
 class CallbackedConsumer < ApplicationConsumer
   include Karafka::Consumers::Callbacks
 
@@ -24,6 +26,7 @@ class CallbackedConsumer < ApplicationConsumer
     Karafka.logger.info 'Yay! We just checked for new messages!'
   end
 
+  # Consumes given messages
   def consume
     # We could do something here but this is just an example
   end
