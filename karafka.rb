@@ -15,8 +15,12 @@ class App < Karafka::App
   setup do |config|
     # Karafka will autodiscover kafka_hosts based on Zookeeper but we need it set manually
     # to run tests without running kafka and zookeper
-    config.kafka.seed_brokers = %w[kafka://172.17.0.3:9092]
+    config.kafka.seed_brokers = [ENV['KAFKA_HOST'] || 'kafka://127.0.0.1:9092']
     config.client_id = 'example_app'
+    # Enable those 2 lines if you use Rails and want to use hash with indifferent access for
+    # Karafka params
+    # require 'active_support/hash_with_indifferent_access'
+    # config.params_base_class = HashWithIndifferentAccess
   end
 
   after_init do

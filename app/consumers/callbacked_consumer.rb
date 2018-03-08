@@ -9,7 +9,7 @@ class CallbackedConsumer < ApplicationConsumer
   after_fetch do
     # Adds extra params key so we know it is (or not) wednesday
     params_batch.each do |params|
-      params[:wednesday] = Date.today.wednesday?
+      params['wednesday'] = Date.today.wednesday?
     end
   end
 
@@ -28,6 +28,8 @@ class CallbackedConsumer < ApplicationConsumer
 
   # Consumes given messages
   def consume
-    # We could do something here but this is just an example
+    params_batch.each do |params|
+      Karafka.logger.info "Is it wednesday? #{params['wednesday']}"
+    end
   end
 end
