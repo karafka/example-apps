@@ -35,5 +35,3 @@ RSpec.configure do |config|
 end
 
 require './karafka.rb'
-
-Karafka::App.boot!
