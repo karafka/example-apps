@@ -10,7 +10,7 @@ RSpec.describe InlineBatchConsumer do
   let(:sum) { nr1_value + nr2_value }
 
   before do
-    consumer.params_batch = [{ value: nr1 }, { value: nr2 }]
+    consumer.params_batch = [{ 'value' => nr1 }, { 'value' => nr2 }]
     allow(Karafka.logger).to receive(:info)
   end
 

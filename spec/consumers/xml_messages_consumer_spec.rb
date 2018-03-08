@@ -7,7 +7,7 @@ RSpec.describe XmlMessagesConsumer do
   let(:params) { consumer.send(:params) }
 
   before do
-    consumer.params_batch = [{ value: "<message><new>#{message_content}</new></message>" }]
+    consumer.params_batch = [{ 'value' => "<message><new>#{message_content}</new></message>" }]
     allow(Karafka.logger).to receive(:info)
   end
 
