@@ -14,8 +14,9 @@ To run this application locally you should run Apache Kafka on those hosts and p
 
 Following commands are available. You should run them in the console.
 
-Run sidekiq worker to manage messages background processing (only when using Karafka Sidekiq Backend that is optional):
+Run sidekiq worker to manage messages background processing (only when using Karafka Sidekiq Backend that is optional). You will need to install [Redis](https://github.com/antirez/redis) and run it before running the worker:
 ```
+  redis-server
   bundle exec karafka worker
 ```
 Run Karafka server to consume messages, schedule and/or process them:
