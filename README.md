@@ -14,7 +14,7 @@ To run this application locally you should run Apache Kafka on those hosts and p
 
 Following commands are available. You should run them in the console.
 
-Run sidekiq worker to manage messages background processing (only when using Karafka Sidekiq Backend that is optional). You will need to install [Redis](https://github.com/antirez/redis) and run it before running the worker:
+Run Sidekiq worker to manage messages background processing (only when using Karafka Sidekiq Backend that is optional). You will need to install [Redis](https://github.com/antirez/redis) and run it before running the worker:
 ```
   redis-server
   bundle exec karafka worker
@@ -39,7 +39,7 @@ Generate messages to Kafka server by sending them using WaterDrop:
 
 First, thank you for considering contributing to Karafka! It's people like you that make the open source community such a great community!
 
-Each pull request must pass all the rspec specs and meet our quality requirements.
+Each pull request must pass all the RSpec specs and meet our quality requirements.
 
 To check if everything is as it should be, we use [Coditsu](https://coditsu.io) that combines multiple linters and code analyzers for both code and documentation. Once you're done with your changes, submit a pull request.
 
