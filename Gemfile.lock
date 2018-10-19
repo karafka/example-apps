@@ -53,7 +53,7 @@ GEM
       dry-types (~> 0.13.1)
     envlogic (1.1.0)
       dry-inflector (~> 0.1)
-    i18n (1.1.0)
+    i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
     json (2.1.0-java)
@@ -97,7 +97,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    ruby-kafka (0.7.2)
+    ruby-kafka (0.7.3)
       digest-crc
     sidekiq (5.2.2)
       connection_pool (~> 2.2, >= 2.2.2)
