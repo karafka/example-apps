@@ -1,6 +1,6 @@
 # Karafka example application
 
-[![Build Status](https://travis-ci.org/karafka/example-app.png)](https://travis-ci.org/karafka/example-app)
+[![Build Status](https://travis-ci.org/karafka/example-app.svg)](https://travis-ci.org/karafka/example-app)
 [![Join the chat at https://gitter.im/karafka/karafka](https://badges.gitter.im/karafka/karafka.svg)](https://gitter.im/karafka/karafka?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is an example application which uses [Karafka framework](https://github.com/karafka/karafka
