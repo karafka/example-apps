@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 RSpec.describe InlineBatchConsumer do
-  subject(:consumer) { described_class.new }
+  subject(:consumer) { karafka_consumer_for(:inline_batch_data) }
 
   let(:nr1_value) { rand }
   let(:nr2_value) { rand }
-  let(:nr1) { { 'number' => nr1_value }.to_json }
-  let(:nr2) { { 'number' => nr2_value }.to_json }
   let(:sum) { nr1_value + nr2_value }
 
   before do
-    consumer.params_batch = [{ 'value' => nr1 }, { 'value' => nr2 }]
+    publish_for_karafka({ 'number' => nr1_value }.to_json)
+    publish_for_karafka({ 'number' => nr2_value }.to_json)
     allow(Karafka.logger).to receive(:info)
   end
 

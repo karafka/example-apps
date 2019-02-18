@@ -32,8 +32,8 @@ Generate messages to Kafka server by sending them using WaterDrop:
 ## References
 
 * [Karafka framework](https://github.com/karafka/karafka)
-* [Karafka example application Travis CI](https://travis-ci.org/karafka/karafka-example-app)
-* [Karafka example application Coditsu](https://app.coditsu.io/karafka/repositories/karafka-example-app)
+* [Karafka example application Travis CI](https://travis-ci.org/karafka/example-app)
+* [Karafka example application Coditsu](https://app.coditsu.io/karafka/repositories/example-app)
 
 ## Note on contributions
 
