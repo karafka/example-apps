@@ -145,6 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   byebug
   karafka!
   karafka-sidekiq-backend!

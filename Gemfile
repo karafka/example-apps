@@ -2,6 +2,9 @@
 
 source 'https://rubygems.org'
 
+# ActiveSupport is only used to parse XML
+gem 'activesupport'
+
 gem 'karafka', git: 'https://github.com/karafka/karafka'
 gem 'karafka-sidekiq-backend', git: 'https://github.com/karafka/sidekiq-backend'
 gem 'waterdrop', git: 'https://github.com/karafka/waterdrop'

@@ -11,8 +11,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
   logger
   karafka
   karafka/testing/rspec/helpers
-  active_support/core_ext/hash
-  rexml/document
 ].each(&method(:require))
 
 ENV['KARAFKA_ENV'] ||= 'test'
