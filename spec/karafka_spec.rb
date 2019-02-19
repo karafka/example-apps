@@ -11,7 +11,7 @@ RSpec.describe Karafka do
     describe 'xml_data topic' do
       let(:topic) { group.topics.find { |ts| ts.name == 'xml_data' } }
 
-      it { expect(topic.parser).to eq XmlParser }
+      it { expect(topic.deserializer).to be_a XmlDeserializer }
     end
   end
 end

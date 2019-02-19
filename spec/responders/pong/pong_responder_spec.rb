@@ -13,7 +13,6 @@ RSpec.describe Pong::PongResponder do
 
       it { expect(topic.name).to eq 'ping' }
       it { expect(topic.required?).to be true }
-      it { expect(topic.multiple_usage?).to be false }
     end
   end
 

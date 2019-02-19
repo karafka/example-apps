@@ -11,7 +11,6 @@ RSpec.describe Pong::PingResponder do
 
       it { expect(topic.name).to eq 'pong' }
       it { expect(topic.required?).to be true }
-      it { expect(topic.multiple_usage?).to be false }
     end
   end
 
@@ -25,14 +24,6 @@ RSpec.describe Pong::PingResponder do
     it 'expect to add builds to message buffer' do
       responder.call(input_data)
       expect(responder.messages_buffer['pong']).to eq accumulated_data
-    end
-
-    context 'when we try to use same responder more than once' do
-      let(:error) { Karafka::Errors::InvalidResponderUsage }
-
-      it 'expects to raise an error since its not a multiple usage responder' do
-        expect { 2.times { responder.call(input_data) } }.to raise_error error
-      end
     end
   end
 end

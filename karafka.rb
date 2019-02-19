@@ -5,7 +5,6 @@ ENV['RACK_ENV'] ||= 'development'
 ENV['KARAFKA_ENV'] ||= ENV['RACK_ENV']
 Bundler.require(:default, ENV['KARAFKA_ENV'])
 Karafka::Loader.load(Karafka::App.root)
-require 'active_support/core_ext/hash'
 
 # App class
 # @note The whole setup and routing could be placed in a single class definition
@@ -17,18 +16,15 @@ class App < Karafka::App
     # to run tests without running kafka and zookeper
     config.kafka.seed_brokers = [ENV['KAFKA_HOST'] || 'kafka://127.0.0.1:9092']
     config.client_id = 'example_app'
-    # Enable those 2 lines if you use Rails and want to use hash with indifferent access for
-    # Karafka params
-    # require 'active_support/hash_with_indifferent_access'
-    # config.params_base_class = HashWithIndifferentAccess
   end
 
-  after_init do
+  monitor.subscribe('app.initialized') do
     WaterDrop.setup { |config| config.deliver = !Karafka.env.test? }
   end
 end
 
-Karafka.monitor.subscribe(Karafka::Instrumentation::Listener)
+Karafka.monitor.subscribe(Karafka::Instrumentation::StdoutListener)
+Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener)
 
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
@@ -38,7 +34,7 @@ App.consumer_groups.draw do
     topic :xml_data do
       consumer XmlMessagesConsumer
       batch_consuming false
-      parser XmlParser
+      deserializer XmlDeserializer.new
     end
 
     topic :inline_batch_data do

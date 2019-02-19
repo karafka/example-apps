@@ -3,13 +3,15 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
-require 'rubygems'
-require 'simplecov'
-require 'rake'
-require 'logger'
-require 'karafka'
-require 'active_support/core_ext/hash'
-require 'rexml/document'
+%w[
+  byebug
+  rubygems
+  simplecov
+  rake
+  logger
+  karafka
+  karafka/testing/rspec/helpers
+].each(&method(:require))
 
 ENV['KARAFKA_ENV'] ||= 'test'
 
@@ -28,6 +30,7 @@ end
 RSpec.configure do |config|
   config.disable_monkey_patching!
   config.order = :random
+  config.include Karafka::Testing::RSpec::Helpers
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

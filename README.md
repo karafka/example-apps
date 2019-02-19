@@ -16,7 +16,6 @@ Following commands are available. You should run them in the console.
 
 Run Sidekiq worker to manage messages background processing (only when using Karafka Sidekiq Backend that is optional). You will need to install [Redis](https://github.com/antirez/redis) and run it before running the worker:
 ```
-  redis-server
   bundle exec karafka worker
 ```
 Run Karafka server to consume messages, schedule and/or process them:
@@ -32,8 +31,8 @@ Generate messages to Kafka server by sending them using WaterDrop:
 ## References
 
 * [Karafka framework](https://github.com/karafka/karafka)
-* [Karafka example application Travis CI](https://travis-ci.org/karafka/karafka-example-app)
-* [Karafka example application Coditsu](https://app.coditsu.io/karafka/repositories/karafka-example-app)
+* [Karafka example application Travis CI](https://travis-ci.org/karafka/example-app)
+* [Karafka example application Coditsu](https://app.coditsu.io/karafka/repositories/example-app)
 
 ## Note on contributions
 

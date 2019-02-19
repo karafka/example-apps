@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 RSpec.describe XmlMessagesConsumer do
-  subject(:consumer) { described_class.new }
+  subject(:consumer) { karafka_consumer_for(:xml_data) }
 
   let(:message_content) { "home-#{rand}" }
   let(:params) { consumer.send(:params) }
 
   before do
-    consumer.params_batch = [{ 'value' => "<message><new>#{message_content}</new></message>" }]
+    publish_for_karafka("<message><new>#{message_content}</new></message>")
     allow(Karafka.logger).to receive(:info)
   end
 
@@ -18,6 +18,6 @@ RSpec.describe XmlMessagesConsumer do
 
   it 'expects to unparse message' do
     consumer.consume
-    expect(params['message']['new']).to eq message_content
+    expect(params.payload['message']['new']).to eq message_content
   end
 end
