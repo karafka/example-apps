@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka
-  revision: 235cad4c47a26f42dfe36d8912bfc2a0a561c7d7
+  revision: d4462147e9b970abf3a75cd8ca8b9eabb161f581
   specs:
     karafka (1.3.0)
       dry-configurable (~> 0.8)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/sidekiq-backend
-  revision: 9eec54bc71fe40e9eaefcc3533f441f5ff4c0d5b
+  revision: 9ab0a177f7f2e11067e769362eb94d535861c25b
   specs:
     karafka-sidekiq-backend (1.3.0)
       activesupport (>= 4.0)
@@ -26,13 +26,13 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing
-  revision: 05e9515da85b0d3cad6b34bc46624060cd973d95
+  revision: f82aa0f38501cc906aeb1f4dcddef54d39008798
   specs:
     karafka-testing (1.3.0)
 
 GIT
   remote: https://github.com/karafka/waterdrop
-  revision: 03d4ae58274a8c9472c934ee55a03da9e67cf3b4
+  revision: 52e858a5cb187e0ad74c8240d894858762f5b4ee
   specs:
     waterdrop (1.3.0)
       delivery_boy (~> 0.2)
@@ -59,7 +59,7 @@ GEM
     diff-lcs (1.3)
     digest-crc (0.4.1)
     docile (1.3.1)
-    dry-configurable (0.8.1)
+    dry-configurable (0.8.2)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
     dry-container (0.7.0)
