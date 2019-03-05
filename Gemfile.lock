@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka
-  revision: eb5c9cec47fa8410438f1a646feaeb5c6bf75984
+  revision: f000f449dca3788573b9465ecc23ec35d355778d
   specs:
     karafka (1.3.0)
       dry-configurable (~> 0.8)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/sidekiq-backend
-  revision: dc94f85dbc9dd21ab5831a195c10afabe818298d
+  revision: 96df15856b364204c85413c22f851b92ad78e0cd
   specs:
     karafka-sidekiq-backend (1.3.0)
       activesupport (>= 4.0)
@@ -98,7 +98,7 @@ GEM
       dry-types (~> 0.14, >= 0.14)
     envlogic (1.1.0)
       dry-inflector (~> 0.1)
-    i18n (1.5.3)
+    i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
     king_konf (0.3.7)
