@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka
-  revision: f000f449dca3788573b9465ecc23ec35d355778d
+  revision: ddf81754a3e450b103b9f8ea9cdef09721b9d35d
   specs:
     karafka (1.3.0)
       dry-configurable (~> 0.8)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/sidekiq-backend
-  revision: 96df15856b364204c85413c22f851b92ad78e0cd
+  revision: 2942709dad8733c809bb468ea649b011ea9725fc
   specs:
     karafka-sidekiq-backend (1.3.0)
       activesupport (>= 4.0)
