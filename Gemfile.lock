@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka
-  revision: ddf81754a3e450b103b9f8ea9cdef09721b9d35d
+  revision: a9f80097d2d3f1b293c20af37d0096b0b906c655
   specs:
     karafka (1.3.0)
       dry-configurable (~> 0.8)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/sidekiq-backend
-  revision: 2942709dad8733c809bb468ea649b011ea9725fc
+  revision: 1809496e49a9010218b45d563ed0ae444e1a1752
   specs:
     karafka-sidekiq-backend (1.3.0)
       activesupport (>= 4.0)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/waterdrop
-  revision: a8084bc87d85da7e795b8566cf875dc2dfc612bb
+  revision: 83789048aae7b4579019d601c50e09df3031caf5
   specs:
     waterdrop (1.3.0)
       delivery_boy (~> 0.2)
@@ -45,13 +45,13 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.2)
+    activesupport (5.2.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     byebug (11.0.0)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     delivery_boy (0.2.7)
       king_konf (~> 0.2)
@@ -124,7 +124,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    ruby-kafka (0.7.5)
+    ruby-kafka (0.7.6)
       digest-crc
     sidekiq (5.2.5)
       connection_pool (~> 2.2, >= 2.2.2)
