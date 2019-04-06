@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pong
-  # Respnder triggered from within the pong consumer
+  # Responder triggered from within the pong consumer
   class PongResponder < ApplicationResponder
     topic :ping
 

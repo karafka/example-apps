@@ -12,8 +12,8 @@ Karafka::Loader.load(Karafka::App.root)
 #   a structure similar to rails config/routes.rb, etc.
 class App < Karafka::App
   setup do |config|
-    # Karafka will autodiscover kafka_hosts based on Zookeeper but we need it set manually
-    # to run tests without running kafka and zookeper
+    # Karafka will auto-discover kafka_hosts based on Zookeeper but we need it set manually
+    # to run tests without running kafka and zookeeper
     config.kafka.seed_brokers = [ENV['KAFKA_HOST'] || 'kafka://127.0.0.1:9092']
     config.client_id = 'example_app'
   end

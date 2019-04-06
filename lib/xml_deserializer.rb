@@ -5,7 +5,7 @@ require 'rexml/document'
 
 # Xml deserializer class
 class XmlDeserializer
-  # @param [String] message to deserialize
+  # @param [String] message to de-serialize
   # @return [Hash] deserialized xml
   # @example:
   #   XmlDeserializer.new.call('<node>n</node>')
