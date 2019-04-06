@@ -31,6 +31,7 @@ sftp-config.json
 /test/version_tmp/
 /tmp/
 /config/*.yml
+/.coditsu/local.yml
 
 ## Specific to RubyMotion:
 .dat*
