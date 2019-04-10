@@ -23,8 +23,9 @@ class App < Karafka::App
   end
 end
 
-Karafka.monitor.subscribe(Karafka::Instrumentation::StdoutListener)
-Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener)
+Karafka.monitor.subscribe(WaterDrop::Instrumentation::StdoutListener.new)
+Karafka.monitor.subscribe(Karafka::Instrumentation::StdoutListener.new)
+Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
