@@ -5,6 +5,8 @@ ENV['RACK_ENV'] ||= 'development'
 ENV['KARAFKA_ENV'] ||= ENV['RACK_ENV']
 Bundler.require(:default, ENV['KARAFKA_ENV'])
 
+# Zeitwerk custom loader for loading the app components before the whole
+# Karafka framework configuration
 APP_LOADER = Zeitwerk::Loader.new
 
 %w[
