@@ -4,7 +4,18 @@
 ENV['RACK_ENV'] ||= 'development'
 ENV['KARAFKA_ENV'] ||= ENV['RACK_ENV']
 Bundler.require(:default, ENV['KARAFKA_ENV'])
-Karafka::Loader.load(Karafka::App.root)
+
+APP_LOADER = Zeitwerk::Loader.new
+
+%w[
+  lib
+  app/consumers
+  app/responders
+  app/workers
+].each(&APP_LOADER.method(:push_dir))
+
+APP_LOADER.setup
+APP_LOADER.eager_load
 
 # App class
 # @note The whole setup and routing could be placed in a single class definition
