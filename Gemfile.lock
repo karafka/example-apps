@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka
-  revision: 4208838bac6d7e4846c3730c6bc30bfeed787d0f
+  revision: 664b2124ea0a5a34a7865cc33c26681019096f42
   specs:
     karafka (1.3.0)
       dry-configurable (~> 0.8)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/sidekiq-backend
-  revision: 5c0528934fc521819264b774fcdb7aa1b12d660b
+  revision: 9269a423a4c7ee13dad6db12a44488e4579f4772
   specs:
     karafka-sidekiq-backend (1.3.0)
       activesupport (>= 4.0)
@@ -27,14 +27,14 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing
-  revision: 306e9adef4f4229e4ea48e21ee533dbddac6b2c9
+  revision: d5f14604ee04a4ed7665316950b6b18fe97510d2
   specs:
     karafka-testing (1.3.0)
       karafka (~> 1.3)
 
 GIT
   remote: https://github.com/karafka/waterdrop
-  revision: 2c68baa5b20f08d6fc32abc4bf390615a38becc7
+  revision: 02d26b45a5745c8a5831cc3f1f4d4731a53eb751
   specs:
     waterdrop (1.3.0)
       delivery_boy (~> 0.2)
