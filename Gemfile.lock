@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka
-  revision: 139d791df0c791adfcbd8883d384548ae250eab1
+  revision: 5ac5688952d08f29c0f345632ba11cfb7cd2af4c
   specs:
     karafka (1.3.0)
       dry-configurable (~> 0.8)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/sidekiq-backend
-  revision: f868fa3ceafb2d60e5c13d6f52dc25d514bc274d
+  revision: e5d5110e72ebbdedeebe7da3e5f64c4099e9e34a
   specs:
     karafka-sidekiq-backend (1.3.0)
       activesupport (>= 4.0)
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing
-  revision: b5fcc756a32d651c7a020f8b0483ef8e90aa62d7
+  revision: 1cbae854b7b1f76fa4ffe64e00dd07aa838b74c0
   specs:
     karafka-testing (1.3.0)
       karafka (~> 1.3)
@@ -67,7 +67,7 @@ GEM
     dry-container (0.7.1)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
-    dry-core (0.4.7)
+    dry-core (0.4.8)
       concurrent-ruby (~> 1.0)
     dry-equalizer (0.2.2)
     dry-events (0.1.1)
