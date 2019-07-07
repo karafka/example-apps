@@ -49,11 +49,13 @@ Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 # for more details on benefits and downsides of the code reload in the
 # development mode
 #
-# Karafka.monitor.subscribe(
-#   Karafka::CodeReloader.new(
-#     APP_LOADER
+# if Karafka::App.env.development?
+#   Karafka.monitor.subscribe(
+#     Karafka::CodeReloader.new(
+#       APP_LOADER
+#     )
 #   )
-# )
+# end
 
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
