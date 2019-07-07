@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-# Non Ruby on Rails setup
+# This is a non-Rails example app!
+# This file is auto-generated during the install process.
+# If by any chance you've wanted a setup for Rails app, either run the `karafka:install`
+# command again or refer to the install templates available in the source codes
+
 ENV['RACK_ENV'] ||= 'development'
 ENV['KARAFKA_ENV'] ||= ENV['RACK_ENV']
 Bundler.require(:default, ENV['KARAFKA_ENV'])
@@ -40,6 +44,17 @@ Karafka.monitor.subscribe(WaterDrop::Instrumentation::StdoutListener.new)
 Karafka.monitor.subscribe(Karafka::Instrumentation::StdoutListener.new)
 Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 
+# Uncomment that in order to achieve code reload in development mode
+# Be aware, that this might have some side-effects. Please refer to the wiki
+# for more details on benefits and downsides of the code reload in the
+# development mode
+#
+# Karafka.monitor.subscribe(
+#   Karafka::CodeReloader.new(
+#     APP_LOADER
+#   )
+# )
+
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
   consumer_group :batched_group do
@@ -76,6 +91,11 @@ App.consumer_groups.draw do
       backend :sidekiq
     end
   end
+end
+
+Karafka.monitor.subscribe('app.initialized') do
+  # Put here all the things you want to do after the Karafka framework
+  # initialization
 end
 
 App.boot!
