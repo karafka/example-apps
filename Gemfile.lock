@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing
-  revision: d0e8bd5c9a2ed595045d10771ca73424d8afc125
+  revision: 243117ac0b133b863797bba2913192a49c83ab6b
   specs:
     karafka-testing (1.3.0)
       karafka (~> 1.3)
