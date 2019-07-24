@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/sidekiq-backend
-  revision: b909f9e7416b20eb6515126d8ee0ef15d65810aa
+  revision: e804988f246e2484ef6b72f06da56dda51d2ea80
   specs:
     karafka-sidekiq-backend (1.3.0)
       karafka (~> 1.3)
