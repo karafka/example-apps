@@ -5,11 +5,11 @@ require 'rexml/document'
 
 # Xml deserializer class
 class XmlDeserializer
-  # @param [String] message to de-serialize
+  # @param params [Karafka::Params::Params] params to de-serialize
   # @return [Hash] deserialized xml
   # @example:
   #   XmlDeserializer.new.call('<node>n</node>')
-  def call(message)
-    ::Hash.from_xml(message)
+  def call(params)
+    ::Hash.from_xml(params.payload)
   end
 end
