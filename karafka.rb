@@ -12,6 +12,7 @@ Bundler.require(:default, ENV['KARAFKA_ENV'])
 # Zeitwerk custom loader for loading the app components before the whole
 # Karafka framework configuration
 APP_LOADER = Zeitwerk::Loader.new
+APP_LOADER.enable_reloading
 
 %w[
   lib
@@ -98,6 +99,16 @@ end
 Karafka.monitor.subscribe('app.initialized') do
   # Put here all the things you want to do after the Karafka framework
   # initialization
+end
+
+# Please read this page before you decide to use auto-reloading
+# https://github.com/karafka/karafka/wiki/Auto-reload-of-code-changes-in-development
+if Karafka::App.env.development?
+  Karafka.monitor.subscribe(
+    Karafka::CodeReloader.new(
+      APP_LOADER
+    )
+  )
 end
 
 App.boot!
