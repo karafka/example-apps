@@ -5,12 +5,12 @@ source 'https://rubygems.org'
 # ActiveSupport is only used to parse XML
 gem 'activesupport'
 
-gem 'karafka', '1.3.0.rc1'
-gem 'karafka-sidekiq-backend', '1.3.0.rc1'
+gem 'karafka'
+gem 'karafka-sidekiq-backend'
 
 group :development, :test do
   gem 'byebug'
-  gem 'karafka-testing', '1.3.0.rc1'
+  gem 'karafka-testing'
   gem 'rspec'
   gem 'simplecov'
 end
