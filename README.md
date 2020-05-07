@@ -1,6 +1,6 @@
 # Karafka example application
 
-[![Build Status](https://travis-ci.org/karafka/example-app.svg)](https://travis-ci.org/karafka/example-app)
+[![Build Status](https://github.com/karafka/envlogic/example-app/ci/badge.svg)](https://github.com/karafka/example-app/actions?query=workflow%3Aci)
 [![Join the chat at https://gitter.im/karafka/karafka](https://badges.gitter.im/karafka/karafka.svg)](https://gitter.im/karafka/karafka?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This is an example application which uses [Karafka framework](https://github.com/karafka/karafka
@@ -31,7 +31,7 @@ Generate messages to Kafka server by sending them using WaterDrop:
 ## References
 
 * [Karafka framework](https://github.com/karafka/karafka)
-* [Karafka example application Travis CI](https://travis-ci.org/karafka/example-app)
+* [Karafka example application Actions CI](https://github.com/karafka/example-app/actions?query=workflow%3Aci)
 * [Karafka example application Coditsu](https://app.coditsu.io/karafka/repositories/example-app)
 
 ## Note on contributions
