@@ -34,8 +34,6 @@ jobs:
         run: |
           bundle config set without development
           bundle install --jobs 4 --retry 3
-      - name: Run Kafka with docker-compose
-        run: docker-compose up -d
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
