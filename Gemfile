@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+plugin 'diffend'
+
 # ActiveSupport is only used to parse XML
 gem 'activesupport'
 
