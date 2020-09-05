@@ -10,6 +10,6 @@ class XmlDeserializer
   # @example:
   #   XmlDeserializer.new.call('<node>n</node>')
   def call(params)
-    ::Hash.from_xml(params.payload)
+    ::Hash.from_xml(params.raw_payload)
   end
 end

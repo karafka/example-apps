@@ -5,10 +5,10 @@ RSpec.describe XmlDeserializer do
 
   describe '#call' do
     let(:params) do
-      Karafka::Params::Params.new.tap do |params|
-        params['payload'] = message
-        params['deserializer'] = deserializer
-      end
+      Karafka::Params::Params.new(
+        message,
+        Karafka::Params::Metadata.new(deserializer: deserializer)
+      )
     end
 
     context 'when message has correct xml format' do
