@@ -139,7 +139,7 @@ DEPENDENCIES
   byebug
   karafka (= 1.4.0.rc2)
   karafka-sidekiq-backend
-  karafka-testing (= 1.4.1)
+  karafka-testing
   rspec
   simplecov
 
