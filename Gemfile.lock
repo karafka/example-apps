@@ -86,7 +86,7 @@ GEM
     karafka-sidekiq-backend (1.4.0)
       karafka (~> 1.4.0.rc2)
       sidekiq (>= 4.2)
-    karafka-testing (1.4.0)
+    karafka-testing (1.4.1)
       karafka (~> 1.4.0.rc2)
     king_konf (0.3.7)
     minitest (5.14.2)
@@ -139,7 +139,7 @@ DEPENDENCIES
   byebug
   karafka (= 1.4.0.rc2)
   karafka-sidekiq-backend
-  karafka-testing
+  karafka-testing (= 1.4.1)
   rspec
   simplecov
 

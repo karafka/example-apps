@@ -12,7 +12,7 @@ gem 'karafka-sidekiq-backend'
 
 group :development, :test do
   gem 'byebug'
-  gem 'karafka-testing'
+  gem 'karafka-testing', '1.4.1'
   gem 'rspec'
   gem 'simplecov'
 end
