@@ -7,7 +7,7 @@ plugin 'diffend'
 # ActiveSupport is only used to parse XML
 gem 'activesupport'
 
-gem 'karafka', '1.4.0.rc2'
+gem 'karafka', '1.4.0'
 gem 'karafka-sidekiq-backend'
 
 group :development, :test do
