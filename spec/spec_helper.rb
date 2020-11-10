@@ -37,4 +37,4 @@ RSpec.configure do |config|
   end
 end
 
-require './karafka.rb'
+require './karafka'
