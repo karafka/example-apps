@@ -95,6 +95,7 @@ GEM
     redis (4.2.2)
     reline (0.1.5)
       io-console (~> 0.5)
+    rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -140,8 +141,9 @@ DEPENDENCIES
   karafka (= 1.4.0)
   karafka-sidekiq-backend
   karafka-testing
+  rexml
   rspec
   simplecov
 
 BUNDLED WITH
-   2.1.4
+   2.2.3

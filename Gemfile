@@ -4,8 +4,9 @@ source 'https://rubygems.org'
 
 plugin 'diffend'
 
-# ActiveSupport is only used to parse XML
+# ActiveSupport and rexml are only used for XML support
 gem 'activesupport'
+gem 'rexml'
 
 gem 'karafka', '1.4.0'
 gem 'karafka-sidekiq-backend'
