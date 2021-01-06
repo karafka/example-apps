@@ -87,7 +87,7 @@ GEM
     karafka-testing (1.4.1)
       karafka (~> 1.4.0.rc2)
     king_konf (0.3.7)
-    minitest (5.14.2)
+    minitest (5.14.3)
     rack (2.2.3)
     rake (13.0.3)
     redis (4.2.5)
