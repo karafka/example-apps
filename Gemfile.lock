@@ -67,7 +67,7 @@ GEM
     io-console (0.5.9)
     irb (1.3.4)
       reline (>= 0.1.5)
-    karafka (1.4.0)
+    karafka (1.4.3)
       dry-configurable (~> 0.8)
       dry-inflector (~> 0.1)
       dry-monitor (~> 0.3)
@@ -135,7 +135,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   byebug
-  karafka (= 1.4.0)
+  karafka
   karafka-sidekiq-backend
   karafka-testing
   rexml

@@ -8,7 +8,7 @@ plugin 'diffend'
 gem 'activesupport'
 gem 'rexml'
 
-gem 'karafka', '1.4.0'
+gem 'karafka'
 gem 'karafka-sidekiq-backend'
 
 group :development, :test do
