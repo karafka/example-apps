@@ -1,7 +1,7 @@
 # Karafka example application
 
 [![Build Status](https://github.com/karafka/example-app/actions/workflows/ci.yml/badge.svg)](https://github.com/karafka/example-app/actions/workflows/ci.yml)
-[![Join the chat at https://gitter.im/karafka/karafka](https://badges.gitter.im/karafka/karafka.svg)](https://gitter.im/karafka/karafka)
+[![Join the chat at https://slack.karafka.io](https://raw.githubusercontent.com/karafka/misc/master/slack.svg)](https://slack.karafka.io)
 
 This is an example application which uses [Karafka framework](https://github.com/karafka/karafka
 ) to receive messages from [Apache Kafka](http://kafka.apache.org/) server, [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages to Kafka server and (for some topics) [Karafka Sidekiq Backend](https://github.com/karafka/karafka-sidekiq-backend) (optional) to process them in Sidekiq.
@@ -36,10 +36,8 @@ Generate messages to Kafka server by sending them using WaterDrop:
 
 ## Note on contributions
 
-First, thank you for considering contributing to Karafka! It's people like you that make the open source community such a great community!
+First, thank you for considering contributing to the Karafka ecosystem! It's people like you that make the open source community such a great community!
 
-Each pull request must pass all the RSpec specs and meet our quality requirements.
+Each pull request must pass all the RSpec specs, integration tests and meet our quality requirements.
 
-To check if everything is as it should be, we use [Coditsu](https://coditsu.io) that combines multiple linters and code analyzers for both code and documentation. Once you're done with your changes, submit a pull request.
-
-Coditsu will automatically check your work against our quality standards. You can find your commit check results on the [builds page](https://app.coditsu.io/karafka/repositories/karafka-example-app/builds/commit_builds) of Karafka example app repository.
+Fork it, update and wait for the Github Actions results.
