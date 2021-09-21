@@ -133,9 +133,9 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   byebug
-  karafka
-  karafka-sidekiq-backend
-  karafka-testing
+  karafka (~> 1.4)
+  karafka-sidekiq-backend (~> 1.4)
+  karafka-testing (~> 1.4)
   rexml
   rspec
   simplecov

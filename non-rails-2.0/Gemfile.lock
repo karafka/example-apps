@@ -1,0 +1,135 @@
+GIT
+  remote: https://github.com/karafka/karafka.git
+  revision: c236d1ad0d686d3b9a6929e8653f90b4ae0bf1d9
+  branch: 2.0
+  specs:
+    karafka (2.0.0.pre.alpha1)
+      dry-configurable (~> 0.13)
+      dry-monitor (~> 0.5)
+      dry-validation (~> 1.7)
+      irb (~> 1.0)
+      rdkafka (>= 0.10)
+      thor (>= 0.20)
+      waterdrop (~> 2.0)
+      zeitwerk (~> 2.3)
+
+GIT
+  remote: https://github.com/karafka/testing.git
+  revision: 16a33452e9f3f6a0a73fa9248306a614bf1b2d0f
+  specs:
+    karafka-testing (2.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (6.1.4.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
+    byebug (11.1.3)
+    concurrent-ruby (1.1.9)
+    diff-lcs (1.4.4)
+    docile (1.4.0)
+    dry-configurable (0.13.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.6)
+    dry-container (0.9.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
+    dry-core (0.7.1)
+      concurrent-ruby (~> 1.0)
+    dry-events (0.3.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.5, >= 0.5)
+    dry-inflector (0.2.1)
+    dry-initializer (3.0.4)
+    dry-logic (1.2.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.5, >= 0.5)
+    dry-monitor (0.5.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-events (~> 0.2)
+    dry-schema (1.8.0)
+      concurrent-ruby (~> 1.0)
+      dry-configurable (~> 0.13, >= 0.13.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-initializer (~> 3.0)
+      dry-logic (~> 1.0)
+      dry-types (~> 1.5)
+    dry-types (1.5.1)
+      concurrent-ruby (~> 1.0)
+      dry-container (~> 0.3)
+      dry-core (~> 0.5, >= 0.5)
+      dry-inflector (~> 0.1, >= 0.1.2)
+      dry-logic (~> 1.0, >= 1.0.2)
+    dry-validation (1.7.0)
+      concurrent-ruby (~> 1.0)
+      dry-container (~> 0.7, >= 0.7.1)
+      dry-core (~> 0.5, >= 0.5)
+      dry-initializer (~> 3.0)
+      dry-schema (~> 1.8, >= 1.8.0)
+    ffi (1.15.4)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
+    io-console (0.5.9)
+    irb (1.3.7)
+      reline (>= 0.2.7)
+    mini_portile2 (2.7.0)
+    minitest (5.14.4)
+    rake (13.0.6)
+    rdkafka (0.10.0)
+      ffi (~> 1.9)
+      mini_portile2 (~> 2.1)
+      rake (>= 12.3)
+    reline (0.2.7)
+      io-console (~> 0.5)
+    rexml (3.2.5)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.1)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.2)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.3)
+    thor (1.1.0)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
+    waterdrop (2.0.4)
+      concurrent-ruby (>= 1.1)
+      dry-configurable (~> 0.13)
+      dry-monitor (~> 0.5)
+      dry-validation (~> 1.7)
+      rdkafka (>= 0.10)
+      zeitwerk (~> 2.3)
+    zeitwerk (2.4.2)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  activesupport
+  byebug
+  karafka!
+  karafka-testing!
+  rake
+  rexml
+  rspec
+  simplecov
+
+BUNDLED WITH
+   2.2.27
