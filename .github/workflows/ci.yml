@@ -48,7 +48,6 @@ jobs:
 
   v1_4-non-rails-specs:
     runs-on: ubuntu-latest
-    needs: v1_4-non-rails-coditsu
     strategy:
       fail-fast: false
       matrix:
