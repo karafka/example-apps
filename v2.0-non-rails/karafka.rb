@@ -17,6 +17,7 @@ APP_LOADER = Zeitwerk::Loader.new
 APP_LOADER.setup
 APP_LOADER.eager_load
 
+# App class
 class App < Karafka::App
   setup do |config|
     config.concurrency = 5
