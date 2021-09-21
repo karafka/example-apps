@@ -79,4 +79,6 @@ jobs:
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
-        run: bundle exec rspec
+        run: |
+          cd v1.4-non-rails
+          bundle exec rspec
