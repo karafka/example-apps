@@ -120,6 +120,8 @@ jobs:
       - name: Run Coditsu
         run: |
           cd v2.0-non-rails
+          rm -rf ../.git
+          git init ./
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
   v2_0-non-rails-specs:
