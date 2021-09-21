@@ -7,7 +7,7 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  1_4-non-rails-diffend:
+  v1_4-non-rails-diffend:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -32,9 +32,9 @@ jobs:
           cd non-rails-1.4
           bundle secure
 
-  1_4-non-rails-coditsu:
+  v1_4-non-rails-coditsu:
     runs-on: ubuntu-latest
-    needs: 1_4-non-rails-diffend
+    needs: v1_4-non-rails-diffend
     strategy:
       fail-fast: false
     steps:
@@ -46,9 +46,9 @@ jobs:
           cd non-rails-1.4
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
-  1_4-non-rails-specs:
+  v1_4-non-rails-specs:
     runs-on: ubuntu-latest
-    needs: 1_4-non-rails-coditsu
+    needs: v1_4-non-rails-coditsu
     strategy:
       fail-fast: false
       matrix:
