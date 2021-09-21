@@ -21,15 +21,15 @@ jobs:
           ruby-version: 3.0
       - name: Install latest bundler
         run: |
-          cd non-rails-1.4
+          cd v1.4-non-rails
           gem install bundler --no-document
       - name: Install Diffend plugin
         run:
-          cd non-rails-1.4
+          cd v1.4-non-rails
           bundle plugin install diffend
       - name: Bundle Secure
         run: |
-          cd non-rails-1.4
+          cd v1.4-non-rails
           bundle secure
 
   v1_4-non-rails-coditsu:
@@ -43,7 +43,7 @@ jobs:
           fetch-depth: 0
       - name: Run Coditsu
         run: |
-          cd non-rails-1.4
+          cd v1.4-non-rails
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
   v1_4-non-rails-specs:
@@ -69,12 +69,12 @@ jobs:
           ruby-version: ${{matrix.ruby}}
       - name: Install latest bundler
         run: |
-          cd non-rails-1.4
+          cd v1.4-non-rails
           gem install bundler --no-document
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
-          cd non-rails-1.4
+          cd v1.4-non-rails
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Run all tests
