@@ -7,9 +7,48 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  non-rails-1.4-specs:
+  1.4-non-rails-diffend:
     runs-on: ubuntu-latest
-    needs: diffend
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Install latest bundler
+        run: |
+          cd non-rails-1.4
+          gem install bundler --no-document
+      - name: Install Diffend plugin
+        run:
+          cd non-rails-1.4
+          bundle plugin install diffend
+      - name: Bundle Secure
+        run: |
+          cd non-rails-1.4
+          bundle secure
+
+  1.4-non-rails-coditsu:
+    runs-on: ubuntu-latest
+    needs: 1.4-non-rails-diffend
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run Coditsu
+        run: |
+          cd non-rails-1.4
+          \curl -sSL https://api.coditsu.io/run/ci | bash
+
+  1.4-non-rails-specs:
+    runs-on: ubuntu-latest
+    needs: 1.4-non-rails-coditsu
     strategy:
       fail-fast: false
       matrix:
@@ -42,41 +81,3 @@ jobs:
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: bundle exec rspec
-
-  non-rails-1.4-diffend:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.0
-      - name: Install latest bundler
-        run: |
-          cd non-rails-1.4
-          gem install bundler --no-document
-      - name: Install Diffend plugin
-        run:
-          cd non-rails-1.4
-          bundle plugin install diffend
-      - name: Bundle Secure
-        run: |
-          cd non-rails-1.4
-          bundle secure
-
-  non-rails-1.4-coditsu:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Run Coditsu
-        run: |
-          cd non-rails-1.4
-          \curl -sSL https://api.coditsu.io/run/ci | bash
