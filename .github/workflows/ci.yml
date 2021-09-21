@@ -7,7 +7,7 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  specs:
+  non-rails-1.4-specs:
     runs-on: ubuntu-latest
     needs: diffend
     strategy:
@@ -30,10 +30,12 @@ jobs:
           ruby-version: ${{matrix.ruby}}
       - name: Install latest bundler
         run: |
+          cd non-rails-1.4
           gem install bundler --no-document
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
+          cd non-rails-1.4
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Run all tests
@@ -41,7 +43,7 @@ jobs:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: bundle exec rspec
 
-  diffend:
+  non-rails-1.4-diffend:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -54,13 +56,19 @@ jobs:
         with:
           ruby-version: 3.0
       - name: Install latest bundler
-        run: gem install bundler --no-document
+        run: |
+          cd non-rails-1.4
+          gem install bundler --no-document
       - name: Install Diffend plugin
-        run: bundle plugin install diffend
+        run:
+          cd non-rails-1.4
+          bundle plugin install diffend
       - name: Bundle Secure
-        run: bundle secure
+        run: |
+          cd non-rails-1.4
+          bundle secure
 
-  coditsu:
+  non-rails-1.4-coditsu:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -69,4 +77,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Coditsu
-        run: \curl -sSL https://api.coditsu.io/run/ci | bash
+        run: |
+          cd non-rails-1.4
+          \curl -sSL https://api.coditsu.io/run/ci | bash
