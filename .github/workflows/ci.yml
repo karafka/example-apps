@@ -24,7 +24,7 @@ jobs:
           cd v1.4-non-rails
           gem install bundler --no-document
       - name: Install Diffend plugin
-        run:
+        run: |
           cd v1.4-non-rails
           bundle plugin install diffend
       - name: Bundle Secure
