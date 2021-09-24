@@ -1,4 +1,4 @@
-# Karafka example application
+# Karafka example applications
 
 [![Build Status](https://github.com/karafka/example-app/actions/workflows/ci.yml/badge.svg)](https://github.com/karafka/example-app/actions/workflows/ci.yml)
 [![Join the chat at https://slack.karafka.io](https://raw.githubusercontent.com/karafka/misc/master/slack.svg)](https://slack.karafka.io)
@@ -8,11 +8,15 @@ This repository contains  example applications which uses [Karafka framework](ht
 
 To run those applications locally start Apacke Kafka with the included `docker-compose.yml` and follow instructions from the sub-READMEs.
 
+## Applications available
+
+- Karafka `2.0` non Rails based [application example](https://github.com/karafka/example-apps/tree/master/v2.0-non-rails)
+- Karafka `1.4` non Rails based [application example](https://github.com/karafka/example-apps/tree/master/v1.4-non-rails)
+
 ## References
 
 * [Karafka framework](https://github.com/karafka/karafka)
 * [Karafka example applications Actions CI](https://github.com/karafka/example-apps/actions?query=workflow%3Aci)
-* [Karafka example applications Coditsu](https://app.coditsu.io/karafka/repositories/example-apps)
 
 ## Note on contributions
 
