@@ -7,9 +7,53 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  specs:
+  v1_4-non-rails-diffend:
     runs-on: ubuntu-latest
-    needs: diffend
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Install latest bundler
+        run: |
+          cd v1.4-non-rails
+          gem install bundler --no-document
+      - name: Install Diffend plugin
+        run: |
+          cd v1.4-non-rails
+          bundle plugin install diffend
+      - name: Bundle Secure
+        run: |
+          cd v1.4-non-rails
+          bundle secure
+
+  v1_4-non-rails-coditsu:
+    runs-on: ubuntu-latest
+    needs: v1_4-non-rails-diffend
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run Coditsu
+        run: |
+          cd v1.4-non-rails
+          rm -rf ../.git
+          git init ./
+          git config --global user.email "maciej@mensfeld.pl"
+          git config --global user.name "maciej@mensfeld.pl"
+          git add ./
+          git commit -m "CI run"
+          \curl -sSL https://api.coditsu.io/run/ci | bash
+
+  v1_4-non-rails-specs:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -30,18 +74,22 @@ jobs:
           ruby-version: ${{matrix.ruby}}
       - name: Install latest bundler
         run: |
+          cd v1.4-non-rails
           gem install bundler --no-document
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
+          cd v1.4-non-rails
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
-        run: bundle exec rspec
+        run: |
+          cd v1.4-non-rails
+          bundle exec rspec
 
-  diffend:
+  v2_0-non-rails-diffend:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -54,14 +102,21 @@ jobs:
         with:
           ruby-version: 3.0
       - name: Install latest bundler
-        run: gem install bundler --no-document
+        run: |
+          cd v2.0-non-rails
+          gem install bundler --no-document
       - name: Install Diffend plugin
-        run: bundle plugin install diffend
+        run: |
+          cd v2.0-non-rails
+          bundle plugin install diffend
       - name: Bundle Secure
-        run: bundle secure
+        run: |
+          cd v2.0-non-rails
+          bundle secure
 
-  coditsu:
+  v2_0-non-rails-coditsu:
     runs-on: ubuntu-latest
+    needs: v2_0-non-rails-diffend
     strategy:
       fail-fast: false
     steps:
@@ -69,4 +124,49 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run Coditsu
-        run: \curl -sSL https://api.coditsu.io/run/ci | bash
+        run: |
+          cd v2.0-non-rails
+          rm -rf ../.git
+          git init ./
+          git config --global user.email "maciej@mensfeld.pl"
+          git config --global user.name "maciej@mensfeld.pl"
+          git add ./
+          git commit -m "CI run"
+          \curl -sSL https://api.coditsu.io/run/ci | bash
+
+  v2_0-non-rails-specs:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - '3.0'
+          - '2.7'
+          - '2.6'
+        include:
+          - ruby: '3.0'
+            coverage: 'true'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install package dependencies
+        run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{matrix.ruby}}
+      - name: Install latest bundler
+        run: |
+          cd v2.0-non-rails
+          gem install bundler --no-document
+          bundle config set without 'tools benchmarks docs'
+      - name: Bundle install
+        run: |
+          cd v2.0-non-rails
+          bundle config set without development
+          bundle install --jobs 4 --retry 3
+      - name: Run all tests
+        env:
+          GITHUB_COVERAGE: ${{matrix.coverage}}
+        run: |
+          cd v2.0-non-rails
+          bundle exec rspec

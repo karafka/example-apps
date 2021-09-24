@@ -8,12 +8,12 @@ plugin 'diffend'
 gem 'activesupport'
 gem 'rexml'
 
-gem 'karafka'
-gem 'karafka-sidekiq-backend'
+gem 'karafka', '~> 1.4'
+gem 'karafka-sidekiq-backend', '~> 1.4'
 
 group :development, :test do
   gem 'byebug'
-  gem 'karafka-testing'
+  gem 'karafka-testing', '~> 1.4'
   gem 'rspec'
   gem 'simplecov'
 end
