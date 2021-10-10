@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: 9d53b6844a26e1f4074d88d1ab9a436a7f56dc1c
+  revision: eb638b913f791adb2918aa8031daa13522cd09eb
   branch: 2.0
   specs:
     karafka (2.0.0.pre.alpha1)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing.git
-  revision: 16a33452e9f3f6a0a73fa9248306a614bf1b2d0f
+  revision: 260c25ffc765e976e2b24c580f5f49c5133feadc
   specs:
     karafka-testing (2.0.0)
 
@@ -119,6 +119,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
@@ -132,4 +133,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.2.27
+   2.2.28
