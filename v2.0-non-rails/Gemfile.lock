@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing.git
-  revision: fb6b95c4292c9c2accf9cf39ce352e5a2edba9b4
+  revision: ed362dd6d3c58fc72da91d33234bd7ed4149f9d9
   specs:
     karafka-testing (2.0.0)
 
@@ -119,6 +119,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
