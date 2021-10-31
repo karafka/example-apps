@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: 47128875a83ee94c6b2c3da73e36ddbcb87a5cf6
+  revision: a13a5dcc5ec2d1dff8c6efb4c1c5df69babc3f21
   branch: 2.0
   specs:
     karafka (2.0.0.pre.alpha1)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing.git
-  revision: 1f36757bf5a0982f6520832183f302cbffa3a980
+  revision: 1fca5d9289bb6838ae7f4152bfb31a90607bc4ac
   specs:
     karafka-testing (2.0.0)
 
@@ -133,4 +133,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.2.29
+   2.2.30
