@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: a13a5dcc5ec2d1dff8c6efb4c1c5df69babc3f21
+  revision: c08f06a340efa21e473462f73cf3cfb4e40741f9
   branch: 2.0
   specs:
     karafka (2.0.0.pre.alpha1)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing.git
-  revision: 1fca5d9289bb6838ae7f4152bfb31a90607bc4ac
+  revision: 4ff4fc5145606f7a06d553a08862af11044ed772
   specs:
     karafka-testing (2.0.0)
 
@@ -80,10 +80,10 @@ GEM
     mini_portile2 (2.7.1)
     minitest (5.14.4)
     rake (13.0.6)
-    rdkafka (0.10.0)
-      ffi (~> 1.9)
-      mini_portile2 (~> 2.1)
-      rake (>= 12.3)
+    rdkafka (0.11.0)
+      ffi (~> 1.15)
+      mini_portile2 (~> 2.7)
+      rake (> 12)
     reline (0.2.7)
       io-console (~> 0.5)
     rexml (3.2.5)
@@ -133,4 +133,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.2.30
+   2.2.31
