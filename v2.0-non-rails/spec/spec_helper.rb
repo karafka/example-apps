@@ -6,7 +6,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 ENV['KARAFKA_ENV'] ||= 'test'
 
 %w[
-  byebug
   rubygems
   simplecov
   rake
@@ -14,6 +13,8 @@ ENV['KARAFKA_ENV'] ||= 'test'
   karafka
   karafka/testing/rspec/helpers
 ].each(&method(:require))
+
+require 'byebug' unless defined?(JRUBY_VERSION)
 
 # Don't include unnecessary stuff into rcov
 SimpleCov.start do
