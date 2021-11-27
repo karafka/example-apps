@@ -11,6 +11,11 @@ class InlineBatchConsumer < ApplicationConsumer
     sum = params_batch
           .map { |param| param.payload['number'] }
           .inject(0) { |accu, val| accu + val }
+
     Karafka.logger.info "Sum of #{params_batch.count} elements equals to: #{sum}"
+
+    # This is not needed as automatic offset management is on, but we add it just to illustrate
+    # that the karafka-testing works with this case as well
+    mark_as_consumed!(params_batch.last)
   end
 end

@@ -77,7 +77,7 @@ GEM
     karafka-sidekiq-backend (1.4.2)
       karafka (~> 1.4.0)
       sidekiq (>= 4.2)
-    karafka-testing (1.4.2)
+    karafka-testing (1.4.3)
       karafka (~> 1.4.0)
     king_konf (1.0.0)
     minitest (5.14.4)
@@ -125,7 +125,6 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
-  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -139,4 +138,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.2.31
+   2.2.32
