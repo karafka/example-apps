@@ -1,0 +1,20 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Visitor id</th>
+      <th>Visited at</th>
+      <th>Page path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recent_visits.each do |visit| %>
+      <tr>
+        <td><%= visit.id %></td>
+        <td><%= visit.visitor_id %></td>
+        <td><%= visit.visited_at %></td>
+        <td><%= visit.page_path %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

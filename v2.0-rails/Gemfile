@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+
+plugin 'diffend'
+
+gem 'karafka', github: 'karafka/karafka', branch: '2.0'
+gem 'rails', '~> 6.1'
+gem 'sqlite3', '~> 1.4'
+gem 'puma'
+
+group :development, :test do
+  gem 'karafka-testing', github: 'karafka/testing'
+  gem 'rspec'
+end

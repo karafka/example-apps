@@ -2,8 +2,7 @@
 
 This is an example application which uses:
 
-- [Karafka framework](https://github.com/karafka/karafka
-) `1.4` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
+- [Karafka framework](https://github.com/karafka/karafka) `1.4` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
 - [WaterDrop](https://github.com/karafka/waterdrop) to send messages to Kafka server
 - [Karafka-Testing](https://github.com/karafka/testing) provides RSpec helpers, to make testing of Karafka consumers much easier
 - (for some topics) [Karafka Sidekiq Backend](https://github.com/karafka/karafka-sidekiq-backend) (optional) to process them in Sidekiq
