@@ -172,3 +172,91 @@ jobs:
         run: |
           cd v2.0-non-rails
           bundle exec rspec
+
+  v2_0-rails-diffend:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Install latest bundler
+        run: |
+          cd v2.0-rails
+          gem install bundler --no-document
+      - name: Install Diffend plugin
+        run: |
+          cd v2.0-rails
+          bundle plugin install diffend
+      - name: Bundle Secure
+        run: |
+          cd v2.0-rails
+          bundle secure
+
+  v2_0-rails-coditsu:
+    runs-on: ubuntu-latest
+    needs: v2_0-rails-diffend
+    strategy:
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Run Coditsu
+        run: |
+          cd v2.0-rails
+          rm -rf ../.git
+          git init ./
+          git config --global user.email "maciej@mensfeld.pl"
+          git config --global user.name "maciej@mensfeld.pl"
+          git add ./
+          git commit -m "CI run"
+          \curl -sSL https://api.coditsu.io/run/ci | bash
+
+  v2_0-rails-specs:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - '3.0'
+          - '2.7'
+          - '2.6'
+          - 'jruby-9.3.1.0'
+        include:
+          - ruby: '3.0'
+            coverage: 'true'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install package dependencies
+        run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{matrix.ruby}}
+      - name: Install latest bundler
+        run: |
+          cd v2.0-rails
+          gem install bundler --no-document
+          bundle config set without 'tools benchmarks docs'
+      - name: Bundle install
+        run: |
+          cd v2.0-rails
+          bundle config set without development
+          bundle install --jobs 4 --retry 3
+      - name: Setup db
+        run: |
+          cd v2.0-rails
+          bundle exec rake db:create
+          bundle exec rake db:test:prepare
+      - name: Run all tests
+        env:
+          GITHUB_COVERAGE: ${{matrix.coverage}}
+        run: |
+          cd v2.0-rails
+          bundle exec rspec
