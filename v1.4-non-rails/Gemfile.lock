@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.1)
+    activesupport (6.1.4.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -56,7 +56,7 @@ GEM
       dry-core (~> 0.5, >= 0.5)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.8, >= 1.8.0)
-    envlogic (1.1.3)
+    envlogic (1.1.4)
       dry-inflector (~> 0.1)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
@@ -74,13 +74,13 @@ GEM
       thor (>= 1.1)
       waterdrop (~> 1.4)
       zeitwerk (~> 2.4)
-    karafka-sidekiq-backend (1.4.2)
+    karafka-sidekiq-backend (1.4.3)
       karafka (~> 1.4.0)
       sidekiq (>= 4.2)
-    karafka-testing (1.4.3)
+    karafka-testing (1.4.4)
       karafka (~> 1.4.0)
     king_konf (1.0.0)
-    minitest (5.14.4)
+    minitest (5.15.0)
     rack (2.2.3)
     rake (13.0.6)
     redis (4.5.1)
@@ -125,7 +125,6 @@ GEM
     zeitwerk (2.5.1)
 
 PLATFORMS
-  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
