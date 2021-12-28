@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_184730) do
+ActiveRecord::Schema.define(version: 2021_12_20_170247) do
 
-  create_table "visits", force: :cascade do |t|
+  create_table "visitors", id: :string, force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "visits", id: :string, force: :cascade do |t|
     t.datetime "visited_at", null: false
     t.string "visitor_id", null: false
     t.string "page_path", null: false

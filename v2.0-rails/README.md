@@ -5,8 +5,11 @@ This is an example application which uses:
 - [Karafka framework](https://github.com/karafka/karafka) `2.0` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
 - [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages back to Kafka
 - [Karafka-Testing](https://github.com/karafka/testing) provides RSpec helpers, to make testing of Karafka consumers much easier
+- [Ruby on Rails ActiveJob](https://edgeguides.rubyonrails.org/active_job_basics.html) to create user instance in the background 
 
 It allows you to see how Karafka integrates with Ruby on Rails. Each time you visit `localhost:3000` an event will be dispatched to Kafka. This event will be then consumed and stored using Karafka consumer.
+
+This app also includes `ActiveJob` job that creates a visitor instance via ActiveJob by using Karafka backend.
 
 Note, that the consumer elevates the `#insert_all` from ActiveRecord to insert data efficiently.
 
