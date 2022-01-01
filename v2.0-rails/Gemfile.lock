@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: cffec8b5468d47f89346c2de57221bae919cac69
+  revision: 91c32ad777010903a5667af8dc21f0817f2549cd
   branch: 2.0
   specs:
     karafka (2.0.0.pre.alpha1)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing.git
-  revision: 1d4b24badfb2f58b9a21b687ff7f50901db223f0
+  revision: 235c66254c63ff8689f41983ad31472c5cc5f48f
   specs:
     karafka-testing (2.0.0)
 
@@ -130,7 +130,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    io-console (0.5.9)
+    io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
     loofah (2.13.0)
@@ -212,7 +212,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.2)
+    zeitwerk (2.5.3)
 
 PLATFORMS
   x86_64-linux
@@ -226,4 +226,4 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
 
 BUNDLED WITH
-   2.2.32
+   2.3.3
