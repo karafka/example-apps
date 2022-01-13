@@ -20,7 +20,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          ruby-version: 3.1
       - name: Install latest bundler
         run: |
           cd v1.4-non-rails
@@ -60,10 +60,11 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
+          - '3.1'
           - '3.0'
           - '2.7'
         include:
-          - ruby: '3.0'
+          - ruby: '3.1'
             coverage: 'true'
     steps:
       - uses: actions/checkout@v2
@@ -141,10 +142,11 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
+          - '3.1'
           - '3.0'
           - '2.7'
         include:
-          - ruby: '3.0'
+          - ruby: '3.1'
             coverage: 'true'
     steps:
       - uses: actions/checkout@v2
@@ -182,7 +184,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          ruby-version: 3.1
       - name: Install latest bundler
         run: |
           cd v2.0-rails
@@ -222,10 +224,11 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
+          - '3.1'
           - '3.0'
           - '2.7'
         include:
-          - ruby: '3.0'
+          - ruby: '3.1'
             coverage: 'true'
     steps:
       - uses: actions/checkout@v2
