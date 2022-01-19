@@ -21,6 +21,7 @@ class KarafkaApp < Karafka::App
   # Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 
   routes.draw do
+
     # This needs to match queues defined in your ActiveJobs
     active_job_topic :default
 

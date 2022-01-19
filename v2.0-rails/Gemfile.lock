@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: 8ee6ab7be45352749fe62f32f5732fc895a94910
+  revision: 2c6ce7bd3664170050cc400bb045cf5fd3839651
   branch: 2.0
   specs:
     karafka (2.0.0.pre.alpha1)
@@ -103,7 +103,7 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
     dry-inflector (0.2.1)
-    dry-initializer (3.1.0)
+    dry-initializer (3.1.1)
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
