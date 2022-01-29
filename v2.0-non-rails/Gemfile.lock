@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/karafka/karafka.git
-  revision: bdef87b0c641bea44b586d0ffd524d7607f84b13
+  revision: 46786ceda972ddb964049fa81c1567ecc6c9db25
   branch: 2.0
   specs:
     karafka (2.0.0.pre.alpha1)
@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/karafka/testing.git
-  revision: 695a206b09799f5ea64df3579402b1f7c94f125d
+  revision: feefa0959d8445ff6c6a1839d3e896645e0dff0c
   specs:
     karafka-testing (2.0.0)
 
@@ -30,7 +30,7 @@ GEM
     concurrent-ruby (1.1.9)
     diff-lcs (1.5.0)
     docile (1.4.0)
-    dry-configurable (0.13.0)
+    dry-configurable (0.14.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
     dry-container (0.9.0)
@@ -42,7 +42,7 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
     dry-inflector (0.2.1)
-    dry-initializer (3.0.4)
+    dry-initializer (3.1.1)
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
@@ -70,7 +70,7 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (~> 1.8, >= 1.8.0)
     ffi (1.15.5)
-    i18n (1.8.11)
+    i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     mini_portile2 (2.7.1)
     minitest (5.15.0)
@@ -84,12 +84,12 @@ GEM
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
       rspec-mocks (~> 3.10.0)
-    rspec-core (3.10.1)
+    rspec-core (3.10.2)
       rspec-support (~> 3.10.0)
-    rspec-expectations (3.10.1)
+    rspec-expectations (3.10.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
-    rspec-mocks (3.10.2)
+    rspec-mocks (3.10.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.3)
@@ -109,7 +109,7 @@ GEM
       dry-validation (~> 1.7)
       rdkafka (>= 0.10)
       zeitwerk (~> 2.3)
-    zeitwerk (2.5.3)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   x86_64-linux
