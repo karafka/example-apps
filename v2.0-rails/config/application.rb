@@ -8,6 +8,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Example app main module
 module ExampleApp
   # Our example app entry-point
   class Application < Rails::Application

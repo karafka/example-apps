@@ -2,6 +2,7 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 
+# Karafka app object
 class KarafkaApp < Karafka::App
   setup do |config|
     config.kafka = { 'bootstrap.servers' => '127.0.0.1:9092' }
