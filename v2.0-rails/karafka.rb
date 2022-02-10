@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require ::File.expand_path('../config/environment', __FILE__)
+require ::File.expand_path('config/environment', __dir__)
 
 # Karafka app object
 class KarafkaApp < Karafka::App
@@ -22,7 +22,6 @@ class KarafkaApp < Karafka::App
   # Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 
   routes.draw do
-
     # This needs to match queues defined in your ActiveJobs
     active_job_topic :default
 
