@@ -22,7 +22,7 @@ class App < Karafka::App
   setup do |config|
     config.concurrency = 5
     config.max_wait_time = 1_000
-    config.kafka = { 'bootstrap.servers' => ENV['KAFKA_HOST'] || '127.0.0.1:9092' }
+    config.kafka = { 'bootstrap.servers': ENV['KAFKA_HOST'] || '127.0.0.1:9092' }
   end
 end
 
