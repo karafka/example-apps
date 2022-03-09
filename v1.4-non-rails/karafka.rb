@@ -34,6 +34,7 @@ class App < Karafka::App
     # to run tests without running kafka and zookeeper
     config.kafka.seed_brokers = [ENV['KAFKA_HOST'] || 'kafka://127.0.0.1:9092']
     config.client_id = 'example_app'
+    config.batch_fetching = false
   end
 
   monitor.subscribe('app.initialized') do
@@ -60,38 +61,13 @@ Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 
 # Consumer group defined with the 0.6+ routing style (recommended)
 App.consumer_groups.draw do
-  consumer_group :batched_group do
-    batch_fetching true
-
-    topic :xml_data do
-      consumer XmlMessagesConsumer
-      batch_consuming false
-      deserializer XmlDeserializer.new
-    end
-
-    topic :inline_batch_data do
-      consumer InlineBatchConsumer
-      batch_consuming true
-    end
-
-    topic :callbacked_data do
-      consumer CallbackedConsumer
-      batch_consuming true
-    end
-  end
-
-  # A ping-pong implementation using karafka-sidekiq backend
-  # @note The backend is totally optional, if you disable it, the game will
-  # work as well
-  consumer_group :async_pong do
+  consumer_group :test do
     topic :ping do
       consumer Pong::PingConsumer
-      backend :sidekiq
     end
 
     topic :pong do
       consumer Pong::PongConsumer
-      backend :sidekiq
     end
   end
 end

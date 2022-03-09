@@ -6,8 +6,9 @@ module Pong
   class PingConsumer < ApplicationConsumer
     # We increase the pings counter and respond
     def consume
-      counter = params_batch.last.payload['counter'] + 1
+      counter = params.payload['counter'] + 1
       # The initial ping needs to be triggered via the rake task
+      raise StandardError if counter == 5
       respond_with(counter: counter)
     end
   end
