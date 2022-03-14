@@ -125,7 +125,7 @@ GEM
       thor (>= 0.20)
       waterdrop (>= 2.2.0, < 3.0.0)
       zeitwerk (~> 2.3)
-    karafka-testing (2.0.0.alpha2)
+    karafka-testing (2.0.0.alpha3)
       karafka (~> 2.0.alpha2)
     loofah (2.14.0)
       crass (~> 1.0.2)
@@ -227,8 +227,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  karafka (>= 2.0.0.alpha1)
-  karafka-testing (>= 2.0.0.alpha1)
+  karafka (>= 2.0.0.alpha2)
+  karafka-testing (>= 2.0.0.alpha3)
   puma
   rails (~> 7.0)
   rspec
