@@ -21,4 +21,10 @@ namespace :waterdrop do
     message = { rand => rand }.to_json
     WaterDrop::SyncProducer.call(message, topic: 'callbacked_data')
   end
+
+  desc 'Generates the messages to test the error handling'
+  task :error_check do
+    WaterDrop::SyncProducer.call({ message: 'Should be fine' }.to_json, topic: 'error_test')
+    WaterDrop::SyncProducer.call({ message: 'raise_error' }.to_json, topic: 'error_test')
+  end
 end

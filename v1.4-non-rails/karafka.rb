@@ -94,6 +94,14 @@ App.consumer_groups.draw do
       backend :sidekiq
     end
   end
+
+  consumer_group :error_example do
+    topic :error_test do
+      consumer ErrorExampleConsumer
+      batch_consuming false
+      start_from_beginning false
+    end
+  end
 end
 
 Karafka.monitor.subscribe('app.initialized') do
