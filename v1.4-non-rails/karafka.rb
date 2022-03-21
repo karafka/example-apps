@@ -34,6 +34,9 @@ class App < Karafka::App
     # to run tests without running kafka and zookeeper
     config.kafka.seed_brokers = [ENV['KAFKA_HOST'] || 'kafka://127.0.0.1:9092']
     config.client_id = 'example_app'
+    config.topic_mapper = TopicMapper.new('sample-prefix')
+    config.kafka.pause_exponential_backoff = true
+    config.kafka.pause_max_timeout = 30
   end
 
   monitor.subscribe('app.initialized') do
@@ -92,6 +95,14 @@ App.consumer_groups.draw do
     topic :pong do
       consumer Pong::PongConsumer
       backend :sidekiq
+    end
+  end
+
+  consumer_group :error_example do
+    topic :error_test do
+      consumer ErrorExampleConsumer
+      batch_consuming false
+      start_from_beginning false
     end
   end
 end
