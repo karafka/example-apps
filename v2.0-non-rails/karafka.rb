@@ -26,8 +26,8 @@ class App < Karafka::App
   end
 end
 
-Karafka.producer.monitor.subscribe(WaterDrop::Instrumentation::StdoutListener.new(Karafka.logger))
-Karafka.monitor.subscribe(Karafka::Instrumentation::StdoutListener.new)
+Karafka.producer.monitor.subscribe(WaterDrop::Instrumentation::LoggerListener.new(Karafka.logger))
+Karafka.monitor.subscribe(Karafka::Instrumentation::LoggerListener.new)
 Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 
 App.consumer_groups.draw do
