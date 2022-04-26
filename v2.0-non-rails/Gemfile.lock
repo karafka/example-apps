@@ -52,7 +52,7 @@ GEM
     ffi (1.15.5)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    karafka (2.0.0.alpha5)
+    karafka (2.0.0.alpha6)
       dry-configurable (~> 0.13)
       dry-monitor (~> 0.5)
       dry-validation (~> 1.7)
@@ -115,4 +115,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.3.10
+   2.3.11
