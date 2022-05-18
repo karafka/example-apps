@@ -2,6 +2,7 @@
 
 require 'active_support/isolated_execution_state'
 require 'active_support/core_ext/hash'
+require 'active_support/xml_mini'
 require 'rexml/document'
 
 # Xml deserializer class
