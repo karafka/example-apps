@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: example-apps
+  annotations:
+    github.com/project-slug: Michanio/example-apps
+spec:
+  type: other
+  lifecycle: unknown
+  owner: Michanio
