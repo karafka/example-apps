@@ -52,7 +52,7 @@ GEM
     ffi (1.15.5)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    karafka (2.0.0.beta2)
+    karafka (2.0.0.beta3)
       dry-configurable (~> 0.13)
       dry-monitor (~> 0.5)
       dry-validation (~> 1.7)
@@ -99,7 +99,7 @@ GEM
       dry-validation (~> 1.7)
       rdkafka (>= 0.10)
       zeitwerk (~> 2.3)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   x86_64-linux
