@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.3)
+    activesupport (7.0.3.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -15,12 +15,12 @@ GEM
       dry-core (~> 0.6)
     dry-container (0.10.0)
       concurrent-ruby (~> 1.0)
-    dry-core (0.7.1)
+    dry-core (0.8.0)
       concurrent-ruby (~> 1.0)
     dry-events (0.3.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
-    dry-inflector (0.2.1)
+    dry-inflector (0.3.0)
     dry-initializer (3.1.1)
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
@@ -50,7 +50,7 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (~> 1.8, >= 1.8.0)
     ffi (1.15.5)
-    i18n (1.11.0)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     karafka (2.0.0.rc1)
       dry-configurable (~> 0.13)
@@ -115,4 +115,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.3.14
+   2.3.15
