@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 plugin 'diffend'
 
-gem 'karafka', '>= 2.0.0.rc4'
+gem 'karafka', '>= 2.0.0'
 gem 'puma'
 gem 'rails', '~> 7.0'
 gem 'sqlite3', '~> 1.4'
