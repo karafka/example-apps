@@ -10,4 +10,5 @@ RSpec.configure do |config|
   config.include Karafka::Testing::RSpec::Helpers
 end
 
+require File.expand_path('../config/environment', __dir__)
 require './karafka'
