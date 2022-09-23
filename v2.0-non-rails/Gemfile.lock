@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.3.1)
+    activesupport (7.0.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -13,7 +13,7 @@ GEM
     ffi (1.15.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    karafka (2.0.7)
+    karafka (2.0.10)
       karafka-core (>= 2.0.2, < 3.0.0)
       rdkafka (>= 0.12)
       thor (>= 0.20)
@@ -37,13 +37,13 @@ GEM
       rspec-mocks (~> 3.11.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
-    rspec-expectations (3.11.0)
+    rspec-expectations (3.11.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-mocks (3.11.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
-    rspec-support (3.11.0)
+    rspec-support (3.11.1)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -73,4 +73,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.3.15
+   2.3.22
