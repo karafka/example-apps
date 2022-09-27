@@ -183,8 +183,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  karafka (>= 2.0.0.rc4)
-  karafka-testing (>= 2.0.0.rc1)
+  karafka (>= 2.0.0)
+  karafka-testing (>= 2.0.0)
   puma
   rails (~> 7.0)
   rspec
