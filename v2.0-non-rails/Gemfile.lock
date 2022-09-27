@@ -65,8 +65,8 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   byebug
-  karafka (>= 2.0.0.rc4)
-  karafka-testing (>= 2.0.0.rc1)
+  karafka (>= 2.0.0)
+  karafka-testing (>= 2.0.0)
   rake
   rexml
   rspec
