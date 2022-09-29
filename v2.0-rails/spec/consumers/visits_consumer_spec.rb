@@ -16,7 +16,7 @@ RSpec.describe VisitsConsumer do
   end
 
   # Publish two visits of one user
-  before { visits.each { |visit| karafka.publish(visit.to_json) } }
+  before { visits.each { |visit| karafka.produce(visit.to_json) } }
 
   it 'expects to save the visits' do
     expect { consumer.consume }.to change(Visit, :count).by(2)
