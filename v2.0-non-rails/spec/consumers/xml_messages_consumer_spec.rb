@@ -7,7 +7,7 @@ RSpec.describe XmlMessagesConsumer do
   let(:payload) { consumer.messages.first.payload }
 
   before do
-    karafka.publish("<message><new>#{message_content}</new></message>")
+    karafka.produce("<message><new>#{message_content}</new></message>")
     allow(Karafka.logger).to receive(:info)
   end
 
