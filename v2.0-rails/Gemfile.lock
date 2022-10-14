@@ -84,7 +84,7 @@ GEM
       zeitwerk (~> 2.3)
     karafka-core (2.0.3)
       concurrent-ruby (>= 1.1)
-    karafka-testing (2.0.3)
+    karafka-testing (2.0.4)
       karafka (>= 2.0, < 3.0.0)
     loofah (2.19.0)
       crass (~> 1.0.2)
