@@ -8,8 +8,8 @@ RSpec.describe CountersConsumer do
   let(:sum) { nr1_value + nr2_value }
 
   before do
-    karafka.publish({ 'number' => nr1_value }.to_json)
-    karafka.publish({ 'number' => nr2_value }.to_json, partition: 2)
+    karafka.produce({ 'number' => nr1_value }.to_json)
+    karafka.produce({ 'number' => nr2_value }.to_json, partition: 2)
     allow(Karafka.logger).to receive(:info)
   end
 
