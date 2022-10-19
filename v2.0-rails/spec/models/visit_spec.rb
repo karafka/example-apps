@@ -2,7 +2,7 @@
 
 RSpec.describe Visit do
   subject(:visit) do
-    Visit.create!(
+    described_class.create!(
       id: SecureRandom.uuid,
       visitor_id: visitor.id,
       visited_at: Time.zone.now,
