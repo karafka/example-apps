@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def track_visit
     VisitorsJob.perform_later(session[:visitor_id])
 
-    Karafka.producer.produce_async(
+    producer.produce_async(
       topic: 'visits',
       payload: {
         id: SecureRandom.uuid,
@@ -25,5 +25,11 @@ class ApplicationController < ActionController::Base
         page_path: request.path
       }.to_json
     )
+  end
+
+  def producer
+    WaterDrop::Producer.new do |producer_config|
+      producer_config.kafka = { 'bootstrap.servers': '127.0.0.1:9092' }
+    end
   end
 end

@@ -1,3 +1,9 @@
+PATH
+  remote: gems/dummy_kafka
+  specs:
+    dummy_kafka (1.0.0)
+      karafka (~> 2.0.11)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -67,6 +73,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     builder (3.2.4)
+    coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     diff-lcs (1.5.0)
@@ -107,8 +114,13 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.9-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     puma (6.0.0)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -160,6 +172,7 @@ GEM
       rspec-support (~> 3.11.0)
     rspec-support (3.11.1)
     sqlite3 (1.5.3-arm64-darwin)
+    sqlite3 (1.5.3-x86_64-darwin)
     sqlite3 (1.5.3-x86_64-linux)
     thor (1.2.1)
     timeout (0.3.0)
@@ -176,11 +189,13 @@ GEM
 
 PLATFORMS
   arm64-darwin
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
-  karafka (>= 2.0.0)
+  dummy_kafka!
   karafka-testing (>= 2.0.0)
+  pry
   puma
   rails (~> 7.0)
   rspec

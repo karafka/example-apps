@@ -2,14 +2,15 @@
 
 source 'https://rubygems.org'
 
-plugin 'diffend'
+# plugin 'diffend'
 
-gem 'karafka', '>= 2.0.0'
+gem 'dummy_kafka', path: 'gems/dummy_kafka'
 gem 'puma'
 gem 'rails', '~> 7.0'
 gem 'sqlite3', '~> 1.4'
 
 group :development, :test do
+  gem 'pry'
   gem 'karafka-testing', '>= 2.0.0'
   gem 'rspec'
 end

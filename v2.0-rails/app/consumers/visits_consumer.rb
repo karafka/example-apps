@@ -4,6 +4,7 @@
 class VisitsConsumer < ApplicationConsumer
   # Consumes the messages by inserting all of them in one go into the DB
   def consume
+    super
     ::Visit.insert_all messages.payloads
   end
 end
