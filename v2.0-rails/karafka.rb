@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# That was used previously to integrate rails code with karafka
 # require_relative 'config/environment'
 # Rails.application.eager_load!
 

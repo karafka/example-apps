@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   def track_visit
     VisitorsJob.perform_later(session[:visitor_id])
 
+    # There is no need to load whole karafka to produce messages
     producer.produce_async(
       topic: 'visits',
       payload: {
