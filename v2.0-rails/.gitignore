@@ -18,7 +18,6 @@
 # sftp configuration file
 sftp-config.json
 
-
 ### Ruby template
 *.gem
 *.rbc
@@ -45,6 +44,11 @@ build/
 /_yardoc/
 /doc/
 /rdoc/
+
+## Yarn cache and generated files:
+/.yarn/cache
+/.yarn/unplugged
+/.yarn/build-state.yml
 
 ## Environment normalisation:
 /.bundle/
