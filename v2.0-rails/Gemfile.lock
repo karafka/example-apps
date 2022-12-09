@@ -69,6 +69,7 @@ GEM
     builder (3.2.4)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    date (3.3.1)
     diff-lcs (1.5.0)
     erubi (1.11.0)
     ffi (1.15.5)
@@ -99,16 +100,17 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.3)
-    net-imap (0.3.1)
+    net-imap (0.3.2)
+      date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.0)
+    net-protocol (0.2.1)
       timeout
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.9-x86_64-linux)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     puma (6.0.0)
       nio4r (~> 2.0)
@@ -165,7 +167,7 @@ GEM
     timeout (0.3.1)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    waterdrop (2.4.3)
+    waterdrop (2.4.4)
       karafka-core (>= 2.0.6, < 3.0.0)
       zeitwerk (~> 2.3)
     websocket-driver (0.7.5)
