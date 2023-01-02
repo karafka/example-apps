@@ -24,7 +24,7 @@ GEM
     karafka-testing (2.0.7)
       karafka (>= 2.0, < 3.0.0)
     mini_portile2 (2.8.1)
-    minitest (5.16.3)
+    minitest (5.17.0)
     rake (13.0.6)
     rdkafka (0.12.0)
       ffi (~> 1.15)
@@ -73,4 +73,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.3.26
+   2.4.2
