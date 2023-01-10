@@ -77,12 +77,13 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    karafka (2.0.24)
-      karafka-core (>= 2.0.7, < 3.0.0)
+    karafka (2.0.25)
+      karafka-core (>= 2.0.8, < 3.0.0)
+      rdkafka (>= 0.13.0.beta.4)
       thor (>= 0.20)
       waterdrop (>= 2.4.7, < 3.0.0)
       zeitwerk (~> 2.3)
-    karafka-core (2.0.7)
+    karafka-core (2.0.8)
       concurrent-ruby (>= 1.1)
       rdkafka (>= 0.12)
     karafka-testing (2.0.7)
@@ -110,8 +111,6 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.10-arm64-darwin)
-      racc (~> 1.4)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     puma (6.0.2)
@@ -147,7 +146,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    rdkafka (0.12.0)
+    rdkafka (0.13.0.beta.4)
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
@@ -157,21 +156,20 @@ GEM
       rspec-mocks (~> 3.12.0)
     rspec-core (3.12.0)
       rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.1)
+    rspec-expectations (3.12.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.1)
+    rspec-mocks (3.12.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.0)
-    sqlite3 (1.5.4-arm64-darwin)
     sqlite3 (1.5.4-x86_64-linux)
     thor (1.2.1)
     timeout (0.3.1)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    waterdrop (2.4.7)
-      karafka-core (>= 2.0.7, < 3.0.0)
+    waterdrop (2.4.8)
+      karafka-core (>= 2.0.8, < 3.0.0)
       zeitwerk (~> 2.3)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -179,7 +177,6 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-  arm64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -191,4 +188,4 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
 
 BUNDLED WITH
-   2.4.3
+   2.4.2
