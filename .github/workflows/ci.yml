@@ -20,7 +20,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0
+          ruby-version: 3.2
       - name: Install latest bundler
         run: |
           cd v2.0-non-rails
