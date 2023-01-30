@@ -13,3 +13,5 @@ group :development, :test do
   gem 'karafka-testing', '>= 2.0.0'
   gem 'rspec'
 end
+
+gem "karafka-web", "~> 0.1.1"

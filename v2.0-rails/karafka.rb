@@ -31,3 +31,5 @@ class KarafkaApp < Karafka::App
     end
   end
 end
+
+Karafka::Web.enable!
