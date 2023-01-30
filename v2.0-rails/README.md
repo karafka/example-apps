@@ -32,5 +32,3 @@ You can also run RSpec specs to see how the testing RSpec library integrates wit
 ```
 bundle exec rspec spec
 ```
-
-![karafka web ui](https://raw.githubusercontent.com/karafka/misc/master/printscreens/web-ui.png)
