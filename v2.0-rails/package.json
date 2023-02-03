@@ -12,5 +12,6 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.11.1"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }
