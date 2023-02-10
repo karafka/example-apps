@@ -82,14 +82,14 @@ GEM
       thor (>= 0.20)
       waterdrop (>= 2.4.10, < 3.0.0)
       zeitwerk (~> 2.3)
-    karafka-core (2.0.9)
+    karafka-core (2.0.10)
       concurrent-ruby (>= 1.1)
       karafka-rdkafka (>= 0.12)
     karafka-rdkafka (0.12.0)
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.0.8)
+    karafka-testing (2.0.9)
       karafka (>= 2.0.20, < 3.0.0)
     karafka-web (0.1.1)
       erubi (~> 1.4)
@@ -99,7 +99,7 @@ GEM
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.8.0.1)
+    mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
       net-pop
@@ -119,8 +119,6 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.14.1-arm64-darwin)
-      racc (~> 1.4)
     nokogiri (1.14.1-x86_64-linux)
       racc (~> 1.4)
     puma (6.0.2)
@@ -162,7 +160,7 @@ GEM
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
       rspec-mocks (~> 3.12.0)
-    rspec-core (3.12.0)
+    rspec-core (3.12.1)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.2)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -171,7 +169,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.0)
-    sqlite3 (1.6.0-arm64-darwin)
     sqlite3 (1.6.0-x86_64-linux)
     thor (1.2.1)
     tilt (2.0.11)
@@ -184,10 +181,9 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.6.6)
+    zeitwerk (2.6.7)
 
 PLATFORMS
-  arm64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
