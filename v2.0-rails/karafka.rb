@@ -33,3 +33,7 @@ class KarafkaApp < Karafka::App
 end
 
 Karafka::Web.enable!
+
+# You can tag your processes with any info you want and it is going to be visible via the Web UI
+git_hash = `git rev-parse --short HEAD`.strip
+Karafka::Process.tags.add(:commit, "##{git_hash}")
