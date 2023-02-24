@@ -10,6 +10,10 @@ gem 'puma'
 gem 'rails', '~> 7.0'
 gem 'sqlite3', '~> 1.4'
 
+# Lock for now because of a bug in concurrent-ruby
+# @see https://github.com/ruby-concurrency/concurrent-ruby/issues/993
+gem 'concurrent-ruby', '1.2.0'
+
 group :development, :test do
   gem 'karafka-testing', '>= 2.0.0'
   gem 'rspec'

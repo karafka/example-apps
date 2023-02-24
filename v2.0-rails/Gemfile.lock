@@ -91,7 +91,7 @@ GEM
       rake (> 12)
     karafka-testing (2.0.9)
       karafka (>= 2.0.20, < 3.0.0)
-    karafka-web (0.2.0)
+    karafka-web (0.2.1)
       erubi (~> 1.4)
       karafka (>= 2.0.33, < 3.0.0)
       karafka-core (>= 2.0.12, < 3.0.0)
@@ -188,6 +188,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  concurrent-ruby (= 1.2.0)
   karafka (>= 2.0.0)
   karafka-testing (>= 2.0.0)
   karafka-web (~> 0.2.0)
