@@ -1424,9 +1424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/webpacker@npm:5.4.3":
-  version: 5.4.3
-  resolution: "@rails/webpacker@npm:5.4.3"
+"@rails/webpacker@npm:5.4.4":
+  version: 5.4.4
+  resolution: "@rails/webpacker@npm:5.4.4"
   dependencies:
     "@babel/core": ^7.15.0
     "@babel/plugin-proposal-class-properties": ^7.14.5
@@ -1466,7 +1466,7 @@ __metadata:
     webpack-assets-manifest: ^3.1.1
     webpack-cli: ^3.3.12
     webpack-sources: ^1.4.3
-  checksum: 5ad732d8d0ca790203624b46960beece3f87b6b8096bd4946fd0dae09dea6c83dbb1f22d297a94c004697ce8fb0e0fd699147cfda78edf3edd5104645313cef6
+  checksum: 9344aac9e52e9389432b2972027038f76ecca7043030784aee08c12fcfe0ebbf4d06b31dc9543b4f2dae3388ce0be1bff1379a0345fe572221643372274c92bb
   languageName: node
   linkType: hard
 
@@ -4279,7 +4279,7 @@ __metadata:
     "@rails/actioncable": ^7.0.4-2
     "@rails/activestorage": ^7.0.4-2
     "@rails/ujs": ^7.0.4-2
-    "@rails/webpacker": 5.4.3
+    "@rails/webpacker": 5.4.4
     webpack: ^5.75.0
     webpack-cli: ^5.0.1
     webpack-dev-server: ^4.11.1
