@@ -24,9 +24,13 @@ class KarafkaApp < Karafka::App
 
   routes.draw do
     # This needs to match queues defined in your ActiveJobs
-    active_job_topic :default
+    active_job_topic :default do
+      # Expire jobs after 1 day
+      config(partitions: 5, 'retention.ms': 86_400_000)
+    end
 
     topic :visits do
+      config(partitions: 2)
       consumer VisitsConsumer
     end
   end

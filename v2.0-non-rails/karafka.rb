@@ -33,19 +33,25 @@ Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
 App.consumer_groups.draw do
   consumer_group :batched_group do
     topic :xml_data do
+      config(partitions: 2)
       consumer XmlMessagesConsumer
       deserializer XmlDeserializer.new
     end
 
     topic :counters do
+      config(partitions: 1)
       consumer CountersConsumer
     end
 
     topic :ping do
+      # 1 day in ms
+      config(partitions: 5, 'retention.ms': 86_400_000)
       consumer Pong::PingConsumer
     end
 
     topic :pong do
+      # 1 day in ms
+      config(partitions: 5, 'retention.ms': 86_400_000)
       consumer Pong::PongConsumer
     end
   end
