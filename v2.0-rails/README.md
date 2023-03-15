@@ -15,17 +15,12 @@ Note, that the consumer elevates the `#insert_all` from ActiveRecord to insert d
 
 ## Usage
 
-1. Install all the dependencies by running `bundle install`
-2. Install frontend dependencies by running `yarn install`
-3. Create your SQLite database by running: `bundle exec rake db:create`
-4. Setup your SQLite database structure by running: `bundle exec rails db:migrate`
-5. Setup your test database by running: `bundle exec rake db:test:prepare`
-6. Start Kafka using our `docker-compose.yml` by running: `docker-compose up`
-7. Setup Karafka Web UI by running: `bundle exec karafka-web install`
-8. Run `bundle exec rails server` to start the Rails web server
-9. Run `bundle exec karafka server` to start Karafka consumption server
-10. Visit `localhost:3000` and refresh the page couple of times
-11. Visit `localhost:3000/karafka` to see and explore the Karafka Web UI
+1. Start Kafka using our `docker-compose.yml` by running: `docker-compose up`
+2. Run our setup script `./bin/bootstrap` - it will install dependencies, setup sqlite, needed topics, etc.
+3. Run `bundle exec rails server` to start the Rails web server
+4. Run `bundle exec karafka server` to start Karafka consumption server
+5. Visit `localhost:3000` and refresh the page couple of times
+6. Visit `localhost:3000/karafka` to see and explore the Karafka Web UI
 
 You can also run RSpec specs to see how the testing RSpec library integrates with Rails:
 
