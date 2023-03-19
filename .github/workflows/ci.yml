@@ -90,6 +90,7 @@ jobs:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
           cd v2.0-non-rails
+          bundle exec karafka topics create
           bundle exec rspec
 
   v2_0-rails-diffend:
@@ -178,4 +179,5 @@ jobs:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
           cd v2.0-rails
+          bundle exec karafka topics create
           bundle exec rspec
