@@ -91,7 +91,7 @@ GEM
       rake (> 12)
     karafka-testing (2.0.10)
       karafka (>= 2.0.39, < 3.0.0)
-    karafka-web (0.4.0)
+    karafka-web (0.4.1)
       erubi (~> 1.4)
       karafka (>= 2.0.38, < 3.0.0)
       karafka-core (>= 2.0.12, < 3.0.0)
