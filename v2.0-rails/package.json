@@ -6,12 +6,12 @@
     "@rails/activestorage": "^7.0.4-3",
     "@rails/ujs": "^7.0.4-3",
     "@rails/webpacker": "5.4.4",
-    "webpack": "^5.77.0",
+    "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^4.13.2"
+    "webpack-dev-server": "^4.13.3"
   },
   "packageManager": "yarn@3.5.0"
 }
