@@ -11,7 +11,7 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     ffi (1.15.5)
-    i18n (1.12.0)
+    i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     karafka (2.1.0)
       karafka-core (>= 2.0.12, < 3.0.0)
@@ -25,8 +25,8 @@ GEM
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.0.11)
-      karafka (>= 2.0.40, < 3.0.0)
+    karafka-testing (2.1.0)
+      karafka (>= 2.1.0, < 3.0.0)
     mini_portile2 (2.8.2)
     minitest (5.18.0)
     rake (13.0.6)
@@ -35,9 +35,9 @@ GEM
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
       rspec-mocks (~> 3.12.0)
-    rspec-core (3.12.1)
+    rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.2)
+    rspec-expectations (3.12.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-mocks (3.12.5)
@@ -59,7 +59,6 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
-  arm64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
