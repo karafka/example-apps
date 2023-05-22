@@ -10,8 +10,8 @@ To run those applications locally start Apacke Kafka with the included `docker-c
 
 ## Applications available
 
-- Karafka `2.0` Ruby on Rails based [application example](https://github.com/karafka/example-apps/tree/master/v2.0-rails)
-- Karafka `2.0` non Rails based [application example](https://github.com/karafka/example-apps/tree/master/v2.0-non-rails)
+- Karafka `2.1` Ruby on Rails based [application example](https://github.com/karafka/example-apps/tree/master/v2.1-rails)
+- Karafka `2.1` non Rails based [application example](https://github.com/karafka/example-apps/tree/master/v2.1-non-rails)
 
 ![karafka web ui](https://raw.githubusercontent.com/karafka/misc/master/printscreens/web-ui.png)
 
