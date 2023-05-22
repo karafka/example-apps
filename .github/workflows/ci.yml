@@ -23,15 +23,15 @@ jobs:
           ruby-version: 3.2
       - name: Install latest bundler
         run: |
-          cd v2.0-non-rails
+          cd v2.1-non-rails
           gem install bundler --no-document
       - name: Install Diffend plugin
         run: |
-          cd v2.0-non-rails
+          cd v2.1-non-rails
           bundle plugin install diffend
       - name: Bundle Secure
         run: |
-          cd v2.0-non-rails
+          cd v2.1-non-rails
           bundle secure
 
   v2_0-non-rails-coditsu:
@@ -45,7 +45,7 @@ jobs:
           fetch-depth: 0
       - name: Run Coditsu
         run: |
-          cd v2.0-non-rails
+          cd v2.1-non-rails
           rm -rf ../.git
           git init ./
           git config --global user.email "maciej@mensfeld.pl"
@@ -77,19 +77,19 @@ jobs:
           ruby-version: ${{matrix.ruby}}
       - name: Install latest bundler
         run: |
-          cd v2.0-non-rails
+          cd v2.1-non-rails
           gem install bundler --no-document
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
-          cd v2.0-non-rails
+          cd v2.1-non-rails
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
-          cd v2.0-non-rails
+          cd v2.1-non-rails
           bundle exec rspec
 
   v2_0-rails-diffend:
@@ -106,15 +106,15 @@ jobs:
           ruby-version: 3.2
       - name: Install latest bundler
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           gem install bundler --no-document
       - name: Install Diffend plugin
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           bundle plugin install diffend
       - name: Bundle Secure
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           bundle secure
 
   v2_0-rails-coditsu:
@@ -128,7 +128,7 @@ jobs:
           fetch-depth: 0
       - name: Run Coditsu
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           rm -rf ../.git
           git init ./
           git config --global user.email "maciej@mensfeld.pl"
@@ -160,22 +160,22 @@ jobs:
           ruby-version: ${{matrix.ruby}}
       - name: Install latest bundler
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           gem install bundler --no-document
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Setup db
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           bundle exec rake db:create
           bundle exec rake db:test:prepare
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
-          cd v2.0-rails
+          cd v2.1-rails
           bundle exec rspec
