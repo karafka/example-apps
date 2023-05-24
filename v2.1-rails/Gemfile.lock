@@ -85,7 +85,7 @@ GEM
     karafka-core (2.0.12)
       concurrent-ruby (>= 1.1)
       karafka-rdkafka (>= 0.12.1)
-    karafka-rdkafka (0.12.1)
+    karafka-rdkafka (0.12.2)
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
@@ -120,7 +120,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.1-x86_64-linux)
+    nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
     puma (6.2.2)
       nio4r (~> 2.0)
