@@ -25,7 +25,7 @@ GEM
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.1.0)
+    karafka-testing (2.1.1)
       karafka (>= 2.1.0, < 3.0.0)
     mini_portile2 (2.8.2)
     minitest (5.18.0)
