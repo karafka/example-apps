@@ -1428,9 +1428,9 @@ __metadata:
   linkType: hard
 
 "@rails/ujs@npm:^7.0.4-3":
-  version: 7.0.6
-  resolution: "@rails/ujs@npm:7.0.6"
-  checksum: 5fc1fc86b3ec0cd0498fce9e095b61c3d3411579682db11b01d4f7dab10e2d643cf1b0b954d5ae3b7f74bf0c791c7422b8769f1f30ff675731790f2cc5afefe5
+  version: 7.0.7
+  resolution: "@rails/ujs@npm:7.0.7"
+  checksum: d31f02094231468578d60ac62d70d44e6eca6e14dabd8db00ed9bb496835505561e28e5475544a8464adeb27d341979b6176d54f6540970dfe2f405897c1179c
   languageName: node
   linkType: hard
 
