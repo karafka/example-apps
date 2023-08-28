@@ -13,7 +13,7 @@ GEM
     ffi (1.15.5)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    karafka (2.1.12)
+    karafka (2.1.13)
       karafka-core (>= 2.1.1, < 2.2.0)
       thor (>= 0.20)
       waterdrop (>= 2.6.6, < 3.0.0)
