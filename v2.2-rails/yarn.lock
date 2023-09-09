@@ -1412,9 +1412,9 @@ __metadata:
   linkType: hard
 
 "@rails/actioncable@npm:^7.0.4-3":
-  version: 7.0.7
-  resolution: "@rails/actioncable@npm:7.0.7"
-  checksum: c0e71b7153b508f65748b7538d1a9461295ce84fc2bf8daacbea8d4903b32271e7b099df1774644eb02ae0636dde5d4e7ffa6d77f96ef7bad5ab89b7078eb265
+  version: 7.0.8
+  resolution: "@rails/actioncable@npm:7.0.8"
+  checksum: d9b4271ba66c5e771bdb8f1e173f845bf815d7d8dc1fa54bca0b88b2afc67e9a729c9c0a8d8c1b9be13cce2e2339857c95ae1136b1ce75243f4563d25cd44069
   languageName: node
   linkType: hard
 
