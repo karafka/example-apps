@@ -8,7 +8,7 @@ bundle exec rake db:create
 bundle exec rails db:migrate
 # Create test sqlite db
 bundle exec rake db:test:prepare
-# Create abd bootstrap needed app topics
+# Create and bootstrap needed app topics
 bundle exec karafka topics migrate
 # Bootstrap the web UI
 bundle exec karafka-web install

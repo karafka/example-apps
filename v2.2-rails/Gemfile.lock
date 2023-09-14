@@ -92,11 +92,11 @@ GEM
     karafka-testing (2.2.0)
       karafka (>= 2.2.0, < 3.0.0)
       waterdrop (>= 2.6.6)
-    karafka-web (0.6.3)
+    karafka-web (0.7.0)
       erubi (~> 1.4)
-      karafka (>= 2.1.4, < 3.0.0)
-      karafka-core (>= 2.0.13, < 3.0.0)
-      roda (~> 3.68, >= 3.68)
+      karafka (>= 2.2.3, < 3.0.0)
+      karafka-core (>= 2.2.2, < 3.0.0)
+      roda (~> 3.68, >= 3.69)
       tilt (~> 2.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
@@ -110,7 +110,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
-    minitest (5.19.0)
+    minitest (5.20.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -158,7 +158,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    roda (3.71.0)
+    roda (3.72.0)
       rack
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
@@ -173,7 +173,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    sqlite3 (1.6.4-x86_64-linux)
+    sqlite3 (1.6.6-x86_64-linux)
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
@@ -191,7 +191,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  karafka (>= 2.2.0)
+  karafka (>= 2.2.4)
   karafka-testing
   karafka-web
   puma
