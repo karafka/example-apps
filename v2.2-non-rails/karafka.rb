@@ -26,9 +26,16 @@ class App < Karafka::App
   end
 end
 
-Karafka.producer.monitor.subscribe(WaterDrop::Instrumentation::LoggerListener.new(Karafka.logger))
 Karafka.monitor.subscribe(Karafka::Instrumentation::LoggerListener.new)
 Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
+Karafka.producer.monitor.subscribe(
+  WaterDrop::Instrumentation::LoggerListener.new(
+    Karafka.logger,
+    # If you set this to true, logs will contain each message details
+    # Please note, that this can be extensive
+    log_messages: false
+  )
+)
 
 App.consumer_groups.draw do
   consumer_group :batched_group do
