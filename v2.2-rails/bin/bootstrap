@@ -11,4 +11,4 @@ bundle exec rake db:test:prepare
 # Create and bootstrap needed app topics
 bundle exec karafka topics migrate
 # Bootstrap the web UI
-bundle exec karafka-web install
+bundle exec karafka-web migrate
