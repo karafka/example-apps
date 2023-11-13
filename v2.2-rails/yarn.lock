@@ -1532,11 +1532,11 @@ __metadata:
   linkType: hard
 
 "@rails/activestorage@npm:^7.0.4-3":
-  version: 7.1.1
-  resolution: "@rails/activestorage@npm:7.1.1"
+  version: 7.1.2
+  resolution: "@rails/activestorage@npm:7.1.2"
   dependencies:
     spark-md5: ^3.0.1
-  checksum: f4e9280d2d1e9c9476fa133630f579beaf7bcfb6a8269d7b346715d607558a821fd21499643766f9b02cd5934808c2779810695e4b03b07a388442b13eaef555
+  checksum: 034e96346bef2408c206d7ff88cae6c0a6314727ee72a856eb5f7535d07a199fbb8436150a81d9a46058a01312cc51059b41d41a26cea21909e5aad1a7556b47
   languageName: node
   linkType: hard
 
