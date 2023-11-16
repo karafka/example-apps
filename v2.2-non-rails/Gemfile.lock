@@ -34,7 +34,7 @@ GEM
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.2.1)
+    karafka-testing (2.2.2)
       karafka (>= 2.2.0, < 3.0.0)
       waterdrop (>= 2.6.6)
     mini_portile2 (2.8.5)
