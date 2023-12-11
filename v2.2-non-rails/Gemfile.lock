@@ -11,14 +11,14 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    base64 (0.1.1)
+    base64 (0.2.0)
     bigdecimal (3.1.4)
     byebug (11.1.3)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     diff-lcs (1.5.0)
     docile (1.4.0)
-    drb (2.1.1)
+    drb (2.2.0)
       ruby2_keywords
     ffi (1.16.3)
     i18n (1.14.1)
@@ -30,7 +30,7 @@ GEM
     karafka-core (2.2.7)
       concurrent-ruby (>= 1.1)
       karafka-rdkafka (>= 0.13.9, < 0.15.0)
-    karafka-rdkafka (0.13.9)
+    karafka-rdkafka (0.14.2)
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
@@ -39,7 +39,7 @@ GEM
       waterdrop (>= 2.6.6)
     mini_portile2 (2.8.5)
     minitest (5.20.0)
-    mutex_m (0.1.2)
+    mutex_m (0.2.0)
     rake (13.1.0)
     rexml (3.2.6)
     rspec (3.12.0)
@@ -70,6 +70,7 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -83,4 +84,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   2.4.19
+   2.4.22
