@@ -1524,14 +1524,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/actioncable@npm:^7.0.4-3":
+"@rails/actioncable@npm:^7.1.2":
   version: 7.1.2
   resolution: "@rails/actioncable@npm:7.1.2"
   checksum: 6cc485d163b89b3666450c815bb35bdeca8af4e0ae091c68b5cbe1f31cdcc2755583886b882742c156102c86a53a6aeade2dd2b6bf5c7dfb96a5b8b7cb86dcd2
   languageName: node
   linkType: hard
 
-"@rails/activestorage@npm:^7.0.4-3":
+"@rails/activestorage@npm:^7.1.2":
   version: 7.1.2
   resolution: "@rails/activestorage@npm:7.1.2"
   dependencies:
@@ -1540,7 +1540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/ujs@npm:^7.0.4-3":
+"@rails/ujs@npm:^7.1.2":
   version: 7.1.2
   resolution: "@rails/ujs@npm:7.1.2"
   checksum: 6a53fcddd4147cdb42ec3cebd8ae1c5786a454767a21a08169b46581403154375299b00d42967e15f579b5bccfb0a80eadd8e324a1d174898404f8cd13b0c67f
@@ -4392,13 +4392,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-app@workspace:."
   dependencies:
-    "@rails/actioncable": ^7.0.4-3
-    "@rails/activestorage": ^7.0.4-3
-    "@rails/ujs": ^7.0.4-3
+    "@rails/actioncable": ^7.1.2
+    "@rails/activestorage": ^7.1.2
+    "@rails/ujs": ^7.1.2
     "@rails/webpacker": 5.4.4
-    webpack: ^5.79.0
-    webpack-cli: ^5.0.1
-    webpack-dev-server: ^4.13.3
+    webpack: ^5.89.0
+    webpack-cli: ^5.1.4
+    webpack-dev-server: ^4.15.1
   languageName: unknown
   linkType: soft
 
@@ -10247,7 +10247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-cli@npm:^5.0.1":
+"webpack-cli@npm:^5.1.4":
   version: 5.1.4
   resolution: "webpack-cli@npm:5.1.4"
   dependencies:
@@ -10294,7 +10294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-dev-server@npm:^4.13.3":
+"webpack-dev-server@npm:^4.15.1":
   version: 4.15.1
   resolution: "webpack-dev-server@npm:4.15.1"
   dependencies:
@@ -10406,7 +10406,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.79.0":
+"webpack@npm:^5.89.0":
   version: 5.89.0
   resolution: "webpack@npm:5.89.0"
   dependencies:
