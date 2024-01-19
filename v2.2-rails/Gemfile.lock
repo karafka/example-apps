@@ -76,7 +76,7 @@ GEM
       mutex_m
       tzinfo (~> 2.0)
     base64 (0.2.0)
-    bigdecimal (3.1.5)
+    bigdecimal (3.1.6)
     builder (3.2.4)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
@@ -91,10 +91,10 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    io-console (0.6.0)
-    irb (1.10.1)
+    io-console (0.7.2)
+    irb (1.11.1)
       rdoc
-      reline (>= 0.3.8)
+      reline (>= 0.4.2)
     karafka (2.2.14)
       karafka-core (>= 2.2.7, < 2.3.0)
       waterdrop (>= 2.6.11, < 3.0.0)
@@ -102,7 +102,7 @@ GEM
     karafka-core (2.2.7)
       concurrent-ruby (>= 1.1)
       karafka-rdkafka (>= 0.13.9, < 0.15.0)
-    karafka-rdkafka (0.14.2)
+    karafka-rdkafka (0.14.7)
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
@@ -126,7 +126,7 @@ GEM
     marcel (1.0.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
-    minitest (5.20.0)
+    minitest (5.21.2)
     mutex_m (0.2.0)
     net-imap (0.4.9.1)
       date
@@ -138,8 +138,9 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.15.5)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.16.0-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.0-x86_64-linux)
       racc (~> 1.4)
     psych (5.1.2)
       stringio
@@ -188,7 +189,7 @@ GEM
       psych (>= 4.0.0)
     reline (0.4.2)
       io-console (~> 0.5)
-    roda (3.74.0)
+    roda (3.76.0)
       rack
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
@@ -212,7 +213,7 @@ GEM
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    waterdrop (2.6.11)
+    waterdrop (2.6.12)
       karafka-core (>= 2.2.3, < 3.0.0)
       zeitwerk (~> 2.3)
     webrick (1.8.1)
@@ -223,6 +224,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  arm64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
