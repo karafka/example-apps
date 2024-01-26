@@ -105,9 +105,9 @@ GEM
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.2.2)
-      karafka (>= 2.2.0, < 3.0.0)
-      waterdrop (>= 2.6.6)
+    karafka-testing (2.3.0)
+      karafka (>= 2.3.0, < 2.4.0)
+      waterdrop (>= 2.6.12)
     karafka-web (0.8.0)
       erubi (~> 1.4)
       karafka (>= 2.3.0, < 2.4.0)
@@ -257,4 +257,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   2.5.4
+   2.5.5
