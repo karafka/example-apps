@@ -11,7 +11,7 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  v2_2-non-rails-diffend:
+  v2_3-non-rails-diffend:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -36,9 +36,9 @@ jobs:
           cd v2.3-non-rails
           bundle secure
 
-  v2_2-non-rails-coditsu:
+  v2_3-non-rails-coditsu:
     runs-on: ubuntu-latest
-    needs: v2_2-non-rails-diffend
+    needs: v2_3-non-rails-diffend
     strategy:
       fail-fast: false
     steps:
@@ -56,7 +56,7 @@ jobs:
           git commit -m "CI run"
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
-  v2_2-non-rails-specs:
+  v2_3-non-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -66,7 +66,6 @@ jobs:
           - '3.2'
           - '3.1'
           - '3.0'
-          - '2.7'
         include:
           - ruby: '3.3'
             coverage: 'true'
@@ -83,13 +82,7 @@ jobs:
         run: |
           cd v2.3-non-rails
 
-          if [[ "$(ruby -v | awk '{print $2}')" == 2.7.8* ]]; then
-            gem install bundler -v 2.4.22 --no-document
-            bundle config set version 2.4.22
-            gem update --system 3.4.22 --no-document
-          else
-            gem install bundler --no-document
-          fi
+          gem install bundler --no-document
 
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
@@ -104,7 +97,7 @@ jobs:
           cd v2.3-non-rails
           bundle exec rspec
 
-  v2_2-rails-diffend:
+  v2_3-rails-diffend:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -129,9 +122,9 @@ jobs:
           cd v2.3-rails
           bundle secure
 
-  v2_2-rails-coditsu:
+  v2_3-rails-coditsu:
     runs-on: ubuntu-latest
-    needs: v2_2-rails-diffend
+    needs: v2_3-rails-diffend
     strategy:
       fail-fast: false
     steps:
@@ -149,7 +142,7 @@ jobs:
           git commit -m "CI run"
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
-  v2_2-rails-specs:
+  v2_3-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -159,7 +152,6 @@ jobs:
           - '3.2'
           - '3.1'
           - '3.0'
-          - '2.7'
         include:
           - ruby: '3.3'
             coverage: 'true'
@@ -175,14 +167,7 @@ jobs:
       - name: Install latest bundler
         run: |
           cd v2.3-rails
-
-          if [[ "$(ruby -v | awk '{print $2}')" == 2.7.8* ]]; then
-            gem install bundler -v 2.4.22 --no-document
-            bundle config set version 2.4.22
-            gem update --system 3.4.22 --no-document
-          else
-            gem install bundler --no-document
-          fi
+          gem install bundler --no-document
 
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
