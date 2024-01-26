@@ -4,11 +4,11 @@ source 'https://rubygems.org'
 
 plugin 'diffend'
 
-gem 'karafka', '>= 2.2.8'
+gem 'karafka', '>= 2.3.0'
 gem 'karafka-web'
 gem 'puma'
-gem 'rails', '~> 7.0'
-gem 'sqlite3', '~> 1.4'
+gem 'rails', '~> 7.1'
+gem 'sqlite3'
 
 group :development, :test do
   gem 'karafka-testing'
