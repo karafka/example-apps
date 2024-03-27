@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative './token_refresher'
+
 # This is a non-Rails example app!
 
 ENV['KARAFKA_ENV'] ||= 'development'
@@ -22,7 +24,13 @@ class App < Karafka::App
   setup do |config|
     config.concurrency = 5
     config.max_wait_time = 1_000
-    config.kafka = { 'bootstrap.servers': ENV['KAFKA_HOST'] || '127.0.0.1:9092' }
+    config.kafka = { 
+      'bootstrap.servers': ENV['KAFKA_HOST'] || '127.0.0.1:9092', 
+      "security.protocol": 'sasl_ssl',
+      "sasl.mechanisms": 'OAUTHBEARER',
+      "client.id": 'ruby-producer'
+    }
+    config.oauth.token_provider_listener = OAuthTokenRefresher.new
   end
 end
 

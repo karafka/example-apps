@@ -9,7 +9,12 @@ gem 'activesupport'
 gem 'rake'
 gem 'rexml'
 
-gem 'karafka', '>= 2.3.0'
+#gem 'karafka', '>= 2.3.0'
+
+gem 'aws-msk-iam-sasl-signer', '~> 0.1.0'
+
+gem 'karafka', '2.3.4', git: 'https://github.com/bruce-szalwinski-he/karafka.git',
+                         :branch => 'oauth2', glob: 'karafka.gemspec'
 
 group :development, :test do
   gem 'byebug', platform: :ruby
