@@ -104,7 +104,7 @@ GEM
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.3.2)
+    karafka-testing (2.3.3)
       karafka (>= 2.3.0, < 2.4.0)
       waterdrop (>= 2.6.12)
     karafka-web (0.8.2)
@@ -123,7 +123,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.5)
+    mini_portile2 (2.8.6)
     minitest (5.22.3)
     mutex_m (0.2.0)
     net-imap (0.4.10)
