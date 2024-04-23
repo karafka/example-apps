@@ -11,7 +11,7 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  v2_3-non-rails-coditsu:
+  v2_4-non-rails-coditsu:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -30,7 +30,7 @@ jobs:
           git commit -m "CI run"
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
-  v2_3-non-rails-specs:
+  v2_4-non-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -71,7 +71,7 @@ jobs:
           cd v2.4-non-rails
           bundle exec rspec
 
-  v2_3-rails-coditsu:
+  v2_4-rails-coditsu:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -90,7 +90,7 @@ jobs:
           git commit -m "CI run"
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
-  v2_3-rails-specs:
+  v2_4-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
