@@ -2,7 +2,6 @@
 
 # Install all the dependencies
 bundle install
-yarn install
 # Create sqlite db
 bundle exec rake db:create
 bundle exec rails db:migrate

@@ -2,8 +2,6 @@
 
 source 'https://rubygems.org'
 
-plugin 'diffend'
-
 # ActiveSupport and rexml are only used for XML support
 gem 'activesupport'
 gem 'rake'
