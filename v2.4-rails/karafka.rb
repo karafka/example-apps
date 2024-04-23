@@ -5,7 +5,7 @@ class KarafkaApp < Karafka::App
   setup do |config|
     config.kafka = { 'bootstrap.servers': '127.0.0.1:9092' }
     config.client_id = 'example_app'
-    config.concurrency = 2
+    config.concurrency = 5
     config.max_wait_time = 500 # 0.5 second
     # Recreate consumers with each batch. This will allow Rails code reload to work in the
     # development mode. Otherwise Karafka process would not be aware of code changes
@@ -16,7 +16,15 @@ class KarafkaApp < Karafka::App
   # interested in logging events for certain environments. Since instrumentation
   # notifications add extra boilerplate, if you want to achieve max performance,
   # listen to only what you really need for given environment.
-  Karafka.monitor.subscribe(Karafka::Instrumentation::LoggerListener.new)
+  Karafka.monitor.subscribe(
+    Karafka::Instrumentation::LoggerListener.new(
+      # Karafka, when the logger is set to info producers logs each time it polls data from an
+      # internal messages wueue. This can be extensive, so you can turn it off by setting below
+      # to false.
+      log_polling: true
+    )
+  )
+
   # Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
   Karafka.producer.monitor.subscribe(
     WaterDrop::Instrumentation::LoggerListener.new(

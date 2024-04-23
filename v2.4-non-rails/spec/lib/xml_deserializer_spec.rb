@@ -7,7 +7,9 @@ RSpec.describe XmlDeserializer do
     let(:params) do
       Karafka::Messages::Message.new(
         message,
-        Karafka::Messages::Metadata.new(deserializer: deserializer)
+        Karafka::Messages::Metadata.new(
+          deserializers: OpenStruct.new(payload: deserializer)
+        )
       )
     end
 
