@@ -32,6 +32,7 @@ sftp-config.json
 /node_modules/
 db/development.sqlite3
 db/test.sqlite3
+db/test.sqlite3-wal
 /.coditsu/local.yml
 
 ## Specific to RubyMotion:
