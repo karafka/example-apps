@@ -94,23 +94,23 @@ GEM
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
-    karafka (2.3.4)
-      karafka-core (>= 2.3.0, < 2.4.0)
-      waterdrop (>= 2.6.12, < 3.0.0)
+    karafka (2.4.0)
+      karafka-core (>= 2.4.0, < 2.5.0)
+      waterdrop (>= 2.7.0, < 3.0.0)
       zeitwerk (~> 2.3)
-    karafka-core (2.3.0)
-      karafka-rdkafka (>= 0.14.8, < 0.15.0)
-    karafka-rdkafka (0.14.10)
+    karafka-core (2.4.0)
+      karafka-rdkafka (>= 0.15.0, < 0.16.0)
+    karafka-rdkafka (0.15.0)
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.3.3)
-      karafka (>= 2.3.0, < 2.4.0)
-      waterdrop (>= 2.6.12)
-    karafka-web (0.8.2)
+    karafka-testing (2.4.0)
+      karafka (>= 2.4.0, < 2.5.0)
+      waterdrop (>= 2.7.0)
+    karafka-web (0.9.0)
       erubi (~> 1.4)
-      karafka (>= 2.3.0, < 2.4.0)
-      karafka-core (>= 2.3.0, < 2.4.0)
+      karafka (>= 2.4.0, < 2.5.0)
+      karafka-core (>= 2.4.0, < 2.5.0)
       roda (~> 3.68, >= 3.69)
       tilt (~> 2.0)
     loofah (2.22.0)
@@ -196,7 +196,7 @@ GEM
     rake (13.2.1)
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
-    reline (0.5.1)
+    reline (0.5.3)
       io-console (~> 0.5)
     roda (3.79.0)
       rack
@@ -227,8 +227,8 @@ GEM
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    waterdrop (2.6.14)
-      karafka-core (>= 2.2.3, < 3.0.0)
+    waterdrop (2.7.0)
+      karafka-core (>= 2.4.0, < 3.0.0)
       zeitwerk (~> 2.3)
     webrick (1.8.1)
     websocket-driver (0.7.6)
@@ -246,13 +246,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  karafka (>= 2.3.0)
+  karafka
   karafka-testing
   karafka-web
   puma
   rails (~> 7.1)
   rspec
-  sqlite3
+  sqlite3 (= 1.7.3)
 
 BUNDLED WITH
    2.5.9

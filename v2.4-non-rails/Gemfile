@@ -7,7 +7,7 @@ gem 'activesupport'
 gem 'rake'
 gem 'rexml'
 
-gem 'karafka', '>= 2.3.0'
+gem 'karafka'
 
 group :development, :test do
   gem 'byebug', platform: :ruby

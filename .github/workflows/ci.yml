@@ -11,7 +11,7 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  v2_3-non-rails-coditsu:
+  v2_4-non-rails-coditsu:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
       - name: Run Coditsu
         run: |
-          cd v2.3-non-rails
+          cd v2.4-non-rails
           rm -rf ../.git
           git init ./
           git config --global user.email "maciej@mensfeld.pl"
@@ -30,7 +30,7 @@ jobs:
           git commit -m "CI run"
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
-  v2_3-non-rails-specs:
+  v2_4-non-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -54,24 +54,24 @@ jobs:
           bundler: 'latest'
       - name: Install latest bundler
         run: |
-          cd v2.3-non-rails
+          cd v2.4-non-rails
 
           gem install bundler --no-document
 
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
-          cd v2.3-non-rails
+          cd v2.4-non-rails
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
-          cd v2.3-non-rails
+          cd v2.4-non-rails
           bundle exec rspec
 
-  v2_3-rails-coditsu:
+  v2_4-rails-coditsu:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -81,7 +81,7 @@ jobs:
           fetch-depth: 0
       - name: Run Coditsu
         run: |
-          cd v2.3-rails
+          cd v2.4-rails
           rm -rf ../.git
           git init ./
           git config --global user.email "maciej@mensfeld.pl"
@@ -90,7 +90,7 @@ jobs:
           git commit -m "CI run"
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
-  v2_3-rails-specs:
+  v2_4-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -114,23 +114,23 @@ jobs:
           bundler: 'latest'
       - name: Install latest bundler
         run: |
-          cd v2.3-rails
+          cd v2.4-rails
           gem install bundler --no-document
 
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
-          cd v2.3-rails
+          cd v2.4-rails
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Setup db
         run: |
-          cd v2.3-rails
+          cd v2.4-rails
           bundle exec rake db:create
           bundle exec rake db:test:prepare
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
-          cd v2.3-rails
+          cd v2.4-rails
           bundle exec rspec
