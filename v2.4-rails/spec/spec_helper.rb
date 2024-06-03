@@ -2,6 +2,7 @@
 
 ENV['RAILS_ENV'] = 'test'
 
+require 'ostruct'
 require 'karafka/testing/rspec/helpers'
 
 RSpec.configure do |config|
