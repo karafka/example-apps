@@ -10,6 +10,7 @@ ENV['KARAFKA_ENV'] ||= 'test'
   simplecov
   rake
   logger
+  ostruct
   karafka
   karafka/testing/rspec/helpers
 ].each(&method(:require))
