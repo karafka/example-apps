@@ -100,7 +100,7 @@ GEM
     irb (1.13.2)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    karafka (2.4.5)
+    karafka (2.4.6)
       base64 (~> 0.2)
       karafka-core (>= 2.4.3, < 2.5.0)
       waterdrop (>= 2.7.3, < 3.0.0)
