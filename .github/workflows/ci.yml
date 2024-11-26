@@ -39,7 +39,6 @@ jobs:
           - '3.4.0-preview1'
           - '3.3'
           - '3.2'
-          - '3.1'
         include:
           - ruby: '3.3'
             coverage: 'true'
@@ -99,7 +98,6 @@ jobs:
           - '3.4.0-preview1'
           - '3.3'
           - '3.2'
-          - '3.1'
         include:
           - ruby: '3.3'
             coverage: 'true'
