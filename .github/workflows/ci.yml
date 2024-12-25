@@ -36,11 +36,11 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - '3.4.0-preview1'
+          - '3.4'
           - '3.3'
           - '3.2'
         include:
-          - ruby: '3.3'
+          - ruby: '3.4'
             coverage: 'true'
     steps:
       - uses: actions/checkout@v4
@@ -95,11 +95,11 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
-          - '3.4.0-preview1'
+          - '3.4'
           - '3.3'
           - '3.2'
         include:
-          - ruby: '3.3'
+          - ruby: '3.4'
             coverage: 'true'
     steps:
       - uses: actions/checkout@v4
