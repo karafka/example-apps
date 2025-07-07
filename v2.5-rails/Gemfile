@@ -6,7 +6,7 @@ gem 'karafka'
 gem 'karafka-web'
 gem 'puma'
 gem 'rails', '~> 7.1'
-gem 'sqlite3', '2.7.1'
+gem 'sqlite3', '2.7.2'
 
 group :development, :test do
   gem 'karafka-testing'
