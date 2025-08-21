@@ -12,7 +12,14 @@ on:
 
 jobs:
   v2_4-non-rails-coditsu:
-    runs-on: ubuntu-latest
+    runs-on: >-
+      ${{
+        (github.event_name != 'pull_request' ||
+         github.event.pull_request.head.repo.full_name == github.repository)
+        && fromJSON('["self-hosted", "linux", "x64", "qemu"]')
+        || 'ubuntu-latest'
+      }}
+
     strategy:
       fail-fast: false
     steps:
@@ -31,7 +38,14 @@ jobs:
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
   v2_4-non-rails-specs:
-    runs-on: ubuntu-latest
+    runs-on: >-
+      ${{
+        (github.event_name != 'pull_request' ||
+         github.event.pull_request.head.repo.full_name == github.repository)
+        && fromJSON('["self-hosted", "linux", "x64", "qemu"]')
+        || 'ubuntu-latest'
+      }}
+
     strategy:
       fail-fast: false
       matrix:
@@ -71,7 +85,14 @@ jobs:
           bundle exec rspec
 
   v2_4-rails-coditsu:
-    runs-on: ubuntu-latest
+    runs-on: >-
+      ${{
+        (github.event_name != 'pull_request' ||
+         github.event.pull_request.head.repo.full_name == github.repository)
+        && fromJSON('["self-hosted", "linux", "x64", "qemu"]')
+        || 'ubuntu-latest'
+      }}
+
     strategy:
       fail-fast: false
     steps:
@@ -90,7 +111,14 @@ jobs:
           \curl -sSL https://api.coditsu.io/run/ci | bash
 
   v2_4-rails-specs:
-    runs-on: ubuntu-latest
+    runs-on: >-
+      ${{
+        (github.event_name != 'pull_request' ||
+         github.event.pull_request.head.repo.full_name == github.repository)
+        && fromJSON('["self-hosted", "linux", "x64", "qemu"]')
+        || 'ubuntu-latest'
+      }}
+
     strategy:
       fail-fast: false
       matrix:
