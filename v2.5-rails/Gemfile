@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'karafka'
 gem 'karafka-web'
 gem 'puma'
-gem 'rails', '~> 7.1'
+gem 'rails', '~> 7.2'
 gem 'sqlite3', '2.7.3'
 
 group :development, :test do
