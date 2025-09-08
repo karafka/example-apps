@@ -46,7 +46,7 @@ GEM
     mini_portile2 (2.8.9)
     minitest (5.25.5)
     rake (13.3.0)
-    rexml (3.4.2)
+    rexml (3.4.3)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
