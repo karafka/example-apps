@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.2.2.2)
+    activesupport (8.0.3)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -13,12 +13,13 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
     base64 (0.3.0)
-    benchmark (0.3.0)
-    bigdecimal (3.1.9)
+    benchmark (0.4.1)
+    bigdecimal (3.3.1)
     byebug (12.0.0)
     concurrent-ruby (1.3.5)
-    connection_pool (2.4.1)
+    connection_pool (2.5.4)
     diff-lcs (1.5.1)
     docile (1.4.0)
     drb (2.2.3)
@@ -53,7 +54,7 @@ GEM
       waterdrop (>= 2.8.0)
     logger (1.7.0)
     mini_portile2 (2.8.9)
-    minitest (5.25.5)
+    minitest (5.26.0)
     rake (13.3.0)
     rexml (3.4.4)
     rspec (3.13.1)
@@ -69,7 +70,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.4)
-    securerandom (0.3.2)
+    securerandom (0.4.1)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -78,6 +79,7 @@ GEM
     simplecov_json_formatter (0.1.4)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (1.0.4)
     waterdrop (2.8.11)
       karafka-core (>= 2.4.9, < 3.0.0)
       karafka-rdkafka (>= 0.20.0)
