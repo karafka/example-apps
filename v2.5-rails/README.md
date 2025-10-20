@@ -1,4 +1,4 @@
-# Karafka 2.4 Ruby on Rails based example application
+# Karafka 2.5 Ruby on Rails based example application
 
 This is an example application which uses:
 
