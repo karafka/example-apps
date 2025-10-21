@@ -1,8 +1,8 @@
-# Karafka 2.4 Ruby on Rails based example application
+# Karafka 2.5 Ruby on Rails based example application
 
 This is an example application which uses:
 
-- [Karafka framework](https://github.com/karafka/karafka) `2.4` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
+- [Karafka framework](https://github.com/karafka/karafka) `2.5` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
 - [Karafka Web UI](https://github.com/karafka/karafka-web) for Karafka processes management
 - [Karafka-Testing](https://github.com/karafka/testing) provides RSpec helpers, to make testing of Karafka consumers much easier
 - [Ruby on Rails ActiveJob](https://edgeguides.rubyonrails.org/active_job_basics.html) to create user instance in the background 
