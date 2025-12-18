@@ -1,44 +1,62 @@
 # frozen_string_literal: true
 
+# Match repro karafka.rb configuration
+require 'datadog/statsd'
+
+SWARM_MODE_ENABLED = ENV.fetch('KARAFKA_SWARM_MODE_ENABLED', 'false') == 'true'
+DEFAULT_SWARM_NODES = ENV.fetch('KARAFKA_SWARM_NODES', '2').to_i
+
 # Karafka app object
 class KarafkaApp < Karafka::App
   setup do |config|
-    config.kafka = { 'bootstrap.servers': '127.0.0.1:9092' }
     config.client_id = 'example_app'
-    config.concurrency = 5
-    config.max_wait_time = 500 # 0.5 second
-    # Recreate consumers with each batch. This will allow Rails code reload to work in the
-    # development mode. Otherwise Karafka process would not be aware of code changes
+    config.initial_offset = 'latest'
+    config.shutdown_timeout = ENV.fetch('KARAFKA_CONSUMER_SHUTDOWN_TIMEOUT', '15').to_i * 1000
+    config.concurrency = ENV.fetch('KARAFKA_CONSUMER_CONCURRENCY', '1').to_i
+    config.max_messages = ENV.fetch('KARAFKA_CONSUMER_MAX_MESSAGES', '100').to_i
+    config.max_wait_time = 500
+
+    # Swarm mode from repro
+    if SWARM_MODE_ENABLED
+      config.swarm.nodes = [DEFAULT_SWARM_NODES, 1].max
+      puts "Swarm nodes: #{config.swarm.nodes}"
+    end
+
+    # Recreate consumers with each batch for dev code reload
     config.consumer_persistence = !Rails.env.development?
+
+    # Kafka config matching repro
+    config.kafka = {
+      'bootstrap.servers': ENV.fetch('KAFKA_BROKER_LIST', '127.0.0.1:9092'),
+      'enable.auto.commit': ENV.fetch('KARAFKA_CONSUMER_AUTO_COMMIT_OFFSETS', 'true') == 'true',
+      'session.timeout.ms': ENV.fetch('KARAFKA_CONSUMER_SESSION_TIMEOUT_2', '30').to_i * 1000,
+      'socket.timeout.ms': ENV.fetch('KARAFKA_CONSUMER_SOCKET_TIMEOUT', '260').to_i * 1000,
+      'max.poll.interval.ms': ENV.fetch('KARAFKA_CONSUMER_MAX_POLL_INTERVAL_2', '60').to_i * 1000,
+      'heartbeat.interval.ms': ENV.fetch('KARAFKA_CONSUMER_HEARTBEAT_INTERVAL_2', '3').to_i * 1000,
+      'fetch.message.max.bytes': ENV.fetch('KARAFKA_CONSUMER_MAX_BYTES_PER_PARTITION', '1048576').to_i
+    }
   end
 
-  # Comment out this part if you are not using instrumentation and/or you are not
-  # interested in logging events for certain environments. Since instrumentation
-  # notifications add extra boilerplate, if you want to achieve max performance,
-  # listen to only what you really need for given environment.
   Karafka.monitor.subscribe(
-    Karafka::Instrumentation::LoggerListener.new(
-      # Karafka, when the logger is set to info producers logs each time it polls data from an
-      # internal messages wueue. This can be extensive, so you can turn it off by setting below
-      # to false.
-      log_polling: true
-    )
+    Karafka::Instrumentation::LoggerListener.new(log_polling: false)
   )
 
-  # Karafka.monitor.subscribe(Karafka::Instrumentation::ProctitleListener.new)
   Karafka.producer.monitor.subscribe(
     WaterDrop::Instrumentation::LoggerListener.new(
       Karafka.logger,
-      # If you set this to true, logs will contain each message details
-      # Please note, that this can be extensive
       log_messages: false
     )
   )
 
+  # Error monitoring from repro
+  Karafka.monitor.subscribe 'error.occurred' do |event|
+    error = event[:error]
+    trace = (error.backtrace || []).join("\n")
+    Karafka.logger.error("Error: #{error} of type: #{event[:type]} occurred.\n#{trace}")
+  end
+
   routes.draw do
-    # This needs to match queues defined in your ActiveJobs
     active_job_topic :default do
-      # Expire jobs after 1 day
       config(partitions: 5, 'retention.ms': 86_400_000)
     end
 
@@ -50,3 +68,12 @@ class KarafkaApp < Karafka::App
 end
 
 Karafka::Web.enable!
+
+# Datadog metrics listener (from repro)
+if ENV['ENABLE_DATADOG_METRICS'] == 'true'
+  statsd = Datadog::Statsd.new(
+    ENV.fetch('STATSD_HOST', '127.0.0.1'),
+    ENV.fetch('STATSD_PORT', '8125').to_i
+  )
+  # Subscribe datadog listener here if needed
+end
