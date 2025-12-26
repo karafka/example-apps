@@ -36,11 +36,12 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
+          - '4.0'
           - '3.4'
           - '3.3'
           - '3.2'
         include:
-          - ruby: '3.4'
+          - ruby: '4.0'
             coverage: 'true'
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
@@ -95,11 +96,12 @@ jobs:
       fail-fast: false
       matrix:
         ruby:
+          - '4.0'
           - '3.4'
           - '3.3'
           - '3.2'
         include:
-          - ruby: '3.4'
+          - ruby: '4.0'
             coverage: 'true'
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
