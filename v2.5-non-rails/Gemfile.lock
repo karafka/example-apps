@@ -81,6 +81,7 @@ GEM
     logger (1.7.0)
     mini_portile2 (2.8.9)
     minitest (5.27.0)
+    ostruct (0.6.3)
     rake (13.3.1)
     rexml (3.4.4)
     rspec (3.13.2)
@@ -130,6 +131,7 @@ DEPENDENCIES
   byebug
   karafka
   karafka-testing
+  ostruct
   rake
   rexml
   rspec
