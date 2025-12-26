@@ -2,5 +2,24 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "includePaths": [
+    "v2.5-non-rails/Gemfile",
+    "v2.5-rails/Gemfile",
+    ".github/workflows/**"
+  ],
+  "packageRules": [
+    {
+      "minimumReleaseAge": "7 days",
+      "matchDepNames": [
+        "/*/"
+      ]
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "pinDigests": true
+    }
   ]
 }
