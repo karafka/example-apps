@@ -7,7 +7,7 @@ gem 'karafka-web'
 gem 'ostruct'
 gem 'puma'
 gem 'rails', '~> 8.0'
-gem 'sqlite3', '2.8.1'
+gem 'sqlite3', '2.9.0'
 
 group :development, :test do
   gem 'karafka-testing'
