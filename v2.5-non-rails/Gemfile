@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 # ActiveSupport and rexml are only used for XML support
 gem 'activesupport'
+gem 'ostruct'
 gem 'rake'
 gem 'rexml'
 
