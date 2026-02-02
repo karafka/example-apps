@@ -148,7 +148,7 @@ GEM
     karafka-testing (2.5.5)
       karafka (>= 2.5.0, < 2.6.0)
       waterdrop (>= 2.8.0)
-    karafka-web (0.11.5)
+    karafka-web (0.11.6)
       erubi (~> 1.4)
       karafka (>= 2.5.2, < 2.6.0)
       karafka-core (>= 2.5.0, < 2.6.0)
