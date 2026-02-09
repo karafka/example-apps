@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-plugins:
+require:
+  - rubocop-capybara
+  - rubocop-factory_bot
   - rubocop-performance
   - rubocop-rspec
+  - rubocop-rspec_rails
   - rubocop-thread_safety
 
 inherit_gem:
