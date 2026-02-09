@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require:
+plugins:
   - rubocop-capybara
   - rubocop-factory_bot
   - rubocop-performance
@@ -51,6 +51,9 @@ RSpec/NestedGroups:
   Max: 4
 
 RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/MessageSpies:
   Enabled: false
 
 RSpec/SpecFilePathFormat:
