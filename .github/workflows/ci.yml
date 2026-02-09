@@ -11,6 +11,23 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
+  yard-lint:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_GEMFILE: Gemfile.lint
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+      - name: Run yard-lint
+        run: bundle exec yard-lint
+
   lostconf:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -30,24 +47,24 @@ jobs:
       - name: Run lostconf
         run: npx lostconf --fail-on-stale
 
-  v2_4-non-rails-coditsu:
+  rubocop-non-rails:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
+    env:
+      BUNDLE_GEMFILE: Gemfile.lint
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 0
-      - name: Run Coditsu
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+      - name: Run rubocop on non-rails
         run: |
           cd v2.4-non-rails
-          rm -rf ../.git
-          git init ./
-          git config --global user.email "maciej@mensfeld.pl"
-          git config --global user.name "maciej@mensfeld.pl"
-          git add ./
-          git commit -m "CI run"
-          \curl -sSL https://api.coditsu.io/run/ci | bash
+          bundle exec --gemfile=../Gemfile.lint rubocop
 
   v2_4-non-rails-specs:
     runs-on: ubuntu-latest
@@ -94,24 +111,24 @@ jobs:
           cd v2.4-non-rails
           bundle exec rspec
 
-  v2_4-rails-coditsu:
+  rubocop-rails:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
+    env:
+      BUNDLE_GEMFILE: Gemfile.lint
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 0
-      - name: Run Coditsu
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+      - name: Run rubocop on rails
         run: |
           cd v2.4-rails
-          rm -rf ../.git
-          git init ./
-          git config --global user.email "maciej@mensfeld.pl"
-          git config --global user.name "maciej@mensfeld.pl"
-          git add ./
-          git commit -m "CI run"
-          \curl -sSL https://api.coditsu.io/run/ci | bash
+          bundle exec --gemfile=../Gemfile.lint rubocop
 
   v2_4-rails-specs:
     runs-on: ubuntu-latest

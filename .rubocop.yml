@@ -1,0 +1,68 @@
+# frozen_string_literal: true
+
+plugins:
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-thread_safety
+
+inherit_gem:
+  standard: config/base.yml
+  standard-performance: config/base.yml
+  standard-rspec: config/base.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  Include:
+    - "**/*.rb"
+    - "**/*.gemspec"
+    - "**/Gemfile"
+    - "**/Rakefile"
+    - Gemfile.lint
+
+# Layout
+Layout/LineLength:
+  Max: 100
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+
+# RSpec
+RSpec:
+  Exclude:
+    - "**/spec/integrations/**/*"
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 20
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/SpecFilePathFormat:
+  Enabled: false
+
+# Style
+Style/StringLiterals:
+  Enabled: false
+
+# ThreadSafety
+ThreadSafety/ClassAndModuleAttributes:
+  Enabled: false
+
+ThreadSafety/ClassInstanceVariable:
+  Enabled: false
+
+ThreadSafety/NewThread:
+  Enabled: false
