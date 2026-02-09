@@ -11,24 +11,46 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  v2_4-non-rails-coditsu:
+  lostconf:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     strategy:
       fail-fast: false
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           fetch-depth: 0
-      - name: Run Coditsu
-        run: |
-          cd v2.4-non-rails
-          rm -rf ../.git
-          git init ./
-          git config --global user.email "maciej@mensfeld.pl"
-          git config --global user.name "maciej@mensfeld.pl"
-          git add ./
-          git commit -m "CI run"
-          \curl -sSL https://api.coditsu.io/run/ci | bash
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lostconf
+        run: npx lostconf
+
+  v2_5-non-rails-rubocop:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
+        with:
+          ruby-version: '4.0'
+      - name: Bundle install
+        working-directory: v2.5-non-rails
+        env:
+          BUNDLE_GEMFILE: Gemfile.lint
+        run: bundle install --jobs 4 --retry 3
+      - name: Run rubocop
+        working-directory: v2.5-non-rails
+        env:
+          BUNDLE_GEMFILE: Gemfile.lint
+        run: bundle exec rubocop
 
   v2_4-non-rails-specs:
     runs-on: ubuntu-latest
@@ -48,7 +70,7 @@ jobs:
       - name: Install package dependencies
         run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
         with:
           ruby-version: ${{matrix.ruby}}
           bundler: 'latest'
@@ -75,24 +97,27 @@ jobs:
           cd v2.4-non-rails
           bundle exec rspec
 
-  v2_4-rails-coditsu:
+  v2_5-rails-rubocop:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           fetch-depth: 0
-      - name: Run Coditsu
-        run: |
-          cd v2.4-rails
-          rm -rf ../.git
-          git init ./
-          git config --global user.email "maciej@mensfeld.pl"
-          git config --global user.name "maciej@mensfeld.pl"
-          git add ./
-          git commit -m "CI run"
-          \curl -sSL https://api.coditsu.io/run/ci | bash
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
+        with:
+          ruby-version: '4.0'
+      - name: Bundle install
+        working-directory: v2.5-rails
+        env:
+          BUNDLE_GEMFILE: Gemfile.lint
+        run: bundle install --jobs 4 --retry 3
+      - name: Run rubocop
+        working-directory: v2.5-rails
+        env:
+          BUNDLE_GEMFILE: Gemfile.lint
+        run: bundle exec rubocop
 
   v2_4-rails-specs:
     runs-on: ubuntu-latest
@@ -112,7 +137,7 @@ jobs:
       - name: Install package dependencies
         run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
         with:
           ruby-version: ${{matrix.ruby}}
           bundler: 'latest'

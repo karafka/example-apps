@@ -22,5 +22,4 @@ ActiveRecord::Schema[7.1].define(version: 2021_12_20_170247) do
     t.string "page_path", null: false
     t.index ["visited_at"], name: "index_visits_on_visited_at_DESC"
   end
-
 end

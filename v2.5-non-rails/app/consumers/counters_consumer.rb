@@ -9,8 +9,8 @@ class CountersConsumer < ApplicationConsumer
   def consume
     # You can access the messages as an array and just work with it
     sum = messages
-          .map { |message| message.payload['number'] }
-          .inject(0) { |accu, val| accu + val }
+      .map { |message| message.payload['number'] }
+      .inject(0) { |accu, val| accu + val }
 
     Karafka.logger.info "Sum of #{messages.count} elements equals to: #{sum}"
 
