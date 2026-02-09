@@ -1,0 +1,7 @@
+# lostconf configuration
+# Exclude symlinked directories to avoid duplicate/false positives
+exclude:
+  - "v2.3-non-rails/**"
+  - "v2.3-rails/**"
+  - "v2.4-non-rails/**"
+  - "v2.4-rails/**"
