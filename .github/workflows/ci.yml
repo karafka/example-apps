@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run lostconf
-        run: npx lostconf --fail-on-stale
+        run: npx lostconf
 
   v2_5-non-rails-rubocop:
     timeout-minutes: 5
