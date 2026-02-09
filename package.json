@@ -1,0 +1,12 @@
+{
+  "name": "karafka-example-apps",
+  "version": "1.0.0",
+  "description": "Example applications for Karafka framework",
+  "private": true,
+  "dependencies": {
+    "lostconf": "0.4.0"
+  },
+  "scripts": {
+    "lostconf": "lostconf --fail-on-stale"
+  }
+}

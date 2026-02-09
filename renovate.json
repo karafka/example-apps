@@ -3,24 +3,20 @@
   "extends": [
     "config:recommended"
   ],
+  "minimumReleaseAge": "7 days",
   "includePaths": [
     "v2.5-non-rails/Gemfile",
     "v2.5-rails/Gemfile",
+    "v2.4-non-rails/Gemfile",
+    "v2.4-rails/Gemfile",
+    "package.json",
     ".github/workflows/**"
   ],
+  "github-actions": {
+    "enabled": true,
+    "pinDigests": true
+  },
   "packageRules": [
-    {
-      "minimumReleaseAge": "7 days",
-      "matchDepNames": [
-        "/*/"
-      ]
-    },
-    {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "pinDigests": true
-    },
     {
       "description": "Group ruby/setup-ruby action with ruby version updates",
       "matchPackageNames": [
