@@ -62,6 +62,10 @@ jobs:
       - name: Bundle install
         run: |
           cd v2.4-non-rails
+          # For Ruby 4.0, use local gem path to avoid permission issues with default gems
+          if [ "${{ matrix.ruby }}" = "4.0" ]; then
+            bundle config set path vendor/bundle
+          fi
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Run all tests
@@ -121,6 +125,10 @@ jobs:
       - name: Bundle install
         run: |
           cd v2.4-rails
+          # For Ruby 4.0, use local gem path to avoid permission issues with default gems
+          if [ "${{ matrix.ruby }}" = "4.0" ]; then
+            bundle config set path vendor/bundle
+          fi
           bundle config set without development
           bundle install --jobs 4 --retry 3
       - name: Setup db
