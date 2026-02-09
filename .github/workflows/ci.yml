@@ -167,3 +167,22 @@ jobs:
         run: |
           cd v2.4-rails
           bundle exec rspec
+
+  ci-success:
+    name: CI Success
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - lostconf
+      - v2_5-non-rails-rubocop
+      - v2_5-rails-rubocop
+      - v2_4-non-rails-specs
+      - v2_4-rails-specs
+    steps:
+      - name: Check all jobs passed
+        if: |
+          contains(needs.*.result, 'failure') ||
+          contains(needs.*.result, 'cancelled') ||
+          contains(needs.*.result, 'skipped')
+        run: exit 1
+      - run: echo "All CI checks passed!"
