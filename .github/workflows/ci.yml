@@ -11,23 +11,6 @@ on:
     - cron:  '0 1 * * *'
 
 jobs:
-  yard-lint:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    env:
-      BUNDLE_GEMFILE: Gemfile.lint
-    steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
-        with:
-          fetch-depth: 0
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
-        with:
-          ruby-version: '4.0'
-          bundler-cache: true
-      - name: Run yard-lint
-        run: bundle exec yard-lint
-
   lostconf:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -38,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d6e4700bb7bfbed0b0e4 # v6
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '20'
           cache: 'npm'
@@ -47,11 +30,9 @@ jobs:
       - name: Run lostconf
         run: npx lostconf --fail-on-stale
 
-  rubocop-non-rails:
+  v2_5-non-rails-rubocop:
     timeout-minutes: 5
     runs-on: ubuntu-latest
-    env:
-      BUNDLE_GEMFILE: Gemfile.lint
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
@@ -61,10 +42,12 @@ jobs:
         with:
           ruby-version: '4.0'
           bundler-cache: true
-      - name: Run rubocop on non-rails
-        run: |
-          cd v2.4-non-rails
-          bundle exec --gemfile=../Gemfile.lint rubocop
+          working-directory: v2.5-non-rails
+      - name: Run rubocop
+        working-directory: v2.5-non-rails
+        env:
+          BUNDLE_GEMFILE: Gemfile.lint
+        run: bundle exec rubocop
 
   v2_4-non-rails-specs:
     runs-on: ubuntu-latest
@@ -111,11 +94,9 @@ jobs:
           cd v2.4-non-rails
           bundle exec rspec
 
-  rubocop-rails:
+  v2_5-rails-rubocop:
     timeout-minutes: 5
     runs-on: ubuntu-latest
-    env:
-      BUNDLE_GEMFILE: Gemfile.lint
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
@@ -125,10 +106,12 @@ jobs:
         with:
           ruby-version: '4.0'
           bundler-cache: true
-      - name: Run rubocop on rails
-        run: |
-          cd v2.4-rails
-          bundle exec --gemfile=../Gemfile.lint rubocop
+          working-directory: v2.5-rails
+      - name: Run rubocop
+        working-directory: v2.5-rails
+        env:
+          BUNDLE_GEMFILE: Gemfile.lint
+        run: bundle exec rubocop
 
   v2_4-rails-specs:
     runs-on: ubuntu-latest

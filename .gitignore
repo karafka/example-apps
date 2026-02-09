@@ -1,2 +1,2 @@
 node_modules/
-Gemfile.lint.lock
+**/Gemfile.lint.lock
