@@ -70,5 +70,9 @@ ThreadSafety/ClassAndModuleAttributes:
 ThreadSafety/ClassInstanceVariable:
   Enabled: false
 
+ThreadSafety/DirChdir:
+  Exclude:
+    - "bin/**/*"
+
 ThreadSafety/NewThread:
   Enabled: false
