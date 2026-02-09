@@ -40,7 +40,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
         with:
-          ruby-version: '4.0'
+          ruby-version: '4.0.1'
       - name: Bundle install
         working-directory: v2.5-non-rails
         env:
@@ -107,7 +107,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd # v1
         with:
-          ruby-version: '4.0'
+          ruby-version: '4.0.1'
       - name: Bundle install
         working-directory: v2.5-rails
         env:
