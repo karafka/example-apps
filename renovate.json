@@ -5,8 +5,10 @@
   ],
   "minimumReleaseAge": "7 days",
   "includePaths": [
+    "v2.5-non-rails/.ruby-version",
     "v2.5-non-rails/Gemfile",
     "v2.5-non-rails/Gemfile.lint",
+    "v2.5-rails/.ruby-version",
     "v2.5-rails/Gemfile",
     "v2.5-rails/Gemfile.lint",
     "v2.4-non-rails/Gemfile",
