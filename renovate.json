@@ -14,7 +14,8 @@
     "v2.4-non-rails/Gemfile",
     "v2.4-rails/Gemfile",
     "package.json",
-    ".github/workflows/**"
+    ".github/workflows/**",
+    "docker-compose*.yml"
   ],
   "github-actions": {
     "enabled": true,
