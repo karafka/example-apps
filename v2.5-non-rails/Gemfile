@@ -9,6 +9,8 @@ gem 'rake'
 gem 'rexml'
 
 gem 'karafka'
+gem 'karafka-web'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug', platform: :ruby
