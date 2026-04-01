@@ -12,7 +12,7 @@ This is an example application which uses:
 1. Start Kafka using our `docker-compose.yml` by running: `docker-compose up`
 2. Run our setup script `./bin/bootstrap` - it will install dependencies, needed topics, etc.
 3. Run `bundle exec karafka server` to start Karafka consumption server
-4. Run `bundle exec rackup` to start the Karafka Web UI server
+4. Run `bundle exec puma config.ru` to start the Karafka Web UI server
 5. Visit `localhost:9292` to see and explore the Karafka Web UI
 
 Generate initial messages to Kafka server by sending them using WaterDrop:
