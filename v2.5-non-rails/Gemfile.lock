@@ -23,6 +23,7 @@ GEM
     diff-lcs (1.6.2)
     docile (1.4.1)
     drb (2.2.3)
+    erubi (1.13.1)
     ffi (1.17.4)
     ffi (1.17.4-aarch64-linux-gnu)
     ffi (1.17.4-aarch64-linux-musl)
@@ -85,14 +86,26 @@ GEM
     karafka-testing (2.5.5)
       karafka (>= 2.5.0, < 2.6.0)
       waterdrop (>= 2.8.0)
+    karafka-web (0.11.6)
+      erubi (~> 1.4)
+      karafka (>= 2.5.2, < 2.6.0)
+      karafka-core (>= 2.5.0, < 2.6.0)
+      roda (~> 3.69, >= 3.69)
+      tilt (~> 2.0)
     logger (1.7.0)
     mini_portile2 (2.8.9)
     minitest (5.27.0)
+    nio4r (2.7.5)
     ostruct (0.6.3)
+    puma (7.2.0)
+      nio4r (~> 2.0)
+    rack (3.2.6)
     rake (13.3.1)
     reline (0.6.3)
       io-console (~> 0.5)
     rexml (3.4.4)
+    roda (3.102.0)
+      rack
     rspec (3.13.2)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -113,6 +126,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
+    tilt (2.7.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uri (1.1.1)
@@ -140,7 +154,9 @@ DEPENDENCIES
   byebug
   karafka
   karafka-testing
+  karafka-web
   ostruct
+  puma
   rake
   rexml
   rspec

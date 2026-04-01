@@ -1,28 +1,19 @@
-# Karafka 2.4 non Rails example application
+# Karafka 2.5 non Rails example application
 
 This is an example application which uses:
 
-- [Karafka framework](https://github.com/karafka/karafka) `2.4` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
+- [Karafka framework](https://github.com/karafka/karafka) `2.5` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
+- [Karafka Web UI](https://github.com/karafka/karafka-web) for Karafka processes management
 - [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages back to Kafka
 - [Karafka-Testing](https://github.com/karafka/testing) provides RSpec helpers, to make testing of Karafka consumers much easier
 
 ## Usage
 
-Please run `bundle install` to install all the dependencies.
-
-After that, following commands are available. You should run them in the console.
-
-Create all needed topics:
-
-```
-bundle exec karafka topics migrate
-```
-
-Run Karafka server to consume messages, process and send messages:
-
-```
-bundle exec karafka s
-```
+1. Start Kafka using our `docker-compose.yml` by running: `docker-compose up`
+2. Run our setup script `./bin/bootstrap` - it will install dependencies, needed topics, etc.
+3. Run `bundle exec karafka server` to start Karafka consumption server
+4. Run `bundle exec rackup` to start the Karafka Web UI server
+5. Visit `localhost:9292` to see and explore the Karafka Web UI
 
 Generate initial messages to Kafka server by sending them using WaterDrop:
 

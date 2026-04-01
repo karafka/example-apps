@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Install all the dependencies
+bundle install
+# Create and bootstrap needed app topics
+bundle exec karafka topics migrate
+# Bootstrap the web UI
+bundle exec karafka-web migrate

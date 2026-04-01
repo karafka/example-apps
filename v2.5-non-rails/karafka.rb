@@ -63,3 +63,5 @@ App.consumer_groups.draw do
     end
   end
 end
+
+Karafka::Web.enable!
