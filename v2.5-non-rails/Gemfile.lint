@@ -6,7 +6,6 @@ source "https://rubygems.org"
 gem "yard-lint"
 
 # Code style (StandardRB via RuboCop)
-gem "rubocop-capybara"
 gem "rubocop-factory_bot"
 gem "rubocop-performance"
 gem "rubocop-rspec"
@@ -14,4 +13,3 @@ gem "rubocop-rspec_rails"
 gem "rubocop-thread_safety"
 gem "standard"
 gem "standard-performance"
-gem "standard-rspec"
