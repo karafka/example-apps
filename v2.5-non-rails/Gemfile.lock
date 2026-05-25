@@ -47,37 +47,37 @@ GEM
     karafka-core (2.5.13)
       karafka-rdkafka (>= 0.20.0)
       logger (>= 1.6.0)
-    karafka-rdkafka (0.27.0)
+    karafka-rdkafka (0.27.2)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.0-aarch64-linux-gnu)
+    karafka-rdkafka (0.27.2-aarch64-linux-gnu)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.0-aarch64-linux-musl)
+    karafka-rdkafka (0.27.2-aarch64-linux-musl)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.0-arm64-darwin)
+    karafka-rdkafka (0.27.2-arm64-darwin)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.0-x86_64-linux-gnu)
+    karafka-rdkafka (0.27.2-x86_64-linux-gnu)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.0-x86_64-linux-musl)
+    karafka-rdkafka (0.27.2-x86_64-linux-musl)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
@@ -107,7 +107,7 @@ GEM
     reline (0.6.3)
       io-console (~> 0.5)
     rexml (3.4.4)
-    roda (3.103.0)
+    roda (3.104.0)
       rack
     rspec (3.13.2)
       rspec-core (~> 3.13.0)
@@ -137,7 +137,7 @@ GEM
       karafka-core (>= 2.5.12, < 3.0.0)
       karafka-rdkafka (>= 0.24.0)
       zeitwerk (~> 2.3)
-    zeitwerk (2.7.5)
+    zeitwerk (2.8.2)
 
 PLATFORMS
   aarch64-linux-gnu
