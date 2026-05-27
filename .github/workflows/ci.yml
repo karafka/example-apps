@@ -38,7 +38,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up Ruby
-        uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: '4.0.5'
       - name: Bundle install
@@ -70,7 +70,7 @@ jobs:
       - name: Install package dependencies
         run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
       - name: Set up Ruby
-        uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: ${{matrix.ruby}}
           bundler: 'latest'
@@ -105,7 +105,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up Ruby
-        uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: '4.0.5'
       - name: Bundle install
@@ -137,7 +137,7 @@ jobs:
       - name: Install package dependencies
         run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
       - name: Set up Ruby
-        uses: ruby/setup-ruby@97ecb7b512899eb71ab1bf2310a624c6f1589ac6 # v1.308.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
         with:
           ruby-version: ${{matrix.ruby}}
           bundler: 'latest'
