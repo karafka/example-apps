@@ -280,18 +280,18 @@ GEM
       rspec-support (~> 3.13.0)
     rspec-support (3.13.7)
     securerandom (0.4.1)
-    sqlite3 (2.9.0)
+    sqlite3 (2.9.5)
       mini_portile2 (~> 2.8.0)
-    sqlite3 (2.9.0-aarch64-linux-gnu)
-    sqlite3 (2.9.0-aarch64-linux-musl)
-    sqlite3 (2.9.0-arm-linux-gnu)
-    sqlite3 (2.9.0-arm-linux-musl)
-    sqlite3 (2.9.0-arm64-darwin)
-    sqlite3 (2.9.0-x86-linux-gnu)
-    sqlite3 (2.9.0-x86-linux-musl)
-    sqlite3 (2.9.0-x86_64-darwin)
-    sqlite3 (2.9.0-x86_64-linux-gnu)
-    sqlite3 (2.9.0-x86_64-linux-musl)
+    sqlite3 (2.9.5-aarch64-linux-gnu)
+    sqlite3 (2.9.5-aarch64-linux-musl)
+    sqlite3 (2.9.5-arm-linux-gnu)
+    sqlite3 (2.9.5-arm-linux-musl)
+    sqlite3 (2.9.5-arm64-darwin)
+    sqlite3 (2.9.5-x86-linux-gnu)
+    sqlite3 (2.9.5-x86-linux-musl)
+    sqlite3 (2.9.5-x86_64-darwin)
+    sqlite3 (2.9.5-x86_64-linux-gnu)
+    sqlite3 (2.9.5-x86_64-linux-musl)
     thor (1.5.0)
     tilt (2.7.0)
     timeout (0.6.1)
@@ -331,7 +331,7 @@ DEPENDENCIES
   puma
   rails (~> 8.0)
   rspec
-  sqlite3 (= 2.9.0)
+  sqlite3 (= 2.9.5)
 
 BUNDLED WITH
    2.7.2
