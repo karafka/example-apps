@@ -84,7 +84,7 @@ GEM
     date (3.5.1)
     diff-lcs (1.6.2)
     drb (2.2.3)
-    erb (6.0.4)
+    erb (6.0.7)
     erubi (1.13.1)
     ffi (1.17.4)
     ffi (1.17.4-aarch64-linux-gnu)
@@ -108,64 +108,64 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.21.2)
-    karafka (2.5.9)
-      karafka-core (>= 2.5.6, < 2.6.0)
-      karafka-rdkafka (>= 0.24.0)
-      waterdrop (>= 2.8.14, < 3.0.0)
+    karafka (2.6.0)
+      karafka-core (>= 2.6.2, < 2.7.0)
+      karafka-rdkafka (>= 0.28.0)
+      waterdrop (>= 2.10.2, < 3.0.0)
       zeitwerk (~> 2.3)
-    karafka-core (2.5.13)
+    karafka-core (2.6.2)
       karafka-rdkafka (>= 0.20.0)
       logger (>= 1.6.0)
-    karafka-rdkafka (0.27.2)
+    karafka-rdkafka (0.28.0)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.2-aarch64-linux-gnu)
+    karafka-rdkafka (0.28.0-aarch64-linux-gnu)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.2-aarch64-linux-musl)
+    karafka-rdkafka (0.28.0-aarch64-linux-musl)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.2-arm64-darwin)
+    karafka-rdkafka (0.28.0-arm64-darwin)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.2-x86_64-linux-gnu)
+    karafka-rdkafka (0.28.0-x86_64-linux-gnu)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-rdkafka (0.27.2-x86_64-linux-musl)
+    karafka-rdkafka (0.28.0-x86_64-linux-musl)
       ffi (~> 1.17.1)
       json (> 2.0)
       logger
       mini_portile2 (~> 2.6)
       rake (> 12)
-    karafka-testing (2.6.0)
-      karafka (>= 2.5.0, < 2.6.0)
-      waterdrop (>= 2.8.0)
-    karafka-web (0.11.6)
+    karafka-testing (2.6.1)
+      karafka (>= 2.6.0.rc2, < 2.7.0)
+      waterdrop (>= 2.10.0)
+    karafka-web (1.0.0)
       erubi (~> 1.4)
-      karafka (>= 2.5.2, < 2.6.0)
-      karafka-core (>= 2.5.0, < 2.6.0)
-      roda (~> 3.69, >= 3.69)
+      karafka (>= 2.6.0, < 2.7.0)
+      karafka-core (>= 2.6.2, < 2.7.0)
+      roda (>= 3.100, < 4.0)
       tilt (~> 2.0)
     logger (1.7.0)
     loofah (2.25.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    mail (2.9.0)
+    mail (2.9.1)
       logger
       mini_mime (>= 0.1.1)
       net-imap
@@ -177,7 +177,7 @@ GEM
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
-    net-imap (0.6.4.1)
+    net-imap (0.6.6)
       date
       net-protocol
     net-pop (0.1.2)
@@ -253,7 +253,7 @@ GEM
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
     rake (13.4.2)
-    rbs (4.0.3)
+    rbs (4.1.2)
       logger
       prism (>= 1.6.0)
       tsort
@@ -264,7 +264,7 @@ GEM
       tsort
     reline (0.6.3)
       io-console (~> 0.5)
-    roda (3.105.0)
+    roda (3.106.0)
       rack
     rspec (3.13.2)
       rspec-core (~> 3.13.0)
@@ -293,14 +293,14 @@ GEM
     sqlite3 (2.9.5-x86_64-linux-gnu)
     sqlite3 (2.9.5-x86_64-linux-musl)
     thor (1.5.0)
-    tilt (2.7.0)
+    tilt (2.8.0)
     timeout (0.6.1)
     tsort (0.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uri (1.1.1)
     useragent (0.16.11)
-    waterdrop (2.10.2)
+    waterdrop (2.10.3)
       karafka-core (>= 2.5.12, < 3.0.0)
       karafka-rdkafka (>= 0.24.0)
       zeitwerk (~> 2.3)
@@ -308,7 +308,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.8.2)
+    zeitwerk (2.8.3)
 
 PLATFORMS
   aarch64-linux-gnu
@@ -334,4 +334,4 @@ DEPENDENCIES
   sqlite3 (= 2.9.5)
 
 BUNDLED WITH
-   2.7.2
+  4.0.16

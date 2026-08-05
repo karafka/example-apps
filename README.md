@@ -1,12 +1,12 @@
 # Karafka example applications
 
-[![Build Status](https://github.com/karafka/example-app/actions/workflows/ci.yml/badge.svg)](https://github.com/karafka/example-app/actions/workflows/ci.yml)
+[![Build Status](https://github.com/karafka/example-apps/actions/workflows/ci.yml/badge.svg)](https://github.com/karafka/example-apps/actions/workflows/ci.yml)
 [![Join the chat at https://slack.karafka.io](https://raw.githubusercontent.com/karafka/misc/master/slack.svg)](https://slack.karafka.io)
 
 This repository contains  example applications using [Karafka framework](https://github.com/karafka/karafka
 ) to receive messages from [Apache Kafka](http://kafka.apache.org/) with integrated [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages to Kafka and the [Karafka Web UI](https://github.com/karafka/karafka-web) for Karafka processes management.
 
-To run those applications locally start Apacke Kafka with the included `docker-compose.yml` and follow instructions from the sub-READMEs.
+To run those applications locally start Apache Kafka with the included `docker-compose.yml` and follow instructions from the sub-READMEs.
 
 ## Applications available
 

@@ -1,8 +1,6 @@
 # lostconf configuration
 # Exclude symlinked directories to avoid duplicate/false positives
-# v2.4 and v2.5 are symlinks to v2.6
+# v2.5 is a symlink to v2.6
 exclude:
-  - v2.4-non-rails
-  - v2.4-rails
   - v2.5-non-rails
   - v2.5-rails
