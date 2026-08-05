@@ -30,7 +30,7 @@ jobs:
       - name: Run lostconf
         run: npx lostconf
 
-  v2_5-non-rails-rubocop:
+  v2_6-non-rails-rubocop:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
@@ -42,17 +42,17 @@ jobs:
         with:
           ruby-version: '4.0.6'
       - name: Bundle install
-        working-directory: v2.5-non-rails
+        working-directory: v2.6-non-rails
         env:
           BUNDLE_GEMFILE: Gemfile.lint
         run: bundle install --jobs 4 --retry 3
       - name: Run rubocop
-        working-directory: v2.5-non-rails
+        working-directory: v2.6-non-rails
         env:
           BUNDLE_GEMFILE: Gemfile.lint
         run: bundle exec rubocop
 
-  v2_4-non-rails-specs:
+  v2_5-non-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -76,14 +76,14 @@ jobs:
           bundler: 'latest'
       - name: Install latest bundler
         run: |
-          cd v2.4-non-rails
+          cd v2.5-non-rails
 
           gem install bundler --no-document
 
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
-          cd v2.4-non-rails
+          cd v2.5-non-rails
           # For Ruby 4.0, use local gem path to avoid permission issues with default gems
           if [ "${{ matrix.ruby }}" = "4.0" ]; then
             bundle config set path vendor/bundle
@@ -94,10 +94,10 @@ jobs:
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
-          cd v2.4-non-rails
+          cd v2.5-non-rails
           bundle exec rspec
 
-  v2_5-rails-rubocop:
+  v2_6-rails-rubocop:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
@@ -109,17 +109,17 @@ jobs:
         with:
           ruby-version: '4.0.6'
       - name: Bundle install
-        working-directory: v2.5-rails
+        working-directory: v2.6-rails
         env:
           BUNDLE_GEMFILE: Gemfile.lint
         run: bundle install --jobs 4 --retry 3
       - name: Run rubocop
-        working-directory: v2.5-rails
+        working-directory: v2.6-rails
         env:
           BUNDLE_GEMFILE: Gemfile.lint
         run: bundle exec rubocop
 
-  v2_4-rails-specs:
+  v2_5-rails-specs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -143,13 +143,13 @@ jobs:
           bundler: 'latest'
       - name: Install latest bundler
         run: |
-          cd v2.4-rails
+          cd v2.5-rails
           gem install bundler --no-document
 
           bundle config set without 'tools benchmarks docs'
       - name: Bundle install
         run: |
-          cd v2.4-rails
+          cd v2.5-rails
           # For Ruby 4.0, use local gem path to avoid permission issues with default gems
           if [ "${{ matrix.ruby }}" = "4.0" ]; then
             bundle config set path vendor/bundle
@@ -158,14 +158,14 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: Setup db
         run: |
-          cd v2.4-rails
+          cd v2.5-rails
           bundle exec rake db:create
           bundle exec rake db:test:prepare
       - name: Run all tests
         env:
           GITHUB_COVERAGE: ${{matrix.coverage}}
         run: |
-          cd v2.4-rails
+          cd v2.5-rails
           bundle exec rspec
 
   ci-success:
@@ -174,10 +174,10 @@ jobs:
     if: always()
     needs:
       - lostconf
-      - v2_5-non-rails-rubocop
-      - v2_5-rails-rubocop
-      - v2_4-non-rails-specs
-      - v2_4-rails-specs
+      - v2_6-non-rails-rubocop
+      - v2_6-rails-rubocop
+      - v2_5-non-rails-specs
+      - v2_5-rails-specs
     steps:
       - name: Check all jobs passed
         if: |
