@@ -1,8 +1,8 @@
-# Karafka 2.5 non Rails example application
+# Karafka 2.6 non Rails example application
 
 This is an example application which uses:
 
-- [Karafka framework](https://github.com/karafka/karafka) `2.5` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
+- [Karafka framework](https://github.com/karafka/karafka) `2.6` to receive messages from [Apache Kafka](http://kafka.apache.org/) server
 - [Karafka Web UI](https://github.com/karafka/karafka-web) for Karafka processes management
 - [WaterDrop gem](https://github.com/karafka/waterdrop) to send messages back to Kafka
 - [Karafka-Testing](https://github.com/karafka/testing) provides RSpec helpers, to make testing of Karafka consumers much easier
