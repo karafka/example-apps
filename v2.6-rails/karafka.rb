@@ -46,7 +46,7 @@ class KarafkaApp < Karafka::App
     end
 
     topic :visits do
-      partitions 3
+      partitions 2
     end
   end
 
