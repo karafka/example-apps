@@ -35,15 +35,26 @@ class KarafkaApp < Karafka::App
     )
   )
 
-  routes.draw do
-    # This needs to match queues defined in your ActiveJobs
-    active_job_topic :default do
+  # Declarative topics configuration. This is independent from routing and
+  # describes the desired Kafka infrastructure (partitions, replication and
+  # topic-level settings) for topics managed by this application.
+  declaratives.draw do
+    topic :default do
+      partitions 5
       # Expire jobs after 1 day
-      config(partitions: 5, 'retention.ms': 86_400_000)
+      config('retention.ms': 86_400_000)
     end
 
     topic :visits do
-      config(partitions: 2)
+      partitions 3
+    end
+  end
+
+  routes.draw do
+    # This needs to match queues defined in your ActiveJobs
+    active_job_topic :default
+
+    topic :visits do
       consumer VisitsConsumer
     end
   end
