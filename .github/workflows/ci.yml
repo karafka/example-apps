@@ -61,7 +61,6 @@ jobs:
           - '4.0'
           - '3.4'
           - '3.3'
-          - '3.2'
         include:
           - ruby: '4.0'
             coverage: 'true'
@@ -128,7 +127,6 @@ jobs:
           - '4.0'
           - '3.4'
           - '3.3'
-          - '3.2'
         include:
           - ruby: '4.0'
             coverage: 'true'
