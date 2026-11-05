@@ -1,15 +1,13 @@
 name: Verify Action Pins
-
 on:
   pull_request:
     paths:
       - '.github/workflows/**'
-
 jobs:
   verify_action_pins:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Check SHA pins
         run: |
           # Every remote action must be pinned to a full 40-character commit SHA. Local actions
