@@ -38,9 +38,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up Ruby
-        uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1.338.0
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
-          ruby-version: '4.0.9'
+          ruby-version: '4.0.10'
       - name: Bundle install
         working-directory: v2.6-non-rails
         env:
@@ -69,7 +69,7 @@ jobs:
       - name: Install package dependencies
         run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
       - name: Set up Ruby
-        uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1.338.0
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
           ruby-version: ${{matrix.ruby}}
           bundler: 'latest'
@@ -104,9 +104,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up Ruby
-        uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1.338.0
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
-          ruby-version: '4.0.9'
+          ruby-version: '4.0.10'
       - name: Bundle install
         working-directory: v2.6-rails
         env:
@@ -135,7 +135,7 @@ jobs:
       - name: Install package dependencies
         run: "[ -e $APT_DEPS ] || sudo apt-get install -y --no-install-recommends $APT_DEPS"
       - name: Set up Ruby
-        uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1.338.0
+        uses: ruby/setup-ruby@f9c4492e86def3e644ab32a0ef185eda5b0c20d0 # v1.342.0
         with:
           ruby-version: ${{matrix.ruby}}
           bundler: 'latest'
