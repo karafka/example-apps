@@ -40,7 +40,7 @@ class ProductsCacheConsumer < ApplicationConsumer
       sku: sku,
       name: product['name'],
       price_cents: product['price_cents'],
-      stock: product.fetch('stock', 0)
+      stock: product['stock'] || 0
     }
   end
 

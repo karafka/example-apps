@@ -11,7 +11,7 @@ RSpec.describe PaymentsConsumer do
 
   before do
     # Order ids repeat across examples, so the simulated outages must not leak between them
-    PaymentGateway.instance_variable_get(:@outages).clear
+    PaymentGateway.reset
     karafka.produce(order.event.to_json, key: order.customer_id)
   end
 

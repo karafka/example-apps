@@ -44,13 +44,15 @@ RSpec.describe ProductsCacheConsumer do
     expect(Product.pluck(:sku)).to eq(['sticker'])
   end
 
-  it 'defaults a missing stock and skips an incomplete product' do
+  it 'defaults a missing or null stock and skips an incomplete product' do
     karafka.produce({ name: 'Karafka cap', price_cents: 900 }.to_json, key: 'cap')
+    karafka.produce({ name: 'Karafka pin', price_cents: 200, stock: nil }.to_json, key: 'pin')
     karafka.produce({ name: 'No price' }.to_json, key: 'broken')
 
     consumer.consume
 
     expect(Product.find_by!(sku: 'cap').stock).to eq(0)
+    expect(Product.find_by!(sku: 'pin').stock).to eq(0)
     expect(Product.exists?(sku: 'broken')).to be(false)
   end
 end

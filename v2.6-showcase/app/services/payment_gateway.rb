@@ -35,6 +35,11 @@ module PaymentGateway
       "pay_#{order_id}"
     end
 
+    # Forgets all simulated outages
+    def reset
+      @mutex.synchronize { @outages.clear }
+    end
+
     private
 
     # @param order_id [Integer]
