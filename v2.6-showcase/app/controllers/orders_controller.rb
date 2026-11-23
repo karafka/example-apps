@@ -19,7 +19,12 @@ class OrdersController < ApplicationController
 
   def create
     product = Product.find_by!(sku: params.require(:sku))
-    quantity = params.fetch(:quantity, 1).to_i
+    quantity = Integer(params.fetch(:quantity, 1).to_s, 10, exception: false)
+
+    unless quantity&.positive?
+      render json: { error: 'quantity must be a positive integer' }, status: :unprocessable_content
+      return
+    end
 
     order = Order.create!(
       customer_id: params.require(:customer_id),

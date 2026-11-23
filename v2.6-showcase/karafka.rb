@@ -53,8 +53,10 @@ class KarafkaApp < Karafka::App
       topic :orders do
         consumer PaymentsConsumer
         manual_offset_management true
-        # Two retries with a pause, then the order goes to the DLQ and processing moves on
-        dead_letter_queue(topic: 'payments_dlq', max_retries: 2)
+        # Two retries with a pause, then the order goes to the DLQ and processing moves on.
+        # With manual offset management the DLQ does not commit the dispatched message unless
+        # asked to: without it a restart would send the same order to the DLQ again.
+        dead_letter_queue(topic: 'payments_dlq', max_retries: 2, mark_after_dispatch: true)
       end
     end
 
@@ -94,5 +96,8 @@ class KarafkaApp < Karafka::App
     end
   end
 end
+
+# Karafka closes only its own producer
+Karafka.monitor.subscribe('app.stopped') { TransactionalProducer.close }
 
 Karafka::Web.enable!

@@ -15,6 +15,7 @@ RSpec.describe OrderStatsConsumer do
     stat = CustomerStat.find_by!(customer_id: 'alice')
     expect(stat.orders_count).to eq(2)
     expect(stat.total_cents).to eq(4_000)
+    expect(stat.partition).to eq(0)
   end
 
   context 'when a replay is requested' do
@@ -23,6 +24,7 @@ RSpec.describe OrderStatsConsumer do
     before do
       ENV['REPLAY_FROM'] = replay_from
       CustomerStat.create!(customer_id: 'alice', partition: 0, orders_count: 10, total_cents: 1)
+      CustomerStat.create!(customer_id: 'bob', partition: 1, orders_count: 3, total_cents: 1)
     end
 
     after { ENV.delete('REPLAY_FROM') }
@@ -31,7 +33,7 @@ RSpec.describe OrderStatsConsumer do
       expect(consumer).to receive(:seek).with(Time.parse(replay_from)).once
 
       consumer.consume
-      expect(CustomerStat.count).to eq(0)
+      expect(CustomerStat.pluck(:customer_id)).to eq(['bob'])
 
       consumer.consume
       expect(CustomerStat.find_by!(customer_id: 'alice').orders_count).to eq(2)

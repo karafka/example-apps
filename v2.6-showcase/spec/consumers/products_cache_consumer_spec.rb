@@ -26,4 +26,31 @@ RSpec.describe ProductsCacheConsumer do
 
     consumer.eofed
   end
+
+  it 'reports a warm catalog when the end comes with messages' do
+    allow(consumer).to receive(:eofed?).and_return(true)
+    allow(Karafka.logger).to receive(:info)
+
+    consumer.consume
+
+    expect(Karafka.logger).to have_received(:info).with('Catalog warm: 2 product(s) loaded')
+  end
+
+  it 'deletes a product on a tombstone' do
+    karafka.produce(nil, key: 'mug')
+
+    consumer.consume
+
+    expect(Product.pluck(:sku)).to eq(['sticker'])
+  end
+
+  it 'defaults a missing stock and skips an incomplete product' do
+    karafka.produce({ name: 'Karafka cap', price_cents: 900 }.to_json, key: 'cap')
+    karafka.produce({ name: 'No price' }.to_json, key: 'broken')
+
+    consumer.consume
+
+    expect(Product.find_by!(sku: 'cap').stock).to eq(0)
+    expect(Product.exists?(sku: 'broken')).to be(false)
+  end
 end

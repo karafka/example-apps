@@ -9,7 +9,11 @@ RSpec.describe PaymentsConsumer do
 
   let(:payments) { karafka.produced_messages.select { |message| message[:topic] == 'payments' } }
 
-  before { karafka.produce(order.event.to_json, key: order.customer_id) }
+  before do
+    # Order ids repeat across examples, so the simulated outages must not leak between them
+    PaymentGateway.instance_variable_get(:@outages).clear
+    karafka.produce(order.event.to_json, key: order.customer_id)
+  end
 
   context 'when the card is charged' do
     let(:card) { 'valid' }
@@ -46,6 +50,27 @@ RSpec.describe PaymentsConsumer do
       consumer.consume
 
       expect(order.reload.status).to eq('pending')
+    end
+  end
+
+  context 'when the gateway is unavailable for the first of two orders' do
+    let(:card) { 'unavailable' }
+
+    let(:next_order) do
+      Order.create!(customer_id: 'bob', sku: 'mug', quantity: 1, amount_cents: 1_500,
+        card: 'valid')
+    end
+
+    before { karafka.produce(next_order.event.to_json, key: next_order.customer_id) }
+
+    it 'stops the batch on the pause and does not charge the next order' do
+      expect(consumer).to receive(:pause).with(0, described_class::BACKOFF_MS)
+      expect(consumer).not_to receive(:mark_as_consumed)
+
+      consumer.consume
+
+      expect(next_order.reload.status).to eq('pending')
+      expect(payments).to be_empty
     end
   end
 end

@@ -18,6 +18,14 @@ module TransactionalProducer
       end
     end
 
+    # Closes the producer of the current process, if it was built
+    def close
+      @mutex.synchronize do
+        @producer&.close if @pid == Process.pid
+        @producer = nil
+      end
+    end
+
     private
 
     # @return [WaterDrop::Producer]
