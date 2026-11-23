@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gem 'karafka'
+gem 'karafka-web'
+gem 'ostruct'
+gem 'puma'
+gem 'rails', '~> 8.0'
+gem 'sqlite3', '2.10.2'
+
+group :development, :test do
+  gem 'karafka-testing'
+  gem 'rspec'
+end

@@ -1,0 +1,96 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# End-to-end check against a real Kafka, the Rails server and `karafka swarm`
+#
+# Expects `bin/bootstrap` to have run. Starts both servers, places orders over HTTP and waits
+# until every order went through the whole flow.
+
+require 'json'
+require 'net/http'
+
+require_relative '../config/environment'
+
+ROOT = File.expand_path('..', __dir__)
+PORT = 3100
+TIMEOUT = 180
+BASE = "http://127.0.0.1:#{PORT}"
+
+Dir.chdir(ROOT)
+pids = []
+
+at_exit do
+  pids.each do |pid|
+    Process.kill('TERM', pid)
+    Process.wait(pid)
+  rescue Errno::ESRCH, Errno::ECHILD
+    nil
+  end
+end
+
+# @param description [String] what we wait for
+def wait_for(description)
+  deadline = Time.now + TIMEOUT
+
+  loop do
+    result = begin
+      yield
+    rescue
+      nil
+    end
+
+    return result if result
+    abort("FAIL: timed out waiting for #{description}") if Time.now > deadline
+
+    sleep(1)
+  end
+end
+
+# @param path [String]
+# @param params [Hash, nil] form params for a POST
+# @return [Net::HTTPResponse]
+def http(path, params = nil)
+  uri = URI("#{BASE}#{path}")
+  params ? Net::HTTP.post_form(uri, params) : Net::HTTP.get_response(uri)
+end
+
+pids << spawn('bundle exec rails server -p 3100', out: 'log/e2e-rails.log', err: %i[child out])
+pids << spawn('bundle exec karafka swarm', out: 'log/e2e-karafka.log', err: %i[child out])
+
+wait_for('the Rails server') { http('/orders').is_a?(Net::HTTPSuccess) }
+wait_for('the catalog') do
+  http('/orders', customer_id: 'probe', sku: 'mug').is_a?(Net::HTTPCreated)
+end
+
+orders = [
+  { customer_id: 'alice', sku: 'mug', quantity: 2 },
+  { customer_id: 'bob', sku: 'tshirt' },
+  { customer_id: 'carol', sku: 'sticker', card: 'unavailable' },
+  { customer_id: 'dave', sku: 'mug', card: 'declined' }
+].map { |params| JSON.parse(http('/orders', params).body) }
+
+declined = orders.pop
+expected = orders.map { |order| order['id'] }
+
+wait_for('paid, reserved and notified orders') do
+  all = JSON.parse(http('/orders').body)
+  done = all.select do |order|
+    order['status'] == 'paid' && order['reserved'] &&
+      order['notifications'].any? { |n| n['kind'] == 'order_confirmed' }
+  end
+
+  (expected - done.map { |order| order['id'] }).empty?
+end
+
+dlq = wait_for('the declined order in payments_dlq') do
+  Karafka::Admin.read_topic('payments_dlq', 0, 100).find do |message|
+    JSON.parse(message.raw_payload)['id'] == declined['id']
+  end
+end
+
+status = JSON.parse(http("/orders/#{declined["id"]}").body)['status']
+abort("FAIL: declined order is #{status}") unless status == 'pending'
+abort('FAIL: Web UI is not available') unless http('/karafka/dashboard').is_a?(Net::HTTPSuccess)
+
+puts "OK: #{expected.size} orders completed, order #{declined["id"]} in payments_dlq " \
+     "(offset #{dlq.offset}), Web UI up"
