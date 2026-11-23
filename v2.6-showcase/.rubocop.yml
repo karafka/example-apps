@@ -16,7 +16,6 @@ AllCops:
   TargetRubyVersion: 3.3
   Include:
     - "**/*.rb"
-    - "**/*.gemspec"
     - "**/Gemfile"
     - "**/Rakefile"
     - Gemfile.lint
@@ -29,10 +28,6 @@ Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
 
 # RSpec
-RSpec:
-  Exclude:
-    - "**/spec/integrations/**/*"
-
 RSpec/ExampleLength:
   Enabled: false
 
