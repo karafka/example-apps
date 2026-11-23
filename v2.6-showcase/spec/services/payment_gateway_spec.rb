@@ -8,7 +8,7 @@ RSpec.describe PaymentGateway do
   it 'declines a declined card every time' do
     2.times do
       expect { described_class.charge(order_id: 2, card: 'declined', amount_cents: 100) }
-        .to raise_error(described_class::Declined)
+        .to raise_error(described_class::DeclinedError)
     end
   end
 
@@ -16,7 +16,7 @@ RSpec.describe PaymentGateway do
     order_id = SecureRandom.random_number(1_000_000)
 
     expect { described_class.charge(order_id: order_id, card: 'unavailable', amount_cents: 1) }
-      .to raise_error(described_class::Unavailable)
+      .to raise_error(described_class::UnavailableError)
     expect(described_class.charge(order_id: order_id, card: 'unavailable', amount_cents: 1))
       .to eq("pay_#{order_id}")
   end

@@ -21,7 +21,7 @@ class PaymentsConsumer < ApplicationConsumer
           card: order['card'],
           amount_cents: order['amount_cents']
         )
-      rescue PaymentGateway::Unavailable
+      rescue PaymentGateway::UnavailableError
         pause(message.offset, BACKOFF_MS)
         break
       end

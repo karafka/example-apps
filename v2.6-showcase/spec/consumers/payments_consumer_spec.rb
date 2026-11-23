@@ -34,7 +34,7 @@ RSpec.describe PaymentsConsumer do
     let(:card) { 'declined' }
 
     it 'raises so the message is retried and then moved to the DLQ' do
-      expect { consumer.consume }.to raise_error(PaymentGateway::Declined)
+      expect { consumer.consume }.to raise_error(PaymentGateway::DeclinedError)
       expect(order.reload.status).to eq('pending')
       expect(payments).to be_empty
     end

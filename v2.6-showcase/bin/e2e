@@ -58,7 +58,7 @@ end
 APP_LOG = "log/#{Rails.env}.log"
 APP_LOG_START = File.size?(APP_LOG) || 0
 
-pids << spawn('bundle exec rails server -p 3100', out: 'log/e2e-rails.log', err: %i[child out])
+pids << spawn("bundle exec rails server -p #{PORT}", out: 'log/e2e-rails.log', err: %i[child out])
 pids << spawn('bundle exec karafka swarm', out: 'log/e2e-karafka.log', err: %i[child out])
 
 wait_for('the Rails server') { http('/orders').is_a?(Net::HTTPSuccess) }
@@ -117,7 +117,7 @@ abort("FAIL: declined order is #{status}") unless status == 'pending'
 abort('FAIL: Web UI is not available') unless http('/karafka/dashboard').is_a?(Net::HTTPSuccess)
 
 [%r{\[metrics\] payments/orders-\d consumed}, %r{\[metrics\] orders/\d@\d+ moved to the DLQ},
-  /\[metrics\] consumer\.consume\.error: PaymentGateway::Declined/].each do |line|
+  /\[metrics\] consumer\.consume\.error: PaymentGateway::DeclinedError/].each do |line|
   wait_for("#{line.source} in #{APP_LOG}") do
     File.open(APP_LOG) { |file| file.seek(APP_LOG_START) && file.read.match?(line) }
   end

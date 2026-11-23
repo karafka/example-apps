@@ -8,10 +8,10 @@
 #   - anything else - the card is charged
 module PaymentGateway
   # Permanent failure: retrying does not help
-  class Declined < StandardError; end
+  class DeclinedError < StandardError; end
 
   # Temporary failure: the gateway asks us to back off
-  class Unavailable < StandardError; end
+  class UnavailableError < StandardError; end
 
   # How many times an `unavailable` card fails before it goes through
   OUTAGE_ATTEMPTS = 1
@@ -27,9 +27,9 @@ module PaymentGateway
     def charge(order_id:, card:, amount_cents:)
       case card
       when 'declined'
-        raise Declined, "card declined for order #{order_id} (#{amount_cents})"
+        raise DeclinedError, "card declined for order #{order_id} (#{amount_cents})"
       when 'unavailable'
-        raise Unavailable, 'gateway unavailable' if outage?(order_id)
+        raise UnavailableError, 'gateway unavailable' if outage?(order_id)
       end
 
       "pay_#{order_id}"
