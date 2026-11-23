@@ -42,7 +42,10 @@ module PaymentGateway
     def outage?(order_id)
       @mutex.synchronize do
         @outages[order_id] += 1
-        @outages[order_id] <= OUTAGE_ATTEMPTS
+        next true if @outages[order_id] <= OUTAGE_ATTEMPTS
+
+        @outages.delete(order_id)
+        false
       end
     end
   end

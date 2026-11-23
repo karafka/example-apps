@@ -2,10 +2,15 @@
 
 # Accepts orders and publishes them to Kafka
 class OrdersController < ApplicationController
+  # Most recent orders returned by the index
+  LIMIT = 100
+
   skip_forgery_protection
 
   def index
-    render json: Order.order(:id).as_json(include: { notifications: { only: :kind } })
+    orders = Order.includes(:notifications).order(id: :desc).limit(LIMIT)
+
+    render json: orders.as_json(include: { notifications: { only: :kind } })
   end
 
   def show

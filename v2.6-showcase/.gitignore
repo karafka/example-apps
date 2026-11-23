@@ -1,4 +1,5 @@
-/log/*.log
+/log/*
+!/log/.gitkeep
 /tmp/
 /db/*.sqlite3*
 /.bundle/
