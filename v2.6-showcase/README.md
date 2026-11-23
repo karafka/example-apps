@@ -72,6 +72,8 @@ All topics, their partitions and settings (retention of `payments_dlq`, compacti
 
 A declined card raises an error. Karafka retries the message twice with a pause, then moves it to `payments_dlq` and continues with the next order. The consumer logs the retry attempt (`retrying?`, `attempt`).
 
+With manual offset management the DLQ does not commit the dispatched message by default. `mark_after_dispatch: true` commits it, so a restart or rebalance does not send the same order to the DLQ again.
+
 - Code: `karafka.rb` (`dead_letter_queue`), `app/consumers/payments_consumer.rb`
 - Docs: [Dead Letter Queue](https://karafka.io/docs/Consumer-Groups-Dead-Letter-Queue/)
 
@@ -101,7 +103,7 @@ Committing the consumer offset in the same transaction (exactly-once) is a **Pro
 
 ### End of partition (eofed)
 
-`ProductsCacheConsumer` loads the compacted `products` topic into the catalog. When it reaches the end of the partition, it logs that the catalog is warm: with the last messages (`eofed?` in `#consume`) or without them (`#eofed`). This needs `enable.partition.eof`, set only for this topic.
+`ProductsCacheConsumer` loads the compacted `products` topic into the catalog, keyed by SKU. A message without a payload (tombstone) deletes the product. When it reaches the end of the partition, it logs that the catalog is warm: with the last messages (`eofed?` in `#consume`) or without them (`#eofed`). This needs `enable.partition.eof`, set only for this topic.
 
 - Code: `karafka.rb` (`eofed true`, `kafka('enable.partition.eof': true, inherit: true)`), `app/consumers/products_cache_consumer.rb`
 - Docs: [Reaching the end of a partition](https://karafka.io/docs/Basics-Consuming-Messages/#reaching-the-end-of-a-partition-eof)

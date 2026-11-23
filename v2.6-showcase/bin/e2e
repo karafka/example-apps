@@ -62,6 +62,9 @@ wait_for('the catalog') do
   http('/orders', customer_id: 'probe', sku: 'mug').is_a?(Net::HTTPCreated)
 end
 
+bad = http('/orders', customer_id: 'eve', sku: 'mug', quantity: '-5')
+abort("FAIL: quantity -5 got #{bad.code}") unless bad.code == '422'
+
 orders = [
   { customer_id: 'alice', sku: 'mug', quantity: 2 },
   { customer_id: 'bob', sku: 'tshirt' },
@@ -82,15 +85,37 @@ wait_for('paid, reserved and notified orders') do
   (expected - done.map { |order| order['id'] }).empty?
 end
 
-dlq = wait_for('the declined order in payments_dlq') do
-  Karafka::Admin.read_topic('payments_dlq', 0, 100).find do |message|
-    JSON.parse(message.raw_payload)['id'] == declined['id']
+# @return [Array<Karafka::Messages::Message>] copies of the declined order in the DLQ
+def dlq_copies(order_id)
+  Karafka::Admin.read_topic('payments_dlq', 0, 100).select do |message|
+    JSON.parse(message.raw_payload)['id'] == order_id
   end
 end
+
+dlq = wait_for('the declined order in payments_dlq') { dlq_copies(declined['id']).first }
+
+# The DLQ commits the dispatched message, so the payments group catches up fully
+payments_group = Karafka::App.routes.find { |group| group.name == 'payments' }.id
+wait_for('no lag in the payments group') do
+  lags = Karafka::Admin.read_lags_with_offsets({ payments_group => ['orders'] })
+  lags.fetch(payments_group).fetch('orders').all? do |partition, state|
+    # -1: nothing committed, which is fine only for a partition that never got an order
+    state[:lag].zero? ||
+      (state[:lag] == -1 && Karafka::Admin.read_watermark_offsets('orders', partition).last.zero?)
+  end
+end
+
+copies = dlq_copies(declined['id']).size
+abort("FAIL: #{copies} copies of the declined order in payments_dlq") unless copies == 1
 
 status = JSON.parse(http("/orders/#{declined["id"]}").body)['status']
 abort("FAIL: declined order is #{status}") unless status == 'pending'
 abort('FAIL: Web UI is not available') unless http('/karafka/dashboard').is_a?(Net::HTTPSuccess)
 
-puts "OK: #{expected.size} orders completed, order #{declined["id"]} in payments_dlq " \
-     "(offset #{dlq.offset}), Web UI up"
+[%r{\[metrics\] payments/orders-\d consumed}, %r{\[metrics\] orders/\d@\d+ moved to the DLQ},
+  /\[metrics\] consumer\.consume\.error: PaymentGateway::Declined/].each do |line|
+  wait_for("#{line.source} in the Karafka log") { File.read('log/e2e-karafka.log').match?(line) }
+end
+
+puts "OK: #{expected.size} orders completed, order #{declined["id"]} in payments_dlq once " \
+     "(offset #{dlq.offset}), payments lag 0, Web UI up"
