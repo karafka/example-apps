@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+bundle install
+bundle exec rails db:prepare
+bundle exec karafka topics migrate
+bundle exec karafka-web migrate
+# Publish the catalog to the `products` topic
+bundle exec rails db:seed
