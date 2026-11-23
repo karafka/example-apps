@@ -54,6 +54,10 @@ def http(path, params = nil)
   params ? Net::HTTP.post_form(uri, params) : Net::HTTP.get_response(uri)
 end
 
+# Rails file logger flushes each line, unlike the redirected stdout of the processes
+APP_LOG = "log/#{Rails.env}.log"
+APP_LOG_START = File.size?(APP_LOG) || 0
+
 pids << spawn('bundle exec rails server -p 3100', out: 'log/e2e-rails.log', err: %i[child out])
 pids << spawn('bundle exec karafka swarm', out: 'log/e2e-karafka.log', err: %i[child out])
 
@@ -114,7 +118,9 @@ abort('FAIL: Web UI is not available') unless http('/karafka/dashboard').is_a?(N
 
 [%r{\[metrics\] payments/orders-\d consumed}, %r{\[metrics\] orders/\d@\d+ moved to the DLQ},
   /\[metrics\] consumer\.consume\.error: PaymentGateway::Declined/].each do |line|
-  wait_for("#{line.source} in the Karafka log") { File.read('log/e2e-karafka.log').match?(line) }
+  wait_for("#{line.source} in #{APP_LOG}") do
+    File.open(APP_LOG) { |file| file.seek(APP_LOG_START) && file.read.match?(line) }
+  end
 end
 
 puts "OK: #{expected.size} orders completed, order #{declined["id"]} in payments_dlq once " \
